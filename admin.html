@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Editor · Aura Flowers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin">
+  <header class="ad-top">
+    <div class="ad-wrap ad-top-in">
+      <div><b class="ad-logo">Aura Flowers</b><span>Editor de la web</span></div>
+      <div class="ad-top-r"><span id="dirtyMsg" class="dirty" hidden>Cambios sin publicar</span><a class="btn btn-ghost btn-sm" href="./" target="_blank" rel="noopener">Ver la web</a><button class="btn btn-primary btn-sm" id="goPublish" type="button">Publicar cambios</button></div>
+    </div>
+  </header>
+
+  <main class="ad-wrap">
+    <nav class="ad-tabs" id="tabs" aria-label="Secciones del editor"></nav>
+    <div id="panel"></div>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

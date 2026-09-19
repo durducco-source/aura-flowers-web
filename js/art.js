@@ -447,7 +447,7 @@ ${turb('wood', '.012 .26', 4, 12, '0 0 0 0 .3  0 0 0 0 .2  0 0 0 0 .1  2.1 0 0 0
     if (A._c[key]) return A._c[key];
     const a = p.art;
     let out;
-    if (view === 3) out = uri(herbarium(p));
+    if (!a.type || view === 3) out = uri(herbarium(p));
     else {
       const stage = STAGES[a.type](a, view);
       const bgk = view === 2 ? a.bg2 || 'wood' : a.bg || 'linen';

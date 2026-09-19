@@ -48,7 +48,7 @@
   /* ── fotografías (propias o de ejemplo) ── */
   const hasReal = (p) => p.images && p.images.length;
   const productImg = (p, v) => (hasReal(p) ? (v >= 3 ? A.product(p, 3) : p.images[Math.min(v, p.images.length - 1)]) : A.product(p, v));
-  const hoverImg = (p) => (hasReal(p) ? p.images[1] || A.product(p, 3) : A.product(p, 2));
+  const hoverImg = (p) => (hasReal(p) ? p.images[1] || (p.flowers.length ? A.product(p, 3) : p.images[0]) : A.product(p, 2));
   const heroImg = (m) => (m ? SV.photos.heroMobile : SV.photos.hero) || A.hero(m ? 'mobile' : 'desktop');
   const sceneImg = (i) => SV.photos.process[i] || A.scene(SV.process[i].scene);
   const flowerNames = (p) => p.flowers.map((f) => FL[f].label.toLowerCase()).join(', ');
@@ -187,7 +187,9 @@
   ];
 
   function homeHTML() {
-    const feat = ['collar-rosa-eterna', 'pendientes-margaritas', 'pendientes-flores-rosas', 'anillo-ovalado-azul'].map((id) => byId[id]);
+    const featIds = ['collar-rosa-eterna', 'pendientes-margaritas', 'pendientes-flores-rosas', 'anillo-ovalado-azul'];
+    const feat = featIds.map((id) => byId[id]).filter(Boolean);
+    P.forEach((p) => { if (feat.length < 4 && !feat.includes(p)) feat.push(p); });
     const marquee = ['Flores naturales reales', 'Hecho a mano, pieza a pieza', 'Ninguna joya es igual', 'Resina cristalina', 'Acero bañado en oro', 'Envíos a todo el mundo', 'Empaquetado para regalo'];
     return `
 <section class="hero" id="inicio">
@@ -220,7 +222,7 @@
   <div class="container creator">
     <div class="creator-media reveal">
       <div class="frame reveal-img"><img loading="lazy" src="${SV.photos.creator || A.scene('bench')}" alt="El taller: moldes, flores secas y piezas terminadas"></div>
-      <div class="frame-2 reveal-img" style="--d:.3s"><img loading="lazy" src="${productImg(byId['pendientes-margaritas'], 0)}" alt="Pendientes de margaritas naturales en resina"></div>
+      <div class="frame-2 reveal-img" style="--d:.3s"><img loading="lazy" src="${productImg(byId['pendientes-margaritas'] || P[0], 0)}" alt="Pendientes de margaritas naturales en resina"></div>
       <div class="seal">Hecho a mano<br>con cariño</div>
     </div>
     <div class="creator-copy">
@@ -250,14 +252,14 @@
 <section class="section-sm">
   <div class="container">
     <div class="sec-head center reveal"><span class="eyebrow center">La tienda</span><h2 class="title">Explora por <em>categoría</em></h2></div>
-    <div class="cats">${SV.categories.map((c, i) => `<a class="cat reveal" style="--d:${(i % 3) * 0.1}s" href="#/tienda/${c.id}"><img loading="lazy" decoding="async" src="${productImg(byId[c.cover], 0)}" alt="${c.name}"><div class="cat-label"><div><h3>${c.name}</h3><small>${c.blurb}</small></div><i>→</i></div></a>`).join('')}</div>
+    <div class="cats">${SV.categories.filter((c) => byId[c.cover] || P.some((p) => p.cat === c.id)).map((c, i) => `<a class="cat reveal" style="--d:${(i % 3) * 0.1}s" href="#/tienda/${c.id}"><img loading="lazy" decoding="async" src="${productImg(byId[c.cover] || P.find((p) => p.cat === c.id), 0)}" alt="${c.name}"><div class="cat-label"><div><h3>${c.name}</h3><small>${c.blurb}</small></div><i>→</i></div></a>`).join('')}</div>
   </div>
 </section>
 
 <section class="section" id="historias">
   <div class="container">
     <div class="sec-head center reveal"><span class="eyebrow center">Historias</span><h2 class="title">Cada flor guarda <em>una historia.</em></h2><p class="lead" style="margin-top:22px">Una joya se lleva. Una flor con historia se siente. Estas son algunas de las que me han confiado.</p></div>
-    <div class="stories">${SV.stories.map((s, i) => { const p = byId[s.product]; return `<article class="story">
+    <div class="stories">${SV.stories.map((s, i) => { const p = byId[s.product] || P[0]; return `<article class="story">
       <div class="story-media reveal-img"><img loading="lazy" decoding="async" src="${s.img || productImg(p, 0)}" alt="${esc(s.title)}"></div>
       <div class="story-copy reveal"><div class="story-tag">${A.flowerIcon(s.flower)}Historia 0${i + 1} · ${FL[s.flower].label}</div><h3>${esc(s.title)}</h3><span class="story-who">${esc(s.who)} · <i>${FL[s.flower].meaning}</i></span><p>${esc(s.text)}</p><br><a class="link-arrow" href="#/producto/${p.id}">Ver una pieza así ${I.arrow}</a></div></article>`; }).join('')}</div>
   </div>
@@ -277,7 +279,7 @@
       <div class="custom-form-panel" id="customPanel"><div>
         <div class="form-wrap" id="customForm">${customFormHTML()}</div>
       </div></div>
-      <div id="customTeaser" class="custom-teaser"><img loading="lazy" src="${productImg(byId['tu-flor-en-resina'], 0)}" alt="Orquídea lila encapsulada en resina" style="width:100%;aspect-ratio:4/5;object-fit:cover;box-shadow:0 40px 80px -40px rgba(0,0,0,.6)"></div>
+      <div id="customTeaser" class="custom-teaser"><img loading="lazy" src="${productImg(byId['tu-flor-en-resina'] || P[0], 0)}" alt="Orquídea lila encapsulada en resina" style="width:100%;aspect-ratio:4/5;object-fit:cover;box-shadow:0 40px 80px -40px rgba(0,0,0,.6)"></div>
     </div>
   </div>
 </section>
@@ -285,7 +287,7 @@
 ${SV.reviews.length ? `<section class="section" id="resenas">
   <div class="container">
     <div class="sec-head center reveal"><span class="eyebrow center">Opiniones</span><h2 class="title">Palabras de quienes ya llevan <em>una flor consigo.</em></h2></div>
-    <div class="reviews">${SV.reviews.map((r, i) => { const p = byId[r.product]; return `<article class="review reveal" style="--d:${(i % 3) * 0.1}s"><div class="rv-media"><img loading="lazy" decoding="async" src="${productImg(p, r.view)}" alt="${esc(p.name)}"></div><div class="rv-body"><div class="stars" aria-label="${r.stars} de 5 estrellas">${stars(r.stars)}</div><blockquote>“${esc(r.text)}”</blockquote><div class="rv-who"><div><b>${esc(r.name)}</b>${esc(r.city)}</div><div style="text-align:right"><span class="rv-ok">${I.check} Compra verificada</span><br><a class="rv-prod" href="#/producto/${p.id}">${esc(p.name)}</a></div></div></div></article>`; }).join('')}</div>
+    <div class="reviews">${SV.reviews.filter((r) => byId[r.product]).map((r, i) => { const p = byId[r.product]; return `<article class="review reveal" style="--d:${(i % 3) * 0.1}s"><div class="rv-media"><img loading="lazy" decoding="async" src="${productImg(p, r.view || 0)}" alt="${esc(p.name)}"></div><div class="rv-body"><div class="stars" aria-label="${r.stars} de 5 estrellas">${stars(r.stars)}</div><blockquote>“${esc(r.text)}”</blockquote><div class="rv-who"><div><b>${esc(r.name)}</b>${esc(r.city)}</div><div style="text-align:right"><span class="rv-ok">${I.check} Compra verificada</span><br><a class="rv-prod" href="#/producto/${p.id}">${esc(p.name)}</a></div></div></div></article>`; }).join('')}</div>
   </div>
 </section>` : ''}
 
@@ -370,7 +372,7 @@ ${SV.reviews.length ? `<section class="section" id="resenas">
   function productHTML(p) {
     const a = availInfo(p), cat = SV.categories.find((c) => c.id === p.cat);
     const out = p.stock <= 0, custom = p.avail === 'custom';
-    const views = hasReal(p) ? p.images.concat([A.product(p, 3)]) : [0, 1, 2, 3].map((v) => productImg(p, v));
+    const views = hasReal(p) ? p.images.concat(p.flowers.length ? [A.product(p, 3)] : []) : [0, 1, 2, 3].map((v) => productImg(p, v));
     const gal = views.map((src, i) => `<div class="g" data-lb><img src="${src}" alt="${esc(p.name)}${i === views.length - 1 && hasReal(p) ? ': flores utilizadas' : ' — vista ' + (i + 1)}" ${i > 1 ? 'loading="lazy"' : ''}></div>`).join('');
     const related = P.filter((x) => x.cat === p.cat && x.id !== p.id).concat(P.filter((x) => x.cat !== p.cat && x.id !== p.id)).slice(0, 4);
     const buy = out ? `<a class="btn btn-primary btn-block" href="#/personalizar">Encargar una pieza parecida</a>`

@@ -37,3 +37,10 @@ Web estática (HTML + CSS + JS), sin instalación. Abre `index.html` o sirve la 
 - **Contacto**: email y WhatsApp están vacíos en `js/config.js`; no se muestran hasta que los rellenes. Ahora mismo el contacto es por Instagram.
 - Revisa envíos, plazos, umbral de envío gratis, código `AURA10` y textos legales antes de publicar.
 - Mejora pendiente: fotos originales en alta resolución (las de Instagram son miniaturas de 360×640), vídeos de los reels y una foto de portada real.
+
+## Editor de la web (admin.html)
+Abre `…/admin.html` de tu web. Permite cambiar sin tocar código: contactos y formulario, nombre/precio/stock/descripción/flores/fotos de cada producto (y añadir o ocultar productos), portada, retrato y opiniones.
+- Al pulsar **Publicar** guarda `content.json` (y las fotos nuevas en `assets/uploads/`) en GitHub; la web se actualiza en 1–2 minutos.
+- Necesita un token de GitHub (fine-grained, solo este repositorio, permiso *Contents: Read and write*). Se guarda solo en tu navegador.
+- La web lee `content.json` con `js/content.js`; si borras el archivo vuelve a los datos base de `js/data.js` y `js/config.js`.
+- Los vídeos no se suben desde el editor: cópialos a `assets/` en el repositorio (ver más arriba).
