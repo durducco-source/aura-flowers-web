@@ -129,8 +129,7 @@ ${added ? '<button type="button" class="link-btn danger" data-delprod>Eliminar p
   }
   function viewFotos() {
     return `<div class="ad-card"><h2>Portada y retrato</h2><p class="hint">Sube fotos de alta calidad. Se ajustan solas al tamaño de la web.</p>
-${slot('hero', 'Portada (ordenador)', 'Foto horizontal grande: una joya sobre un fondo claro. Deja libre el lado izquierdo, donde va el texto.')}
-${slot('heroMobile', 'Portada (móvil)', 'Foto vertical (2:3). Si no subes ninguna se usa la ilustración.')}
+${slot('hero', 'Portada (foto principal)', 'Foto cuadrada o vertical (mejor con buena resolución). Se muestra dentro de un arco y también, difuminada, como fondo.')}
 ${slot('creator', 'Retrato de la creadora', 'Foto vertical (4:5) en su taller o con sus piezas.')}</div>`;
   }
 

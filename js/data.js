@@ -10,7 +10,7 @@
   const IG = (n) => 'assets/ig/ig-' + n + '.jpg';
 
   SV.categories = [
-    { id: 'collares', name: 'Collares', blurb: 'Una flor real que late sobre tu pecho.', cover: 'collar-rosa-eterna' },
+    { id: 'collares', name: 'Collares', blurb: 'Una flor real que late sobre tu pecho.', cover: 'colgante-orquidea-lila' },
     { id: 'pendientes', name: 'Pendientes', blurb: 'Ligeros, luminosos y cada par distinto.', cover: 'pendientes-margarita-lila' },
     { id: 'anillos', name: 'Anillos', blurb: 'Una flor diminuta, siempre a la vista.', cover: 'anillos-de-resina' },
     { id: 'personalizados', name: 'Personalizados', blurb: 'Tu flor, tu recuerdo, tu joya.', cover: 'tu-flor-en-resina' },
@@ -19,6 +19,22 @@
 
   SV.products = [
     /* ───────── COLLARES ───────── */
+    {
+      id: 'colgante-orquidea-lila', no: 0, name: 'Colgante Orquídea Lila', cat: 'collares', price: 79, badge: 'Firma de la casa', stock: 1,
+      images: ['assets/aura/collar-orquidea.jpg'], flowers: ['orquidea'],
+      short: 'Una orquídea Phalaenopsis natural, entera, en resina sobre cadena de acero.',
+      desc: 'Una orquídea natural entera, con sus pétalos lilas y su corazón magenta, preservada en resina para que su color no se apague. Es el tipo de pieza que define a Aura Flowers: una flor grande, delicada y única, tal y como la recogió la naturaleza.',
+      details: { 'Flor': 'Orquídea Phalaenopsis natural', 'Cadena': 'Acero inoxidable', 'Acabado': RESIN },
+      art: { seed: 31 }
+    },
+    {
+      id: 'colgante-orquidea-fucsia', no: 0, name: 'Colgante Orquídea Fucsia', cat: 'collares', price: 79, badge: 'Novedad', stock: 1,
+      images: ['assets/aura/colgante-fucsia.jpg'], flowers: ['orquidea'],
+      short: 'Orquídea fucsia natural en resina, con cadena dorada y un pequeño detalle de perla.',
+      desc: 'Una orquídea de un fucsia intenso, con su centro cuajado de detalles, sobre una cadena dorada. Un color vibrante que recuerda a las buganvillas y a los atardeceres de verano.',
+      details: { 'Flor': 'Orquídea fucsia natural', 'Cadena': 'Dorada', 'Acabado': RESIN },
+      art: { seed: 33 }
+    },
     {
       id: 'collar-rosa-eterna', no: 1, name: 'Collar Rosa Eterna', cat: 'collares', price: 69, badge: 'Pieza única', stock: 1,
       images: [IG('03')], flowers: ['rosa'],
@@ -80,7 +96,7 @@
     /* ───────── PERSONALIZADOS ───────── */
     {
       id: 'tu-flor-en-resina', no: 8, name: 'Tu Flor en Resina · a medida', cat: 'personalizados', price: 79, priceFrom: true, stock: 99, avail: 'custom', badge: 'A medida',
-      images: [IG('06')], flowers: ['rosa', 'nomeolvides', 'gipsofila'],
+      images: [IG('06')], flowers: ['orquidea'],
       short: 'Convierto la flor de tu ramo, tu boda o un recuerdo en una joya única.',
       desc: 'Una orquídea, un ramo de boda, una flor de un día que no quieres olvidar. Cuéntame su historia y la transformo en una joya única, conservando sus colores y su forma. Precio orientativo desde 79 €, según flor y tamaño.',
       details: { 'Precio': 'Desde 79 € (orientativo)', 'Proceso': 'Diseño previo con tu aprobación', 'Plazo': 'Te lo indico al conocer tus flores', 'Herrajes': M },
@@ -108,7 +124,7 @@
 
   /* Historias: la primera es la historia real de Amanda; las demás cuentan lo que simboliza cada flor. */
   SV.stories = [
-    { flower: 'rosa', product: 'tu-flor-en-resina', who: 'Amanda · Lloret de Mar', title: 'Las orquídeas del jardín de mi infancia', img: IG('06'),
+    { flower: 'rosa', product: 'tu-flor-en-resina', who: 'Amanda · Lloret de Mar', title: 'Las orquídeas del jardín de mi infancia', img: 'assets/aura/cattleya.jpg',
       text: 'Las flores de mi vida son las orquídeas Cattleya lilas. Crecí viéndolas en el jardín de mi casa, en Cuba, y fueron las protagonistas del ramo de boda de mi mamá. Por eso llamé a mi marca Aura Flowers: para mí, las flores capturan la energía de nuestros recuerdos más bonitos, y quiero inmortalizarla.' },
     { flower: 'margarita', product: 'pendientes-margaritas', who: 'Simbolismo · Margarita', title: 'Margaritas: el campo de la infancia',
       text: 'La margarita habla de inocencia y de nuevos comienzos. Para muchas personas es la primera flor que recogieron de niñas, en un paseo o en un jardín. Convertirla en joya es guardar ese primer recuerdo de verano en la forma más delicada.' },

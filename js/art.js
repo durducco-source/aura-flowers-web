@@ -25,6 +25,7 @@
 
   /* ---------------- catálogo de flores ---------------- */
   const FL = {
+    orquidea:    { label: 'Orquídea',    kind: 'bloom', meaning: 'Belleza única y elegancia', latin: 'Phalaenopsis / Cattleya' },
     margarita:   { label: 'Margarita',   kind: 'bloom', meaning: 'Inocencia y nuevos comienzos', latin: 'Leucanthemum vulgare' },
     nomeolvides: { label: 'Nomeolvides', kind: 'bloom', meaning: 'Recuerdo eterno',              latin: 'Myosotis sylvatica' },
     rosa:        { label: 'Rosa',        kind: 'bloom', meaning: 'Amor y gratitud',              latin: 'Rosa × damascena' },
@@ -42,6 +43,18 @@
 
   /* ---------------- dibujo de flores (espacio unitario) ---------------- */
   const DR = {
+    orquidea() {
+      let s = '';
+      s += `<ellipse cx="0" cy="-.6" rx=".26" ry=".42" fill="#EEDFF2" stroke="#B48ACB" stroke-width=".02"/>`;
+      s += `<ellipse cx="-.3" cy=".44" rx=".26" ry=".42" transform="rotate(-32 -.3 .44)" fill="#EBD9F0" stroke="#B48ACB" stroke-width=".02"/>`;
+      s += `<ellipse cx=".3" cy=".44" rx=".26" ry=".42" transform="rotate(32 .3 .44)" fill="#EBD9F0" stroke="#B48ACB" stroke-width=".02"/>`;
+      s += `<ellipse cx="-.52" cy="-.08" rx=".5" ry=".4" transform="rotate(-10 -.52 -.08)" fill="#F4E9F7" stroke="#B48ACB" stroke-width=".02"/>`;
+      s += `<ellipse cx=".52" cy="-.08" rx=".5" ry=".4" transform="rotate(10 .52 -.08)" fill="#F4E9F7" stroke="#B48ACB" stroke-width=".02"/>`;
+      s += `<path d="M-.5,-.22C-.3,-.05 -.28,.02 -.36,.1M.5,-.22C.3,-.05 .28,.02 .36,.1" stroke="#C4A0D6" stroke-width=".02" fill="none"/>`;
+      s += `<path d="M0,.02C-.2,.08 -.24,.32 -.1,.52C-.04,.6 .04,.6 .1,.52C.24,.32 .2,.08 0,.02Z" fill="#C2308A" stroke="#8F1F62" stroke-width=".02"/>`;
+      s += `<ellipse cx="0" cy="-.02" rx=".11" ry=".14" fill="#F3E3A0" stroke="#D3B96A" stroke-width=".015"/><circle cx="0" cy="-.05" r=".05" fill="#fff"/>`;
+      return s;
+    },
     margarita() {
       let s = ''; const n = 14;
       for (let i = 0; i < n; i++) s += `<path d="${petal(1, 0.17, 0.1)}" transform="rotate(${r2((i + 0.5) * 360 / n)})" fill="#F1EBDA" stroke="#D6CCB5" stroke-width=".016"/>`;
@@ -284,8 +297,8 @@ ${bz ? `<path d="${d}" fill="none" stroke="${metal}" stroke-width="${r2(bz)}" st
 
   /* ---------------- fondos "fotográficos" ---------------- */
   const BGS = {
-    linen: ['#F3ECDD', '#DCCFB6', 'linen'], cream: ['#F8F3E9', '#E6DAC2', 'grain'], stone: ['#DEDAD0', '#B7B2A3', 'stone'],
-    sage: ['#CBD3BF', '#9EAE92', 'grain'], wood: ['#CBA985', '#9C7550', 'wood'], sand: ['#E9D9BE', '#CDB58F', 'grain'], blush: ['#EFDDD4', '#D8BDB2', 'grain'], moss: ['#8FA085', '#667A5F', 'grain']
+    linen: ['#F5EEF4', '#DCCCDD', 'linen'], cream: ['#F9F4F9', '#E5D8E9', 'grain'], stone: ['#E4DCE6', '#BAAFC0', 'stone'],
+    sage: ['#DCCFEA', '#B79FD3', 'grain'], wood: ['#CBA985', '#9C7550', 'wood'], sand: ['#EBDDEE', '#CDB8D3', 'grain'], blush: ['#F3DEEA', '#DDBCD2', 'grain'], moss: ['#A48BC4', '#7A5E9F', 'grain']
   };
   function background(kind, W, H, seed) {
     const b = BGS[kind] || BGS.linen;

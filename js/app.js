@@ -192,16 +192,21 @@
     P.forEach((p) => { if (feat.length < 4 && !feat.includes(p)) feat.push(p); });
     const marquee = ['Flores naturales reales', 'Hecho a mano, pieza a pieza', 'Ninguna joya es igual', 'Resina cristalina', 'Acero bañado en oro', 'Envíos a todo el mundo', 'Empaquetado para regalo'];
     return `
-<section class="hero" id="inicio">
-  <div class="hero-media"><img class="hm-d" src="${heroImg(false)}" alt="Colgante de resina con nomeolvides y margaritas naturales sobre lino"><img class="hm-m" src="${heroImg(true)}" alt="" aria-hidden="true"></div>
-  <span class="petal">${A.flowerIcon('margarita')}</span><span class="petal">${A.flowerIcon('nomeolvides')}</span><span class="petal">${A.flowerIcon('rosa')}</span>
-  <div class="container hero-inner">
-    <p class="eyebrow">Joyería botánica · Hecha a mano</p>
-    <h1>Flores que nunca <em>dejan de florecer.</em></h1>
-    <p class="lead">Joyas artesanales creadas a mano con flores naturales reales encapsuladas en resina.</p>
-    <div class="hero-btns"><a class="btn btn-primary" href="#/tienda">Ver colección</a><a class="btn btn-ghost" href="#/proceso">Conoce el proceso</a></div>
+<section class="hero2" id="inicio">
+  <div class="h2-bg" style="background-image:url('${SV.photos.hero || 'assets/aura/ella-espaldas.jpg'}')"></div>
+  <div class="container h2-grid">
+    <div class="h2-copy">
+      <p class="eyebrow">Joyería botánica · Hecha a mano</p>
+      <h1>Flores que nunca <em>dejan de florecer.</em></h1>
+      <p class="lead">Joyas artesanales creadas a mano con flores naturales reales encapsuladas en resina.</p>
+      <div class="hero-btns"><a class="btn btn-primary" href="#/tienda">Ver colección</a><a class="btn btn-ghost" href="#/proceso">Conoce el proceso</a></div>
+    </div>
+    <figure class="h2-arch">
+      <div class="h2-frame"><img src="${SV.photos.hero || 'assets/aura/ella-espaldas.jpg'}" alt="${esc(SV.creator)} de espaldas ante una buganvilla en flor"></div>
+      <div class="h2-orb"><img src="assets/aura/cattleya.jpg" alt="Orquídea Cattleya lila" loading="lazy"></div>
+      <figcaption>Las flores de mi vida son las orquídeas.</figcaption>
+    </figure>
   </div>
-  <div class="scroll-cue"><i></i>Desliza</div>
 </section>
 <div class="marquee" aria-hidden="true"><div class="marquee-track">${[0, 1].map(() => marquee.map((m) => `<span>${m}</span>`).join('')).join('')}</div></div>
 
@@ -209,6 +214,13 @@
   <div class="flourish">${I.flourish}</div>
   <p>Cada flor tiene su momento. Yo la <em>guardo</em> en resina para que ese momento no se acabe nunca.</p>
   <small>${esc(SV.creator)}</small>
+</section>
+
+<section class="tiles4 container reveal" aria-label="El mundo de Aura">
+  <figure><img loading="lazy" src="assets/aura/cattleya.jpg" alt="Orquídea Cattleya lila"><figcaption>Cattleya</figcaption></figure>
+  <figure><img loading="lazy" src="assets/aura/phalaenopsis.jpg" alt="Orquídeas Phalaenopsis lilas"><figcaption>Phalaenopsis</figcaption></figure>
+  <figure><img loading="lazy" src="assets/aura/colgante-fucsia.jpg" alt="Colgante de orquídea fucsia en resina"><figcaption>En resina</figcaption></figure>
+  <figure><img loading="lazy" src="assets/aura/orquidea-fucsia.jpg" alt="Orquídea fucsia en maceta"><figcaption>Fucsia</figcaption></figure>
 </section>
 
 <section class="section-sm" id="coleccion">

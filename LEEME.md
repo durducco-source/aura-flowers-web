@@ -44,3 +44,8 @@ Abre `…/admin.html` de tu web. Permite cambiar sin tocar código: contactos y 
 - Necesita un token de GitHub (fine-grained, solo este repositorio, permiso *Contents: Read and write*). Se guarda solo en tu navegador.
 - La web lee `content.json` con `js/content.js`; si borras el archivo vuelve a los datos base de `js/data.js` y `js/config.js`.
 - Los vídeos no se suben desde el editor: cópialos a `assets/` en el repositorio (ver más arriba).
+
+## Personalización con sus colores y fotos (orquídeas)
+- Paleta: violeta profundo, lila de orquídea, magenta de buganvilla y crema rosada (variables en `css/styles.css`, bloque `:root`).
+- Portada: foto de Amanda de espaldas ante la buganvilla (`assets/aura/ella-espaldas.jpg`), en arco y difuminada de fondo. Cámbiala en el editor → «Portada y retrato».
+- Fotos de `assets/aura/`: Cattleya, Phalaenopsis, colgantes de orquídea y plantas. Los dos colgantes de orquídea son productos nuevos (nombres y precios provisionales).

@@ -24,10 +24,10 @@ window.SV = {
      Para usar tus fotos: copia los archivos a /assets y escribe la ruta,
      p. ej.  hero: 'assets/portada.jpg'                                 */
   photos: {
-    hero: null,            // portada (horizontal, 16:10)
+    hero: 'assets/aura/ella-espaldas.jpg',   // foto de la portada (cuadrada o vertical)
     heroMobile: null,      // portada móvil (vertical, 2:3)
     creator: 'assets/ig/ig-01.jpg',   // retrato de Amanda (sustituir por una foto en alta resolución)
-    process: [null, null, null, null, null, null], // 6 fotos del proceso (4:3)
+    process: ['assets/aura/orquideas-mesa.jpg', null, null, null, 'assets/aura/collar-orquidea.jpg', null], // 6 fotos del proceso (4:3); null = ilustración
     // Cuadrícula de Instagram (6): {img, href}. Puedes usar {video, poster, href} para vídeos.
     instagram: [
       { img: 'assets/ig/ig-06.jpg', href: 'https://www.instagram.com/aura_flowers21/reel/Db9DN8BiWmf/', alt: 'Flor de orquídea encapsulada en resina' },
