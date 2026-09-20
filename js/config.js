@@ -9,7 +9,7 @@ window.SV = {
   city: 'Lloret de Mar',
   instagram: 'aura_flowers21',   // usuario de Instagram (sin @)
   email: '',                             // ← pon aquí su email real (si está vacío no se muestra)
-  whatsapp: '',                          // ← con prefijo de país, sin + (p. ej. 34600123456). Vacío = no se muestra
+  whatsapp: '34633847052',               // WhatsApp de Amanda (prefijo de país, sin +)
   demo: true,                            // (en desuso) el pago se acuerda tras confirmar el pedido
   freeShippingFrom: 70,                  // envío gratis en España a partir de (€)
 

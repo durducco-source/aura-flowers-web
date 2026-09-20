@@ -13,6 +13,7 @@
   const fmt = (n) => new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(n);
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const igUrl = 'https://www.instagram.com/' + SV.instagram + '/';
+  const fmtPhone = (n) => { n = String(n || '').replace(/\D/g, ''); return n.length === 11 ? '+' + n.slice(0, 2) + ' ' + n.slice(2, 5) + ' ' + n.slice(5, 7) + ' ' + n.slice(7, 9) + ' ' + n.slice(9) : '+' + n; };
   const waUrl = (t) => 'https://wa.me/' + SV.whatsapp + (t ? '?text=' + encodeURIComponent(t) : '');
 
   /* ── almacenamiento seguro ── */
@@ -323,7 +324,7 @@ ${SV.reviews.length ? `<section class="section" id="resenas">
       <div class="c-cards">
         <a class="c-card" href="${igUrl}" target="_blank" rel="noopener">${I.ig}<div><small>Instagram · mensaje directo</small><b>@${SV.instagram}</b></div></a>
         ${SV.email ? `<a class="c-card" href="mailto:${SV.email}">${I.mail}<div><small>Email</small><b>${SV.email}</b></div></a>` : ''}
-        ${SV.whatsapp ? `<a class="c-card" href="${waUrl('Hola, me gustaría preguntar por una pieza de ' + SV.brand)}" target="_blank" rel="noopener">${I.wa}<div><small>WhatsApp</small><b>Escríbeme un mensaje</b></div></a>` : ''}
+        ${SV.whatsapp ? `<a class="c-card" href="${waUrl('Hola, me gustaría preguntar por una pieza de ' + SV.brand)}" target="_blank" rel="noopener">${I.wa}<div><small>WhatsApp</small><b>${fmtPhone(SV.whatsapp)}</b></div></a>` : ''}
       </div></div>
     <div class="reveal"><div class="form-wrap" id="contactForm" style="background:var(--paper);border:1px solid var(--line);box-shadow:none">
       <h3>Escríbeme</h3><p>Cuéntame en qué puedo ayudarte.</p><br>${contactFormHTML()}</div></div>
@@ -677,5 +678,6 @@ ${o.sent ? '' : `<div style="display:flex;gap:12px;justify-content:center;flex-w
   window.addEventListener('hashchange', route);
 
   /* ── arranque ── */
+  if (SV.whatsapp) { const w = document.createElement('a'); w.className = 'wa-fab'; w.href = waUrl('Hola, me gustaría preguntar por una pieza de ' + SV.brand); w.target = '_blank'; w.rel = 'noopener'; w.setAttribute('aria-label', 'Escribir por WhatsApp'); w.innerHTML = I.wa; document.body.appendChild(w); }
   footer(); updateCartUI(); route(); onScroll();
 })();

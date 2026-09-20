@@ -20,7 +20,7 @@
   SV.products = [
     /* ───────── COLLARES ───────── */
     {
-      id: 'colgante-orquidea-lila', no: 0, name: 'Colgante Orquídea Lila', cat: 'collares', price: 79, badge: 'Firma de la casa', stock: 1,
+      id: 'colgante-orquidea-lila', no: 0, name: 'Colgante Orquídea Lila', cat: 'collares', price: 30, priceFrom: true, badge: 'Firma de la casa', stock: 1,
       images: ['assets/aura/collar-orquidea.jpg'], flowers: ['orquidea'],
       short: 'Una orquídea Phalaenopsis natural, entera, en resina sobre cadena de acero.',
       desc: 'Una orquídea natural entera, con sus pétalos lilas y su corazón magenta, preservada en resina para que su color no se apague. Es el tipo de pieza que define a Aura Flowers: una flor grande, delicada y única, tal y como la recogió la naturaleza.',
@@ -28,7 +28,7 @@
       art: { seed: 31 }
     },
     {
-      id: 'colgante-orquidea-fucsia', no: 0, name: 'Colgante Orquídea Fucsia', cat: 'collares', price: 79, badge: 'Novedad', stock: 1,
+      id: 'colgante-orquidea-fucsia', no: 0, name: 'Colgante Orquídea Fucsia', cat: 'collares', price: 30, priceFrom: true, badge: 'Novedad', stock: 1,
       images: ['assets/aura/colgante-fucsia.jpg'], flowers: ['orquidea'],
       short: 'Orquídea fucsia natural en resina, con cadena dorada y un pequeño detalle de perla.',
       desc: 'Una orquídea de un fucsia intenso, con su centro cuajado de detalles, sobre una cadena dorada. Un color vibrante que recuerda a las buganvillas y a los atardeceres de verano.',
@@ -36,7 +36,7 @@
       art: { seed: 33 }
     },
     {
-      id: 'collar-rosa-eterna', no: 1, name: 'Collar Rosa Eterna', cat: 'collares', price: 69, badge: 'Pieza única', stock: 1,
+      id: 'collar-rosa-eterna', no: 1, name: 'Collar Rosa Eterna', cat: 'collares', price: 30, priceFrom: true, badge: 'Pieza única', stock: 1,
       images: [IG('03')], flowers: ['rosa'],
       short: 'Una rosa natural preservada en resina, sobre cadena dorada con corazones.',
       desc: 'Una rosa natural, con su color intenso y sus pétalos intactos, preservada en resina para que dure para siempre. Cuelga de una cadena dorada con pequeños corazones. Una pieza que habla de amor y de recuerdos que no se marchitan.',
@@ -45,7 +45,7 @@
     },
     /* ───────── PENDIENTES ───────── */
     {
-      id: 'pendientes-margaritas', no: 2, name: 'Pendientes Margaritas Naturales', cat: 'pendientes', price: 45, badge: 'Novedad', stock: 2,
+      id: 'pendientes-margaritas', no: 2, name: 'Pendientes Margaritas Naturales', cat: 'pendientes', price: 30, priceFrom: true, badge: 'Novedad', stock: 2,
       images: [IG('04')], flowers: ['margarita'],
       short: 'Margaritas naturales de verdad, ligeras como un día de primavera.',
       desc: 'Pequeñas margaritas naturales, recogidas y secadas a mano, con su centro dorado y sus pétalos blancos. Ligeros, frescos y muy alegres: se llevan con todo.',
@@ -53,7 +53,7 @@
       art: { seed: 4 }
     },
     {
-      id: 'pendientes-flores-rosas', no: 3, name: 'Pendientes Redondos Flores Rosas', cat: 'pendientes', price: 48, stock: 1, badge: 'Pieza única',
+      id: 'pendientes-flores-rosas', no: 3, name: 'Pendientes Redondos Flores Rosas', cat: 'pendientes', price: 30, priceFrom: true, stock: 1, badge: 'Pieza única',
       images: [IG('05')], flowers: ['helecho', 'rosa'],
       short: 'Flores rosas y hojas de helecho en un círculo de resina con borde dorado.',
       desc: 'Un pequeño jardín en cada pendiente: florecillas rosas y hojas de helecho dentro de un círculo de resina con borde dorado, con pendiente dorado martillado. Cada uno es diferente al otro, como en la naturaleza.',
@@ -61,7 +61,7 @@
       art: { seed: 5 }
     },
     {
-      id: 'pendientes-margarita-lila', no: 4, name: 'Pendientes Margarita Lila', cat: 'pendientes', price: 46, stock: 1, badge: 'Pieza única',
+      id: 'pendientes-margarita-lila', no: 4, name: 'Pendientes Margarita Lila', cat: 'pendientes', price: 30, priceFrom: true, stock: 1, badge: 'Pieza única',
       images: [IG('07')], flowers: ['margarita'],
       short: 'Margaritas lilas enteras dentro de la resina, con brillo de cristal.',
       desc: 'Dos margaritas de color lila, enteras y con todos sus pétalos, en resina transparente. Un color suave y muy especial que recuerda a las orquídeas favoritas de Amanda.',
@@ -69,7 +69,7 @@
       art: { seed: 7 }
     },
     {
-      id: 'pendientes-gota-flor-blanca', no: 5, name: 'Pendientes Gota y Flor Blanca', cat: 'pendientes', price: 52, stock: 2,
+      id: 'pendientes-gota-flor-blanca', no: 5, name: 'Pendientes Gota y Flor Blanca', cat: 'pendientes', price: 30, priceFrom: true, stock: 2,
       images: [IG('09')], flowers: ['gipsofila', 'helecho'],
       short: 'Aro en forma de gota que sostiene un círculo de resina con flores blancas.',
       desc: 'Un aro dorado en forma de gota del que cuelga un círculo de resina con diminutas flores blancas y un toque verde. Elegantes y muy ligeros, para un día especial o para todos los días.',
@@ -78,7 +78,7 @@
     },
     /* ───────── ANILLOS ───────── */
     {
-      id: 'anillos-de-resina', no: 6, name: 'Anillos de Resina', cat: 'anillos', price: 32, stock: 5, badge: 'Ajustables',
+      id: 'anillos-de-resina', no: 6, name: 'Anillos de Resina', cat: 'anillos', price: 30, priceFrom: true, stock: 5, badge: 'Ajustables',
       images: [IG('08')], flowers: ['gipsofila', 'rosa'],
       short: 'Anillos ajustables con cabujón de resina, en tonos perla y granate.',
       desc: 'Anillos ajustables con cabujón redondo de resina, en tonos perlados y granates. Se combinan entre sí para crear tu propia colección. Precio por anillo.',
@@ -86,7 +86,7 @@
       art: { seed: 11 }
     },
     {
-      id: 'anillo-ovalado-azul', no: 7, name: 'Anillo Ovalado Azul', cat: 'anillos', price: 38, stock: 1, badge: 'Pieza única',
+      id: 'anillo-ovalado-azul', no: 7, name: 'Anillo Ovalado Azul', cat: 'anillos', price: 30, priceFrom: true, stock: 1, badge: 'Pieza única',
       images: [IG('11')], flowers: ['nomeolvides'],
       short: 'Flores azules y toques dorados en un cabujón ovalado, con aro ajustable.',
       desc: 'Un cabujón ovalado con pétalos azules y destellos dorados, sobre un aro ajustable dorado. Parece un pequeño cielo de noche en tu mano.',
@@ -104,7 +104,7 @@
     },
     /* ───────── COLECCIONES ───────── */
     {
-      id: 'set-regalo-flores-secas', no: 9, name: 'Set Regalo · pendientes y caja', cat: 'colecciones', price: 58, stock: 1, badge: 'Para regalar',
+      id: 'set-regalo-flores-secas', no: 9, name: 'Set Regalo · pendientes y caja', cat: 'colecciones', price: 45, stock: 1, badge: 'Para regalar',
       images: [IG('05'), IG('10')], flowers: ['helecho', 'rosa', 'gipsofila'],
       short: 'Pendientes de flores rosas en una caja de regalo con gipsófila seca.',
       desc: 'Los pendientes redondos de flores rosas presentados en una caja de regalo atada con cordel y decorada con un ramito de gipsófila seca. Listo para regalar, o para regalarte.',

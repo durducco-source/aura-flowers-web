@@ -49,3 +49,10 @@ Abre `…/admin.html` de tu web. Permite cambiar sin tocar código: contactos y 
 - Paleta: violeta profundo, lila de orquídea, magenta de buganvilla y crema rosada (variables en `css/styles.css`, bloque `:root`).
 - Portada: foto de Amanda de espaldas ante la buganvilla (`assets/aura/ella-espaldas.jpg`), en arco y difuminada de fondo. Cámbiala en el editor → «Portada y retrato».
 - Fotos de `assets/aura/`: Cattleya, Phalaenopsis, colgantes de orquídea y plantas. Los dos colgantes de orquídea son productos nuevos (nombres y precios provisionales).
+
+## Prototipo a pantalla completa (prototipo.html)
+Experiencia alternativa de portada con scroll «encajado» (una pantalla por sección), barrido del logotipo, entradas con fundido lento, categorías a pantalla dividida y carruseles. Inspirada en la mecánica de transiciones de floresqueridamargarita.com (sin copiar sus fotos, textos ni código) y con la paleta de Aura Flowers.
+- Usa los mismos datos que la web (`config.js`, `data.js` y `content.json` del editor).
+- Vídeo de portada opcional: `photos.heroVideo: 'assets/aura/portada.mp4'` en `js/config.js`; vídeo de la sección de historia: `photos.storyVideo`.
+- Tienda, fichas y carrito se abren en la web principal.
+- Precios: collares, pendientes y anillos «desde 30 €», set regalo 45 €, teléfono/WhatsApp +34 633 84 70 52.
