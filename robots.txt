@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://durducco-source.github.io/aura-flowers-web/sitemap.xml

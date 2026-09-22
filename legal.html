@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aviso legal y privacidad | Aura Flowers</title>
+<meta name="robots" content="noindex,follow">
+<meta name="theme-color" content="#fdfaf5">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="header is-scrolled"><div class="container header-inner"><a class="logo" href="index.html"><span class="logo-aura">Aura</span><span class="logo-flowers">Flowers</span></a><a class="btn btn--line btn--sm" href="index.html">Volver a la web</a></div></header>
+
+<main class="legal"><div class="container">
+  <p class="kicker">Legal</p>
+  <h1>Aviso legal y privacidad</h1>
+
+  <h2>Titular</h2>
+  <p>Aura Flowers es una marca de <span class="pending" data-legal="nombreCompleto">[nombre completo pendiente]</span>, con NIF <span class="pending" data-legal="nif">[pendiente]</span>, con taller en <span data-ciudad>Lloret de Mar</span>. Contacto: WhatsApp <span data-tel>+34 633 84 70 52</span> e Instagram <span data-ig-user>@aura_flowers21</span>.</p>
+
+  <h2>Pedidos</h2>
+  <p>Esta web muestra el catálogo de Aura Flowers. Los pedidos se confirman de forma personal por WhatsApp o Instagram, donde se acuerdan la disponibilidad, el plazo, el coste de envío y la forma de pago antes de realizar cualquier cobro.</p>
+
+  <h2>Datos personales</h2>
+  <p>La web no tiene formularios ni guarda datos. Los datos que compartas al escribir por WhatsApp o Instagram se usan solo para atender tu consulta o tu pedido, y no se ceden a terceros salvo obligación legal. Puedes pedir en cualquier momento su acceso, rectificación o supresión escribiendo por esos mismos canales, y reclamar ante la Agencia Española de Protección de Datos (aepd.es).</p>
+
+  <h2>Cookies</h2>
+  <p>Esta web no utiliza cookies publicitarias ni de seguimiento. Solo carga tipografías de Google Fonts.</p>
+
+  <h2>Propiedad intelectual</h2>
+  <p>Las fotografías de las piezas, los textos y la marca Aura Flowers pertenecen a su titular. Algunas fotografías de ambiente proceden de bancos de imágenes con licencia libre.</p>
+</div></main>
+
+<footer class="footer"><div class="container footer-inner"><div class="footer-bottom"><span>© <span data-year>2026</span> Aura Flowers</span><a href="index.html">Inicio</a></div></div></footer>
+<script src="js/config.js"></script>
+<script>
+(function () {
+  var C = window.AURA_CONFIG || {}, L = C.legal || {}, K = C.contacto || {};
+  document.querySelectorAll("[data-legal]").forEach(function (el) { var v = L[el.getAttribute("data-legal")]; if (v) { el.textContent = v; el.classList.remove("pending"); } });
+  document.querySelectorAll("[data-tel]").forEach(function (el) { if (K.telefono) el.textContent = K.telefono; });
+  document.querySelectorAll("[data-ig-user]").forEach(function (el) { if (K.instagram) el.textContent = "@" + K.instagram; });
+  document.querySelectorAll("[data-ciudad]").forEach(function (el) { if (C.marca && C.marca.ciudad) el.textContent = C.marca.ciudad; });
+  document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
+})();
+</script>
+</body>
+</html>

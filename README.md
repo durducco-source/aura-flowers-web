@@ -1,27 +1,29 @@
-# Aura Flowers · Joyería botánica
+# Aura Flowers
 
-Web de **Aura Flowers** (joyas con flores naturales en resina, hechas a mano por Amanda en Lloret de Mar).
+Web de **Aura Flowers**: flores naturales convertidas en joyas y regalos hechos a mano por Amanda en Lloret de Mar.
+Sitio estático (HTML, CSS y JavaScript sin dependencias), publicado con GitHub Pages desde la rama `main`.
 
-| | Enlace |
+**Web:** https://durducco-source.github.io/aura-flowers-web/
+
+## Dónde se edita cada cosa
+
+| Quiero cambiar… | Archivo |
 |---|---|
-| 🌸 **Web** | https://durducco-source.github.io/aura-flowers-web/ |
-| ✨ **Prototipo a pantalla completa** | https://durducco-source.github.io/aura-flowers-web/prototipo.html |
-| ✏️ **Editor (sin código)** | https://durducco-source.github.io/aura-flowers-web/admin.html |
+| WhatsApp, Instagram, email, precio "desde", envío gratis, formas de pago | `js/config.js` |
+| Piezas del catálogo (nombre, precio, foto, textos), galería y preguntas frecuentes | `js/data.js` |
+| Textos de las secciones (portada, marca, regalar, a medida…) | `index.html` |
+| Colores, tipografías y diseño | `css/styles.css` (variables al principio) |
 
-## Compartir
-- Comparte el enlace de la web o del prototipo con quien quieras.
-- Para que otra persona pueda **editar**: en GitHub, *Settings → Collaborators → Add people* (permiso *Write*).
+## Añadir una pieza
 
-## Editar sin tocar código
-1. Abre el **editor** (`admin.html`).
-2. Cambia precios, textos, contactos, fotos y opiniones.
-3. Pulsa **Publicar** (necesita un token de GitHub; los pasos están en la pestaña *Publicar*).
-4. En 1–2 minutos la web y el prototipo se actualizan solos.
+1. Guarda la foto en `assets/` (vertical 4:5, mínimo 800 px de ancho).
+2. En `js/data.js`, copia un bloque de `productos`, pégalo debajo y cambia sus datos.
+3. Para marcarla como agotada: `disponible: false`.
 
-## Editar el código
-- Datos y textos: `js/data.js`, `js/config.js`
-- Diseño y colores: `css/styles.css` (bloque `:root`), `css/prototipo.css`
-- Fotos: carpeta `assets/`
-- Más detalles: [`LEEME.md`](LEEME.md)
+## Fotos
 
-Sitio estático (HTML, CSS y JavaScript). Se publica con GitHub Pages desde la rama `main`.
+- `assets/aura/` y `assets/ig/`: fotos reales de Aura Flowers.
+- `assets/img/`: fotografías de ambiente (Unsplash, licencia libre) para la portada y las secciones.
+- Las fotos de Instagram son de baja resolución (360×640): conviene sustituirlas por los originales para que las fichas se vean aún más nítidas.
+
+La versión anterior de la web (con tienda, carrito y editor `admin.html`) sigue disponible en el historial de Git.
