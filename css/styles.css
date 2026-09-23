@@ -138,6 +138,15 @@ ul, ol, dl, dd { margin: 0; padding: 0; list-style: none; }
 .js .hero-in { opacity: 0; transform: translateY(26px); animation: heroIn 1.3s var(--ease) forwards; animation-delay: calc(.1s + var(--i, 0) * .13s); }
 @keyframes heroIn { to { opacity: 1; transform: none; } }
 
+/* Flores con vida: vaivén lento y sutil, como mecidas por una brisa */
+@keyframes breeze { 0% { transform: scale(1); } 50% { transform: scale(1.045) translate(-.6%, -.8%) rotate(.3deg); } 100% { transform: scale(1.035) translate(.6%, -.3%) rotate(-.25deg); } }
+@keyframes floatSoft { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+@keyframes sway { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-7px) rotate(2deg); } }
+.brand-img--main { animation: floatSoft 11s ease-in-out infinite; }
+.brand-img--small { transform-origin: 50% 0; animation: sway 8s ease-in-out -2s infinite; }
+.story-sign img { animation: sway 9s ease-in-out -4s infinite; }
+.gift-media img { animation: floatSoft 12s ease-in-out -5s infinite; }
+
 /* ==========================================================================
    HERO
    ========================================================================== */
@@ -159,7 +168,7 @@ ul, ol, dl, dd { margin: 0; padding: 0; list-style: none; }
 
 .hero-visual { position: relative; justify-self: end; width: min(100%, 520px); }
 .hero-img { display: block; position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 260px 260px 18px 18px; box-shadow: var(--shadow); }
-.hero-img img { width: 100%; height: 100%; object-fit: cover; animation: slowzoom 22s ease-out both; }
+.hero-img img { width: 100%; height: 100%; object-fit: cover; animation: slowzoom 22s ease-out both, breeze 18s ease-in-out 22s infinite alternate; }
 @keyframes slowzoom { from { transform: scale(1.1); } to { transform: scale(1); } }
 .hero-visual::before { content: ""; position: absolute; inset: -16px 16px 16px -16px; border: 1px solid var(--line-gold); border-radius: 270px 270px 22px 22px; z-index: -1; }
 .price-seal { position: absolute; left: -58px; bottom: 60px; width: 156px; height: 156px; display: grid; place-items: center; }
