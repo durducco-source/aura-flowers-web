@@ -155,9 +155,16 @@
 
   /* ---------- Cabecera, menú y barra móvil ---------- */
   function initHeader() {
-    var header = $(".header"), burger = $(".burger"), mbar = $("[data-mbar]"), hero = $(".hero");
+    var header = $(".header"), burger = $(".burger"), mbar = $("[data-mbar]"), hero = $(".hero"), lastY = window.scrollY;
     function onScroll() {
-      header.classList.toggle("is-scrolled", window.scrollY > 20);
+      var y = window.scrollY;
+      header.classList.toggle("is-scrolled", y > 20);
+      /* La cabecera se esconde al bajar y reaparece al subir */
+      if (!document.body.classList.contains("nav-open")) {
+        if (y > 400 && y > lastY + 4) header.classList.add("is-hidden");
+        else if (y < lastY - 4 || y <= 400) header.classList.remove("is-hidden");
+      }
+      lastY = y;
       if (mbar && hero) {
         var past = window.scrollY > hero.offsetHeight * 0.6;
         var nearEnd = (window.innerHeight + window.scrollY) > document.body.scrollHeight - 520;
@@ -187,13 +194,152 @@
     $$("main section[id]").forEach(function (s) { io.observe(s); });
   }
 
+  /* ---------- Textos e imágenes con entrada progresiva ---------- */
+  /* Divide un texto en palabras (respetando las cursivas) */
+  function splitWords(el, cls) {
+    var n = 0;
+    (function walk(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (ch) {
+        if (ch.nodeType === 1) { walk(ch); return; }
+        if (ch.nodeType !== 3 || !ch.textContent.trim()) return;
+        var frag = document.createDocumentFragment();
+        ch.textContent.split(/(\s+)/).forEach(function (part) {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+          var w = document.createElement("span");
+          if (cls) { w.className = cls; w.textContent = part; }
+          else { w.className = "w"; w.style.setProperty("--wi", n); var inner = document.createElement("span"); inner.textContent = part; w.appendChild(inner); }
+          n++; frag.appendChild(w);
+        });
+        node.replaceChild(frag, ch);
+      });
+    })(el);
+  }
+  function initSplit() {
+    $$("[data-letters]").forEach(function (el) {
+      var t = el.textContent; el.setAttribute("aria-label", t); el.textContent = "";
+      t.split("").forEach(function (c, i) { var s = document.createElement("span"); s.className = "ch"; s.setAttribute("aria-hidden", "true"); s.style.setProperty("--ci", i); s.textContent = c; el.appendChild(s); });
+    });
+    $$(".title").forEach(function (el) { splitWords(el); el.classList.add("split"); });
+    $$(".product-media, .gal, .story-img").forEach(function (el, i) {
+      el.classList.remove("reveal");
+      el.classList.add("img-in");
+      if (!el.style.getPropertyValue("--d")) el.style.setProperty("--d", ((i % 4) * 0.08).toFixed(2) + "s");
+    });
+  }
+
   function initReveal() {
-    var els = $$(".reveal");
+    var els = $$(".reveal, .split, .img-in");
     if (reduce || !("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("is-in"); }); return; }
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); } });
     }, { threshold: 0.1, rootMargin: "0px 0px -5% 0px" });
     els.forEach(function (e) { io.observe(e); });
+  }
+
+  /* ---------- Movimiento ligado al scroll ----------
+     Secuencia de flores, parallax, cita de Amanda, banda, secciones y barra de progreso. */
+  function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+  function easeInOut(t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+
+  function initScrollFX() {
+    var bar = $("[data-progress]"), quote = $("[data-words]"), words = [];
+    if (quote) { splitWords(quote, "mw"); words = $$(".mw", quote); }
+    if (reduce) { words.forEach(function (w) { w.classList.add("is-on"); }); return; }
+
+    var show = $("[data-show]"), stage = $("[data-show-stage]"), frame = $("[data-show-frame]");
+    var scenes = $$("[data-show-scene]"), caps = $$(".show-cap"), showN = $("[data-show-n]"), showBar = $("[data-show-bar]");
+    var heroVisual = $(".hero-visual");
+    var pxImgs = $$(".gal img, .story-img img, .custom-bg");
+    pxImgs.forEach(function (im) { im.classList.add("px"); });
+    var secs = $$(".sec-in"), band = $("[data-band]");
+    /* Recorrido: 0-24 % se abre el arco · escenas 2 y 3 entran en 45 % y 65 % · 86-100 % se recoge en un marco */
+    var OPEN = 0.24, BOUNDS = [0, 0.45, 0.65], FADE = 0.08, END = 0.86;
+    var lastCap = -2, ticking = false;
+
+    function showFX(vh, vw) {
+      if (!show) return;
+      var r = show.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > vh) return;
+      var p = clamp(-r.top / (show.offsetHeight - vh));
+      var mobile = vw < 861;
+      var aw = mobile ? Math.min(vw * 0.62, 320) : Math.min(vw * 0.3, 430);
+      var ah = Math.min(aw * 1.25, vh * (mobile ? 0.5 : 0.66));
+      var at = (vh - ah) / 2 + vh * 0.02;
+      stage.style.setProperty("--aw", aw + "px"); stage.style.setProperty("--ah", ah + "px"); stage.style.setProperty("--at", at + "px");
+
+      var e = easeInOut(clamp(p / OPEN));
+      var f = easeOut(clamp((p - END) / (1 - END)));
+      stage.style.setProperty("--e", e.toFixed(3));
+      stage.style.setProperty("--wo", (1 - clamp(e * 1.7)).toFixed(3));
+      stage.style.setProperty("--fo", clamp(f * 2).toFixed(3));
+
+      var t = at * (1 - e), s = (vw - aw) / 2 * (1 - e), b = (vh - at - ah) * (1 - e), rad = aw / 2 * (1 - e), rb = 18 * (1 - e);
+      if (f > 0) {
+        var sy = vh * (mobile ? 0.1 : 0.09) * f, sx = vw * (mobile ? 0.04 : 0.06) * f, rf = 30 * f;
+        frame.style.clipPath = "inset(" + sy.toFixed(1) + "px " + sx.toFixed(1) + "px round " + rf.toFixed(1) + "px)";
+      } else {
+        frame.style.clipPath = "inset(" + t.toFixed(1) + "px " + s.toFixed(1) + "px " + b.toFixed(1) + "px round " + rad.toFixed(1) + "px " + rad.toFixed(1) + "px " + rb.toFixed(1) + "px " + rb.toFixed(1) + "px)";
+      }
+
+      var cur = 0;
+      scenes.forEach(function (sc, i) {
+        if (i === 0) { sc.style.transform = "scale(" + (1.12 - 0.12 * e + 0.05 * clamp((p - OPEN) / 0.3)).toFixed(4) + ")"; return; }
+        var bnd = BOUNDS[i], k = clamp((p - (bnd - FADE)) / (FADE * 2));
+        var z = easeOut(clamp((p - (bnd - FADE)) / 0.3));
+        sc.style.clipPath = "inset(" + ((1 - easeOut(k)) * 100).toFixed(2) + "% 0 0 0)";
+        sc.style.transform = "scale(" + (1.16 - 0.1 * z).toFixed(4) + ")";
+        if (p >= bnd) cur = i;
+      });
+      var capIdx = (e < 0.92 || f > 0.35) ? -1 : cur;
+      if (capIdx !== lastCap) {
+        lastCap = capIdx;
+        caps.forEach(function (c, i) { c.classList.toggle("is-active", i === capIdx); c.classList.toggle("is-past", capIdx > -1 && i < capIdx); });
+        if (showN && capIdx > -1) showN.textContent = "0" + (capIdx + 1);
+      }
+      if (showBar) showBar.style.transform = "scaleX(" + clamp((p - OPEN) / (END - OPEN)).toFixed(4) + ")";
+    }
+
+    function update() {
+      ticking = false;
+      var vh = window.innerHeight, vw = window.innerWidth, y = window.scrollY;
+      if (bar) bar.style.transform = "scaleX(" + clamp(y / (document.documentElement.scrollHeight - vh)).toFixed(4) + ")";
+      if (heroVisual && y < vh * 1.2) heroVisual.style.translate = "0 " + (y * -0.08).toFixed(1) + "px";
+      showFX(vh, vw);
+
+      pxImgs.forEach(function (im) {
+        var box = im.parentNode.getBoundingClientRect();
+        if (box.bottom < -100 || box.top > vh + 100) return;
+        var off = (box.top + box.height / 2 - vh / 2) / (vh / 2 + box.height / 2);
+        im.style.translate = "0 " + (-off * box.height * 0.06).toFixed(1) + "px";
+      });
+
+      if (words.length) {
+        var qr = quote.getBoundingClientRect();
+        var qp = clamp((vh * 0.85 - qr.top) / (vh * 0.5 + qr.height * 0.6));
+        var on = Math.round(qp * words.length);
+        words.forEach(function (w, i) { w.classList.toggle("is-on", i < on); });
+      }
+
+      if (band) {
+        var br = band.getBoundingClientRect();
+        if (br.bottom > 0 && br.top < vh) {
+          var bp = (vh - br.top) / (vh + br.height);
+          band.style.transform = "translate3d(" + (-bp * Math.max(0, band.scrollWidth - vw * 0.6)).toFixed(1) + "px,0,0)";
+        }
+      }
+
+      secs.forEach(function (s) {
+        var st = s.getBoundingClientRect().top;
+        if (st > vh * 1.1 || st < -vh) return;
+        s.style.setProperty("--in", clamp((vh * 0.92 - st) / (vh * 0.7)).toFixed(3));
+      });
+    }
+    function request() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+    window.addEventListener("scroll", request, { passive: true });
+    window.addEventListener("resize", request);
+    update();
   }
 
   /* ---------- SEO: datos estructurados y analítica ---------- */
@@ -233,7 +379,9 @@
   safe(applyConfig);
   safe(initModal);
   safe(initHeader);
+  safe(initSplit);
   safe(initReveal);
+  safe(initScrollFX);
   safe(injectSchema);
   safe(injectAnalytics);
 })();

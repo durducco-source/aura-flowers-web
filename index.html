@@ -23,9 +23,11 @@
 <link rel="stylesheet" href="css/styles.css">
 <link rel="preload" as="image" href="assets/img/hero-orquideas.jpg" media="(min-width: 861px)">
 <link rel="preload" as="image" href="assets/img/hero-orquideas-movil.jpg" media="(max-width: 860px)">
-<script>document.documentElement.className = 'js';</script>
+<script>(function(){var c='js';try{if(sessionStorage.getItem('aura_intro'))c+=' intro-seen';sessionStorage.setItem('aura_intro','1')}catch(e){}document.documentElement.className=c})();</script>
 </head>
 <body>
+<div class="intro" aria-hidden="true"><span class="intro-aura">Aura</span><span class="intro-line"></span><span class="intro-flowers">Flowers</span></div>
+<div class="progress" aria-hidden="true"><span data-progress></span></div>
 <a class="skip" href="#main">Saltar al contenido</a>
 
 <div class="announce" role="note">
@@ -66,7 +68,7 @@
       <div class="hero-copy">
         <p class="kicker hero-in" style="--i:0">Flores naturales · Hechas a mano</p>
         <h1 id="hero-title" class="hero-title">
-          <span class="hero-aura hero-in" style="--i:1">Aura</span>
+          <span class="hero-aura" data-letters>Aura</span>
           <span class="hero-flowers hero-in" style="--i:2">Flowers</span>
         </h1>
         <p class="hero-claim hero-in" style="--i:3">Flores que guardan <em>tus momentos más bonitos.</em></p>
@@ -98,6 +100,28 @@
     </div>
   </section>
 
+  <!-- ===================== SECUENCIA DE FLORES (al hacer scroll) =====================
+       Una ventana en forma de arco se abre a pantalla completa y pasan tres escenas.
+       Para cambiar una escena, sustituye su imagen y su frase. -->
+  <section class="show" aria-label="Flores reales convertidas en joyas" data-show>
+    <div class="show-stage" data-show-stage>
+      <span class="show-word show-word--l" aria-hidden="true">Flores</span>
+      <span class="show-word show-word--r" aria-hidden="true">reales</span>
+      <p class="show-kicker" aria-hidden="true">Hechas a mano en <span data-ciudad>Lloret de Mar</span></p>
+      <div class="show-frame" data-show-frame>
+        <div class="show-scene" data-show-scene><img src="assets/img/orquidea-rosa.jpg" alt="Orquídea rosa natural sobre fondo claro" width="1000" height="1250" decoding="async"></div>
+        <div class="show-scene" data-show-scene><img src="assets/img/orquidea-prensada.jpg" alt="Orquídea natural prensada sobre fondo blanco" width="1100" height="1100" loading="lazy" decoding="async"></div>
+        <div class="show-scene" data-show-scene><img src="assets/img/a-medida.jpg" alt="Ramillete de flores secas blancas" width="1600" height="1000" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="show-caps" data-show-caps>
+        <p class="show-cap"><small>01</small>Una flor real, <em>para siempre.</em></p>
+        <p class="show-cap"><small>02</small>Se elige a mano y se seca <em>con paciencia.</em></p>
+        <p class="show-cap"><small>03</small>Un regalo que <em>no se marchita.</em></p>
+      </div>
+      <div class="show-index" aria-hidden="true"><span><b data-show-n>01</b> / 03</span><i><i data-show-bar></i></i></div>
+    </div>
+  </section>
+
   <!-- ============================ LA MARCA ============================ -->
   <section class="section brand" id="la-marca" aria-labelledby="brand-title">
     <div class="container brand-grid">
@@ -124,7 +148,7 @@
       <div class="story-text">
         <p class="kicker reveal">La historia de Amanda</p>
         <h2 id="story-title" class="title reveal">Las orquídeas <em>del jardín de mi infancia.</em></h2>
-        <blockquote class="story-quote reveal">
+        <blockquote class="story-quote" data-words>
           <p>“Las flores de mi vida son las orquídeas Cattleya lilas. Crecí viéndolas en el jardín de mi casa, en Cuba, y fueron las protagonistas del ramo de boda de mi mamá.”</p>
           <p>“Por eso llamé a mi marca Aura Flowers: para mí, las flores capturan la energía de nuestros recuerdos más bonitos, y quiero inmortalizarla.”</p>
         </blockquote>
@@ -156,6 +180,13 @@
     </div>
   </section>
 
+  <!-- Banda de flores y piezas que se desliza al hacer scroll (decorativa) -->
+  <div class="band" aria-hidden="true">
+    <div class="band-track" data-band>
+      <span>Orquídeas</span><span><em>Collares</em></span><span>Rosas</span><span><em>Pendientes</em></span><span>Margaritas</span><span><em>Anillos</em></span><span>Hecho a mano</span><span><em>Piezas únicas</em></span>
+    </div>
+  </div>
+
   <!-- ============================ REGALAR ============================ -->
   <section class="section gift" id="regalar" aria-labelledby="gift-title">
     <div class="container gift-grid">
@@ -181,7 +212,7 @@
   </section>
 
   <!-- ============================ A MEDIDA ============================ -->
-  <section class="custom" aria-labelledby="custom-title">
+  <section class="custom sec-in" aria-labelledby="custom-title">
     <img class="custom-bg" src="assets/img/a-medida.jpg" alt="" width="1600" height="1000" loading="lazy" decoding="async">
     <div class="container">
       <div class="custom-inner reveal">
