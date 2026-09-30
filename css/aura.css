@@ -760,3 +760,14 @@ em { font-style: italic; }
   .reel-text .lead { margin-left: auto; margin-right: auto; }
 }
 @media (prefers-reduced-motion: reduce) { .reel-play::before { display: none; } }
+.reel-video { position: relative; aspect-ratio: 9 / 16; max-height: 78vh; overflow: hidden; border-radius: 999px 999px 0 0; background: var(--ink); cursor: pointer; box-shadow: 0 40px 80px -40px rgba(60, 40, 30, .4); }
+.reel-video video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.reel-toggle { position: absolute; right: 16px; bottom: 16px; width: 46px; height: 46px; border-radius: 50%; background: rgba(255, 253, 249, .85); display: grid; place-items: center; transition: opacity .4s var(--ease), transform .4s var(--ease); }
+.reel-toggle svg { width: 18px; height: 18px; fill: var(--ink); }
+.reel-video .i-play { display: none; }
+.reel-video:not(.is-playing) .i-play { display: block; }
+.reel-video:not(.is-playing) .i-pause { display: none; }
+.reel-video.is-playing .reel-toggle { opacity: 0; }
+.reel-video.is-playing:hover .reel-toggle { opacity: 1; }
+.reel-video:not(.is-playing) .reel-toggle { width: 84px; height: 84px; right: calc(50% - 42px); bottom: calc(50% - 42px); }
+.reel-video:not(.is-playing) .reel-toggle svg { width: 26px; height: 26px; margin-left: 4px; }

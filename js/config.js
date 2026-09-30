@@ -29,8 +29,11 @@ window.AURA_CONFIG = {
   redes: {
     instagram: "https://www.instagram.com/aura_flowers21/",
     instagramUsuario: "aura_flowers21",
-    // Reel destacado en la sección de Instagram (enlace de la publicación). Vacío = no se muestra.
-    reelDestacado: "https://www.instagram.com/p/DYVdzbTidy3/",
+    // Vídeo destacado de la portada (archivo MP4 alojado en la web). Vacío = no se muestra.
+    videoDestacado: "assets/video/aura-reel.mp4",
+    videoPortada: "assets/video/aura-reel-portada.jpg",
+    // Publicación original en Instagram (para el enlace "Verlo en Instagram").
+    reelDestacado: "https://www.instagram.com/p/Db9DN8BiWmf/",
     tiktok: "",      // p. ej. "https://www.tiktok.com/@tu_usuario"
     facebook: "",    // p. ej. "https://www.facebook.com/tu_pagina"
     pinterest: ""

@@ -71,28 +71,27 @@
     upd();
   }
 
-  /* ---------- Reel destacado (se carga al pulsar) ---------- */
-  var reelUrl = A.get("redes.reelDestacado"), reel = $("[data-reel]");
-  if (reelUrl && reel) {
-    var link = $("[data-reel-link]"); if (link) link.href = reelUrl;
+  /* ---------- Vídeo destacado (reproductor propio, se carga al pulsar) ---------- */
+  var videoSrc = A.get("redes.videoDestacado"), reelUrl = A.get("redes.reelDestacado"), reel = $("[data-reel]");
+  var link = $("[data-reel-link]");
+  if (link) { if (reelUrl) link.href = reelUrl; else link.hidden = true; }
+  if (videoSrc && reel) {
+    var poster = A.get("redes.videoPortada") || "";
     $("[data-reel-play]", reel).addEventListener("click", function () {
-      reel.innerHTML = '<div class="reel-loading">Cargando el reel…</div>' +
-        '<blockquote class="instagram-media" data-instgrm-permalink="' + A.esc(reelUrl) + '?utm_source=ig_embed" data-instgrm-version="14" style="display:none"><a href="' + A.esc(reelUrl) + '">Ver en Instagram</a></blockquote>';
-      var ready = function () {
-        var bq = $(".instagram-media", reel); bq.style.display = "";
-        window.instgrm.Embeds.process();
-        // Quita el aviso de carga cuando Instagram termina de dibujar el reel (máx. 12 s)
-        var t0 = Date.now(), poll = setInterval(function () {
-          var f = $("iframe", reel), l = $(".reel-loading", reel);
-          if ((f && f.getBoundingClientRect().height > 150) || Date.now() - t0 > 12000) { clearInterval(poll); if (l) l.remove(); }
-        }, 250);
-      };
-      if (window.instgrm) { ready(); return; }
-      var s = document.createElement("script");
-      s.async = true; s.src = "https://www.instagram.com/embed.js";
-      s.onload = ready;
-      s.onerror = function () { reel.innerHTML = '<a class="btn btn--line btn--full" href="' + A.esc(reelUrl) + '" target="_blank" rel="noopener">Ver el reel en Instagram</a>'; };
-      document.body.appendChild(s);
+      var box = document.createElement("div"); box.className = "reel-video is-playing";
+      box.innerHTML = '<video src="' + A.esc(videoSrc) + '"' + (poster ? ' poster="' + A.esc(poster) + '"' : "") + ' playsinline muted loop preload="auto" aria-label="Vídeo de Aura Flowers"></video>' +
+        '<button class="reel-toggle" type="button" aria-label="Pausar"><svg viewBox="0 0 24 24"><path class="i-pause" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/><path class="i-play" d="M8 5.5v13l10.5-6.5z"/></svg></button>';
+      reel.innerHTML = ""; reel.appendChild(box);
+      var v = $("video", box), btn = $(".reel-toggle", box);
+      var sync = function () { var on = !v.paused; box.classList.toggle("is-playing", on); btn.setAttribute("aria-label", on ? "Pausar" : "Reproducir"); };
+      v.addEventListener("play", sync); v.addEventListener("pause", sync);
+      box.addEventListener("click", function () { v.paused ? v.play() : v.pause(); });
+      var p = v.play(); if (p && p.catch) p.catch(sync);
+      // Pausa automática al salir de pantalla
+      var seen = false;
+      if ("IntersectionObserver" in window) new IntersectionObserver(function (en) {
+        if (en[0].isIntersecting) seen = true; else if (seen && !v.paused) v.pause();
+      }, { threshold: .2 }).observe(box);
     });
   }
 
