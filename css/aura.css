@@ -95,7 +95,7 @@ em { font-style: italic; }
 .btn--light { --bg: var(--paper); --fg: var(--ink); --bd: var(--paper); --fill: var(--gold); }
 .btn--light:hover { color: var(--paper); }
 .btn--sm { min-height: 44px; padding: 0 20px; font-size: 11px; letter-spacing: .18em; }
-.btn--full { width: 100%; }
+.btn--full { width: 100%; white-space: normal; text-align: center; line-height: 1.45; padding-top: 12px; padding-bottom: 12px; }
 .btn[disabled], .btn[aria-disabled="true"] { --bg: transparent; --fg: var(--muted); --bd: var(--line); cursor: not-allowed; }
 .btn[disabled]::before { display: none; }
 .link {
@@ -540,6 +540,7 @@ em { font-style: italic; }
 .co-steps li.is-current::before { background: var(--ink); border-color: var(--ink); color: #fff; }
 .co-steps li.is-done::after, .co-steps li.is-current::after { background: var(--gold); }
 .co-grid { display: grid; grid-template-columns: 1fr 400px; gap: clamp(24px, 4vw, 56px); align-items: start; }
+.co-grid > *, .grid > *, .pdp-grid > *, .hero-grid > * { min-width: 0; }
 .panel { background: var(--paper); border: 1px solid var(--line); padding: clamp(22px, 3.4vw, 44px); }
 .panel h1, .panel h2 { font-size: clamp(30px, 3vw, 40px); font-weight: 300; margin-bottom: 8px; }
 .panel .sub { color: var(--muted); font-size: 14px; margin-bottom: 28px; }
