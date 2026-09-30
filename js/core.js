@@ -80,7 +80,7 @@
     add: function (id, qty) {
       var p = product(id); if (!p) return { ok: false, msg: "Esta pieza ya no está en el catálogo." };
       var s = status(p);
-      if (!s.comprable) return { ok: false, msg: s.estado === "proximamente" ? "Esta pieza estará disponible muy pronto." : "Esta pieza está agotada." };
+      if (!s.comprable) return { ok: false, msg: s.estado === "proximamente" ? "Esta pieza estará disponible muy pronto." : "Esta pieza ya se ha vendido." };
       qty = qty || 1;
       var items = this.items(), it = items.filter(function (x) { return x.id === id; })[0];
       var current = it ? it.qty : 0;
@@ -332,7 +332,7 @@
   function card(p, i) {
     var s = status(p), img = p.imagenes || [], url = "producto.html?id=" + encodeURIComponent(p.id);
     var badge = s.estado === "disponible" ? (p.etiqueta || (s.unica ? "Pieza única" : "")) : "";
-    var over = s.estado === "agotado" ? "Agotado" : s.estado === "proximamente" ? "Próximamente" : "";
+    var over = s.estado === "agotado" ? "Vendida" : s.estado === "proximamente" ? "Próximamente" : "";
     var mats = p.materiales ? Object.keys(p.materiales).slice(0, 2).map(function (k) { return p.materiales[k]; }).join(" · ") : "";
     var actions;
     if (s.comprable) {
@@ -340,11 +340,11 @@
     } else if (s.estado === "proximamente") {
       actions = '<div class="card-actions"><button class="btn btn--sm" disabled>Próximamente</button><a class="btn btn--line btn--sm" data-wa data-wa-text="' + esc("¡Hola Aura Flowers! 🌸 Avisadme cuando esté disponible: " + p.nombre) + '" href="#">Avísame</a></div>';
     } else {
-      actions = '<div class="card-actions"><button class="btn btn--sm" disabled>Agotado</button><a class="btn btn--line btn--sm" data-wa data-wa-text="' + esc("¡Hola Aura Flowers! 🌸 Me encanta la pieza «" + p.nombre + "». ¿Podríais crear una similar?") + '" href="#">Pedir similar</a></div>';
+      actions = '<div class="card-actions"><button class="btn btn--sm" disabled>Vendida</button><a class="btn btn--line btn--sm" data-wa data-wa-text="' + esc("¡Hola Aura Flowers! 🌸 Me encanta la pieza «" + p.nombre + "». ¿Podríais crear una similar?") + '" href="#">Pedir similar</a></div>';
     }
     return '<article class="card reveal ' + (s.estado !== "disponible" ? "is-" + s.estado : "") + '" style="--d:' + ((i || 0) % 3) * .08 + 's" data-cat="' + esc(p.categoria) + '" data-estado="' + s.estado + '">' +
       '<a class="card-media" href="' + url + '" aria-label="' + esc(p.nombre) + '">' +
-      '<img src="' + esc(img[0]) + '" alt="' + esc(p.nombre) + '" loading="lazy" decoding="async" width="800" height="1000">' +
+      '<img src="' + esc(img[0]) + '" alt="' + esc(p.nombre) + '" loading="lazy" decoding="async" width="900" height="1200"' + (p.foco ? ' style="object-position:' + esc(p.foco) + '"' : "") + '>' +
       (img[1] ? '<img class="alt" src="' + esc(img[1]) + '" alt="" loading="lazy" decoding="async">' : "") +
       (badge ? '<span class="badge' + (p.etiqueta ? "" : " badge--gold") + '">' + esc(badge) + "</span>" : "") +
       (over ? '<span class="state"><span>' + over + "</span></span>" : "") +

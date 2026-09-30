@@ -42,6 +42,11 @@ Web estática (HTML, CSS y JavaScript, sin dependencias) publicada con GitHub Pa
 
 La pieza sigue visible en la web con la etiqueta **AGOTADO**, sin botón de compra, como parte del archivo de Aura Flowers.
 
+## Vídeo de portada
+
+- `assets/video/aura-hero.mp4` es lo primero que se ve al entrar. Se reproduce solo y en silencio (los navegadores no permiten sonido automático) con un botón «Activar sonido».
+- Para cambiarlo, sustituye ese archivo por otro MP4 vertical (H.264, idealmente menos de 8 MB) con el mismo nombre, y `aura-hero-portada.jpg` por un fotograma suyo.
+
 ## Fotos
 
 - `assets/brand/`: logotipo real (dorado y marfil con fondo transparente), favicon e imagen para compartir.

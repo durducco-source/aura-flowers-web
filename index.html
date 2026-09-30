@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/aura.css">
-<link rel="preload" as="image" href="assets/aura/collar-orquidea.jpg">
+<link rel="preload" as="image" href="assets/video/aura-hero-portada.jpg">
 <script>(function(){var c="js",r=document.documentElement;try{if(sessionStorage.getItem("aura_intro")||matchMedia("(prefers-reduced-motion: reduce)").matches)c+=" intro-seen";else c+=" intro-pending";sessionStorage.setItem("aura_intro","1")}catch(e){c+=" intro-seen"}r.className=c;setTimeout(function(){r.classList.remove("intro-pending")},2600)})();</script>
 <script type="application/ld+json">
 {
@@ -49,7 +49,7 @@
 }
 </script>
 </head>
-<body>
+<body class="vhero-page">
 <div class="intro" aria-hidden="true"><img src="assets/brand/aura-logo-dorado.png" alt="" width="700" height="838"></div>
 <div class="progress" aria-hidden="true"><span></span></div>
 <a class="skip" href="#main">Saltar al contenido</a>
@@ -85,8 +85,28 @@
 
 <main id="main">
 
-  <!-- ================================ PORTADA ================================ -->
-  <section class="hero" id="inicio" aria-labelledby="hero-title">
+  <!-- ================================ PORTADA · VÍDEO ================================
+       Vídeo: assets/video/aura-hero.mp4 · Portada mientras carga: assets/video/aura-hero-portada.jpg -->
+  <section class="vhero" id="inicio" aria-labelledby="hero-title" data-vhero>
+    <div class="vhero-bg" aria-hidden="true"><video data-vbg muted loop playsinline preload="none" poster="assets/video/aura-hero-portada.jpg"></video></div>
+    <div class="vhero-stage">
+      <div class="vhero-frame" data-vframe>
+        <video data-vmain src="assets/video/aura-hero.mp4" poster="assets/video/aura-hero-portada.jpg" autoplay muted loop playsinline preload="auto" aria-label="Vídeo de Aura Flowers: piezas, taller y empaquetado"></video>
+        <span class="vhero-progress" aria-hidden="true"><span data-vprog></span></span>
+      </div>
+    </div>
+    <div class="vhero-shade" aria-hidden="true"></div>
+    <div class="vhero-copy">
+      <p class="vhero-kicker v-in" style="--i:0">Joyería botánica · Hecha a mano</p>
+      <h1 id="hero-title" class="vhero-title v-in" style="--i:1">Flores naturales, convertidas en <em>joyas eternas.</em></h1>
+      <div class="vhero-cta v-in" style="--i:2"><a class="btn btn--light" href="#coleccion">Descubrir la colección <i class="arr" aria-hidden="true"></i></a></div>
+    </div>
+    <button class="vhero-sound v-in" style="--i:3" type="button" data-vsound><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span data-vsound-label>Activar sonido</span></button>
+    <a class="vhero-scroll v-in" style="--i:4" href="#marca" aria-label="Seguir bajando">Descubrir<i></i></a>
+  </section>
+
+  <!-- ================================ LA MARCA ================================ -->
+  <section class="hero hero--brand" id="marca" aria-labelledby="brand-title">
     <div class="petals" aria-hidden="true">
       <span class="petal" style="left:8%;--d:19s;--delay:0s;--x:80px"><svg viewBox="0 0 14 20"><path d="M7 0C12 5 14 12 7 20 0 12 2 5 7 0z" fill="#e7c9d6"/></svg></span>
       <span class="petal" style="left:28%;--d:23s;--delay:6s;--x:-60px"><svg viewBox="0 0 14 20"><path d="M7 0C12 5 14 12 7 20 0 12 2 5 7 0z" fill="#d9c3e4"/></svg></span>
@@ -96,39 +116,38 @@
     </div>
     <div class="container hero-grid">
       <div class="hero-copy">
-        <img class="hero-logo h-in" style="--i:0" src="assets/brand/aura-logo-dorado.png" alt="Aura Flowers" width="700" height="838" fetchpriority="high">
-        <span class="hero-logo-sub h-in" style="--i:1">Flowers · Joyería botánica</span>
-        <h1 id="hero-title" class="h-in" style="--i:2">Flores naturales, convertidas en <em>joyas eternas.</em></h1>
-        <p class="lead h-in" style="--i:3">Orquídeas y flores reales preservadas a mano en piezas únicas. Creadas una a una en Lloret de Mar para guardar tus momentos más bonitos.</p>
-        <div class="hero-cta h-in" style="--i:4">
+        <img class="hero-logo reveal" src="assets/brand/aura-logo-dorado.png" alt="Aura Flowers" width="700" height="838" loading="lazy">
+        <span class="hero-logo-sub reveal">Flowers · Joyería botánica</span>
+        <h2 id="brand-title" class="hero-h" data-split>Cada flor, convertida en <em>una pieza única.</em></h2>
+        <p class="lead reveal">Orquídeas y flores reales preservadas a mano en piezas únicas. Creadas una a una en Lloret de Mar para guardar tus momentos más bonitos.</p>
+        <div class="hero-cta reveal">
           <a class="btn" href="#coleccion">Descubrir la colección <i class="arr" aria-hidden="true"></i></a>
           <a class="link" href="#historia">Nuestra historia</a>
         </div>
-        <ul class="hero-trust h-in" style="--i:5">
+        <ul class="hero-trust reveal">
           <li>Flores 100 % naturales</li>
           <li>Piezas únicas</li>
           <li>Hecho a mano</li>
         </ul>
       </div>
 
-      <div class="hero-visual">
+      <div class="hero-visual reveal">
         <div class="arch">
           <div class="slides" data-slides>
-            <div class="slide is-active"><img src="assets/aura/collar-orquidea.jpg" alt="Colgante con una orquídea lila natural preservada en resina" width="794" height="794" fetchpriority="high"></div>
-            <div class="slide"><img src="assets/hero/buganvilla.jpg" alt="Amanda, creadora de Aura Flowers, frente a una pared de buganvillas" width="900" height="1600" loading="lazy" decoding="async"></div>
-            <div class="slide"><img src="assets/hero/colgante-orquidea-fucsia.jpg" alt="Colgante de orquídea fucsia natural con doble cadena dorada" width="395" height="899" loading="lazy" decoding="async"></div>
-            <div class="slide"><img src="assets/hero/jardin-sonrisa.jpg" alt="Amanda sonríe entre flores amarillas en un jardín mediterráneo" width="900" height="1600" loading="lazy" decoding="async"></div>
+            <div class="slide is-active"><img src="assets/productos/colgante-orquidea-fucsia.jpg" alt="Colgante con una orquídea fucsia natural preservada en resina" width="900" height="1600" loading="lazy" decoding="async"></div>
+            <div class="slide"><img src="assets/productos/collar-orquidea-burdeos.jpg" alt="Collar con una orquídea burdeos natural y cadena de mariposas" width="900" height="1600" loading="lazy" decoding="async"></div>
+            <div class="slide"><img src="assets/productos/collar-rosa-eterna.jpg" alt="Collar con una rosa natural preservada y cadena de corazones" width="1080" height="1918" loading="lazy" decoding="async"></div>
+            <div class="slide"><img src="assets/productos/colgante-narciso-libelula.jpg" alt="Colgante con un narciso natural en aro dorado y libélula" width="900" height="1600" loading="lazy" decoding="async"></div>
           </div>
           <div class="slide-dots" data-dots></div>
         </div>
-        <div class="seal h-in" style="--i:6" aria-hidden="true">
+        <div class="seal" aria-hidden="true">
           <svg viewBox="0 0 200 200"><defs><path id="sealp" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><text><textPath href="#sealp">Piezas únicas · Flores naturales · Hecho a mano ·</textPath></text></svg>
           <img src="assets/brand/aura-orquidea-dorado.png" alt="" width="300" height="280">
         </div>
-        <div class="hero-round h-in" style="--i:5"><img src="assets/hero/hibisco-margarita.jpg" alt="Collar con una margarita natural" width="904" height="1358" decoding="async"></div>
+        <div class="hero-round"><img src="assets/hero/hibisco-margarita.jpg" alt="Collar con una margarita natural" width="904" height="1358" decoding="async"></div>
       </div>
     </div>
-    <a class="hero-scroll" href="#coleccion" aria-label="Bajar a la colección">Descubrir<i></i></a>
   </section>
 
   <div class="ribbon" aria-hidden="true">
@@ -286,8 +305,8 @@
       <ol class="steps">
         <li class="step reveal"><div class="photo reveal-img"><img src="assets/hero/phalaenopsis-cesta.jpg" alt="Flores de orquídea Phalaenopsis sobre una cesta de mimbre" width="392" height="899" loading="lazy" decoding="async"></div><div><span class="step-n">01</span><h3>Elegir la flor</h3><p>Orquídeas, rosas y margaritas reales, escogidas una a una.</p></div></li>
         <li class="step reveal" style="--d:.1s"><div class="photo reveal-img"><img src="assets/taller/orquideas-estante.jpg" alt="Orquídeas en maceta en el estudio de Aura Flowers" width="529" height="899" loading="lazy" decoding="async"></div><div><span class="step-n">02</span><h3>Preservar</h3><p>Se secan con paciencia para conservar su forma y su color.</p></div></li>
-        <li class="step reveal" style="--d:.2s"><div class="photo reveal-img"><img src="assets/ig/ig-06.jpg" alt="Orquídea natural encapsulada en resina, sostenida en la mano" width="360" height="640" loading="lazy" decoding="async"></div><div><span class="step-n">03</span><h3>Encapsular</h3><p>Resina con protección UV, pulida y montada a mano.</p></div></li>
-        <li class="step reveal" style="--d:.3s"><div class="photo reveal-img"><img src="assets/ig/ig-10.jpg" alt="Caja de regalo de Aura Flowers con cordel y gipsófila" width="360" height="640" loading="lazy" decoding="async"></div><div><span class="step-n">04</span><h3>Para ti</h3><p>Sale envuelta con mimo, lista para regalar o regalarte.</p></div></li>
+        <li class="step reveal" style="--d:.2s"><div class="photo reveal-img"><img src="assets/productos/orquideas-burdeos-resina.jpg" alt="Orquídeas burdeos naturales encapsuladas en resina" width="900" height="1600" loading="lazy" decoding="async"></div><div><span class="step-n">03</span><h3>Encapsular</h3><p>Resina con protección UV, pulida y montada a mano.</p></div></li>
+        <li class="step reveal" style="--d:.3s"><div class="photo reveal-img"><img src="assets/productos/caja-regalo.jpg" alt="Cajas de regalo de Aura Flowers con cordel y gipsófila" width="900" height="1600" loading="lazy" decoding="async"></div><div><span class="step-n">04</span><h3>Para ti</h3><p>Sale envuelta con mimo, lista para regalar o regalarte.</p></div></li>
       </ol>
     </div>
   </section>
@@ -308,7 +327,7 @@
       </div>
       <div class="custom-media">
         <div class="arch-sm reveal-img"><img src="assets/aura/orquidea-fucsia.jpg" alt="Orquídea fucsia envuelta para regalo" width="1100" height="1100" loading="lazy" decoding="async"></div>
-        <div class="mini reveal-img" style="--d:.3s" data-parallax="0.1"><img src="assets/aura/phalaenopsis.jpg" alt="Flores de orquídea Phalaenopsis lila" width="420" height="420" loading="lazy" decoding="async"></div>
+        <div class="mini reveal-img" style="--d:.3s" data-parallax="0.1"><img src="assets/productos/orquidea-salon.jpg" alt="Orquídea en flor junto a una ventana" width="1080" height="1918" loading="lazy" decoding="async"></div>
       </div>
     </div>
   </section>

@@ -3,6 +3,74 @@
   "use strict";
   var A = window.Aura, $ = A.$, $$ = A.$$;
 
+  /* ---------- Portada con vídeo ---------- */
+  (function videoHero() {
+    var hero = $("[data-vhero]"); if (!hero) return;
+    var main = $("[data-vmain]", hero), bg = $("[data-vbg]", hero), btn = $("[data-vsound]", hero), label = $("[data-vsound-label]", hero), prog = $("[data-vprog]", hero);
+    var desktop = matchMedia("(min-width: 901px)");
+    var wantSound = false, inView = true, fadeT;
+
+    // Fondo desenfocado (solo escritorio): mismo vídeo, sin sonido
+    function startBg() {
+      if (!desktop.matches || A.reduce) { bg.pause(); return; }
+      if (!bg.src) bg.src = main.currentSrc || main.src;
+      bg.currentTime = main.currentTime || 0;
+      var p = bg.play(); if (p && p.catch) p.catch(function () {});
+    }
+    function ui() {
+      var paused = main.paused, on = !paused && !main.muted;
+      btn.classList.toggle("is-on", on); btn.classList.toggle("is-paused", paused);
+      label.textContent = paused ? "Ver vídeo" : (on ? "Silenciar" : "Activar sonido");
+      btn.setAttribute("aria-label", label.textContent);
+    }
+    function fadeTo(target, done) {
+      clearInterval(fadeT);
+      fadeT = setInterval(function () {
+        var v = main.volume + (target > main.volume ? .06 : -.08);
+        if ((target > main.volume && v >= target) || (target <= main.volume && v <= target)) { main.volume = Math.max(0, Math.min(1, target)); clearInterval(fadeT); done && done(); }
+        else main.volume = Math.max(0, Math.min(1, v));
+      }, 40);
+    }
+    function play() { var p = main.play(); if (p && p.catch) p.catch(function () { ui(); }); startBg(); }
+
+    btn.addEventListener("click", function () {
+      if (main.paused) { wantSound = true; main.muted = false; main.volume = 0; play(); fadeTo(.7); }
+      else if (main.muted) { wantSound = true; main.volume = 0; main.muted = false; fadeTo(.7); }
+      else { wantSound = false; fadeTo(0, function () { main.muted = true; ui(); }); }
+      ui();
+    });
+    main.addEventListener("play", ui); main.addEventListener("pause", ui); main.addEventListener("volumechange", ui);
+    main.addEventListener("timeupdate", function () {
+      if (main.duration) prog.style.transform = "scaleX(" + (main.currentTime / main.duration).toFixed(4) + ")";
+      if (!bg.paused && Math.abs(bg.currentTime - main.currentTime) > .35) bg.currentTime = main.currentTime;
+    });
+    desktop.addEventListener && desktop.addEventListener("change", startBg);
+
+    // Movimiento sutil: sin reproducción automática
+    if (A.reduce) { main.removeAttribute("autoplay"); main.pause(); }
+    else play();
+    ui();
+
+    // Pausa al salir de pantalla o de la pestaña; baja el sonido al hacer scroll
+    if ("IntersectionObserver" in window) new IntersectionObserver(function (en) {
+      inView = en[0].isIntersecting;
+      if (!inView) { main.pause(); bg.pause(); }
+      else if (!A.reduce && main.paused && (wantSound || main.muted)) play();
+    }, { threshold: .12 }).observe(hero);
+    document.addEventListener("visibilitychange", function () { if (document.hidden) { main.pause(); bg.pause(); } else if (inView && !A.reduce) play(); });
+
+    // Transición al hacer scroll (variable --p de 0 a 1)
+    var ticking = false;
+    function onScroll() {
+      var p = Math.min(1, Math.max(0, scrollY / (hero.offsetHeight || innerHeight)));
+      hero.style.setProperty("--p", p.toFixed(3));
+      if (!main.muted && wantSound) main.volume = Math.max(0, .7 * (1 - p * 1.4));
+      ticking = false;
+    }
+    addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+    onScroll();
+  })();
+
   /* ---------- Colección ---------- */
   var grid = $("[data-grid]"), filtersEl = $("[data-filters]"), current = "todas";
 
@@ -11,7 +79,7 @@
     A.cat.productos.forEach(function (p) { used[p.categoria] = true; });
     var opts = [{ id: "todas", nombre: "Todas" }, { id: "disponibles", nombre: "Disponibles" }]
       .concat(A.cat.categorias.filter(function (c) { return used[c.id]; }));
-    if (A.cat.productos.some(function (p) { return A.status(p).estado === "agotado"; })) opts.push({ id: "archivo", nombre: "Archivo" });
+    if (A.cat.productos.some(function (p) { return A.status(p).estado === "agotado"; })) opts.push({ id: "archivo", nombre: "Vendidas" });
     filtersEl.innerHTML = opts.map(function (o) {
       return '<button class="filter' + (o.id === current ? " is-active" : "") + '" data-f="' + o.id + '" aria-pressed="' + (o.id === current) + '">' + A.esc(o.nombre) + "</button>";
     }).join("");

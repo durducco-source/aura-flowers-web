@@ -30,7 +30,7 @@
     var inCart = A.cart.qty(p.id), maxAdd = Math.max(0, s.stock - inCart);
     qty = Math.max(1, Math.min(qty, maxAdd || 1));
     var tags = "";
-    if (s.estado === "agotado") tags += '<span class="tag tag--off">Agotado</span>';
+    if (s.estado === "agotado") tags += '<span class="tag tag--off">Vendida</span>';
     else if (s.estado === "proximamente") tags += '<span class="tag tag--off">Próximamente</span>';
     else {
       tags += '<span class="tag tag--gold">Disponible</span>';
@@ -48,7 +48,7 @@
     } else if (s.estado === "proximamente") {
       buy = '<div class="pdp-actions"><button class="btn btn--full" disabled>Próximamente</button><a class="btn btn--line btn--full" data-wa data-wa-text="' + esc("¡Hola Aura Flowers! 🌸 Avisadme cuando esté disponible: " + p.nombre) + '" href="#">Avísame cuando esté disponible</a></div>';
     } else {
-      buy = '<div class="pdp-actions"><button class="btn btn--full" disabled>Agotado · Pieza vendida</button><a class="btn btn--line btn--full" data-wa data-wa-text="' + esc("¡Hola Aura Flowers! 🌸 Me encanta la pieza «" + p.nombre + "». ¿Podríais crear una similar?") + '" href="#">Encargar una pieza similar</a></div>' +
+      buy = '<div class="pdp-actions"><button class="btn btn--full" disabled>Pieza vendida</button><a class="btn btn--line btn--full" data-wa data-wa-text="' + esc("¡Hola Aura Flowers! 🌸 Me encanta la pieza «" + p.nombre + "». ¿Podríais crear una similar?") + '" href="#">Encargar una pieza similar</a></div>' +
         '<p class="pdp-note">Esta pieza ya encontró su dueña. La mantenemos aquí como parte del archivo de Aura Flowers.</p>';
     }
 
@@ -58,8 +58,8 @@
       '<nav class="crumbs" aria-label="Ruta"><a href="index.html">Inicio</a><span>/</span><a href="index.html#coleccion">Colección</a><span>/</span><span>' + esc(A.catName(p.categoria)) + "</span></nav>" +
       '<div class="pdp-grid"><div class="pdp-gallery">' +
         '<div class="gallery-main' + (s.estado !== "disponible" ? " card is-" + s.estado : "") + '">' +
-          imgs.map(function (src, i) { return '<img src="' + esc(src) + '" alt="' + esc(p.nombre) + (i ? " · vista " + (i + 1) : "") + '" style="opacity:' + (i ? 0 : 1) + '"' + (i ? ' loading="lazy"' : ' fetchpriority="high"') + ' data-gi="' + i + '">'; }).join("") +
-          (s.estado === "agotado" ? '<span class="state"><span>Agotado</span></span>' : s.estado === "proximamente" ? '<span class="state"><span>Próximamente</span></span>' : "") +
+          imgs.map(function (src, i) { return '<img src="' + esc(src) + '" alt="' + esc(p.nombre) + (i ? " · vista " + (i + 1) : "") + '" style="opacity:' + (i ? 0 : 1) + (p.foco && !i ? ";object-position:" + esc(p.foco) : "") + '"' + (i ? ' loading="lazy"' : ' fetchpriority="high"') + ' data-gi="' + i + '">'; }).join("") +
+          (s.estado === "agotado" ? '<span class="state"><span>Vendida</span></span>' : s.estado === "proximamente" ? '<span class="state"><span>Próximamente</span></span>' : "") +
         "</div>" +
         (imgs.length > 1 ? '<div class="thumbs">' + imgs.map(function (src, i) { return '<button class="' + (i ? "" : "is-active") + '" data-thumb="' + i + '" aria-label="Ver imagen ' + (i + 1) + '"><img src="' + esc(src) + '" alt=""></button>'; }).join("") + "</div>" : "") +
       "</div>" +
@@ -89,7 +89,7 @@
     if (bar) {
       bar.innerHTML = s.comprable
         ? '<button class="btn btn--sm" data-buy="' + esc(p.id) + '">Comprar</button><button class="btn btn--line btn--sm" data-add="' + esc(p.id) + '"' + (maxAdd <= 0 ? " disabled" : "") + ">" + (maxAdd <= 0 ? "En tu carrito" : "Añadir al carrito") + "</button>"
-        : '<button class="btn btn--sm" disabled>' + (s.estado === "agotado" ? "Agotado" : "Próximamente") + '</button><a class="btn btn--line btn--sm" data-wa data-wa-text="' + esc("¡Hola Aura Flowers! 🌸 Me interesa la pieza «" + p.nombre + "».") + '" href="#">Consultar</a>';
+        : '<button class="btn btn--sm" disabled>' + (s.estado === "agotado" ? "Vendida" : "Próximamente") + '</button><a class="btn btn--line btn--sm" data-wa data-wa-text="' + esc("¡Hola Aura Flowers! 🌸 Me interesa la pieza «" + p.nombre + "».") + '" href="#">Consultar</a>';
       A.bindLinks(bar);
     }
 
