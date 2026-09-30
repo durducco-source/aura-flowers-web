@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>Recortar música para web</title>
+<style>
+  body { font: 15px/1.6 system-ui, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 16px; color: #241d1a; background: #f8f4ed; }
+  h1 { font-weight: 400; } label { display: block; margin: 14px 0 6px; } a.dl { display: inline-block; margin-top: 10px; }
+  button { padding: 12px 22px; background: #241d1a; color: #fff; border: 0; cursor: pointer; } pre { background: #fff; padding: 12px; }
+</style>
+</head>
+<body>
+<h1>Recortar música para web</h1>
+<p>Recorta una pista (MP3, WAV…) a un fragmento con fundido de entrada y salida y la comprime en M4A/AAC a 128 kbps (unos 950 KB por minuto). Usa solo música con licencia para web (por ejemplo, Pixabay Music). Nunca canciones de la biblioteca de Instagram o TikTok.</p>
+<label>Pista <input type="file" id="f" accept="audio/*"></label>
+<label>Empezar en el segundo <input type="number" id="ini" value="0" min="0"></label>
+<label>Duración (segundos) <input type="number" id="dur" value="60" min="10" max="300"></label>
+<button id="go">Crear</button>
+<pre id="log"></pre><div id="out"></div>
+<script type="module">
+import { Muxer, ArrayBufferTarget } from "https://cdn.jsdelivr.net/npm/mp4-muxer@5/+esm";
+const $ = (s) => document.querySelector(s), log = (m) => { $("#log").textContent += m + "\n"; };
+$("#go").onclick = async () => {
+  const file = $("#f").files[0]; if (!file) return alert("Elige una pista");
+  $("#log").textContent = ""; $("#out").innerHTML = "";
+  try {
+    const ac = new AudioContext({ sampleRate: 44100 }), src = await ac.decodeAudioData(await file.arrayBuffer()), SR = src.sampleRate, CH = 2;
+    const start = Math.floor(+$("#ini").value * SR), LEN = Math.min(Math.floor(+$("#dur").value * SR), src.length - start), FIN = 1.2 * SR, FOUT = 3 * SR;
+    log("Original " + src.duration.toFixed(1) + " s → fragmento de " + (LEN / SR).toFixed(1) + " s");
+    const cfg = { codec: "mp4a.40.2", sampleRate: SR, numberOfChannels: CH, bitrate: 128000 };
+    if (!(await AudioEncoder.isConfigSupported(cfg)).supported) throw new Error("Tu navegador no puede codificar AAC");
+    const muxer = new Muxer({ target: new ArrayBufferTarget(), audio: { codec: "aac", sampleRate: SR, numberOfChannels: CH }, fastStart: "in-memory" });
+    let err; const enc = new AudioEncoder({ output: (c, m) => muxer.addAudioChunk(c, m), error: (e) => (err = e) }); enc.configure(cfg);
+    for (let off = 0; off < LEN; off += 4096) {
+      const n = Math.min(4096, LEN - off), data = new Float32Array(n * CH);
+      for (let c = 0; c < CH; c++) {
+        const d = src.getChannelData(Math.min(c, src.numberOfChannels - 1));
+        for (let i = 0; i < n; i++) { const k = off + i; let g = 1; if (k < FIN) g = k / FIN; else if (k > LEN - FOUT) g = (LEN - k) / FOUT; data[c * n + i] = d[start + k] * g * 0.9; }
+      }
+      const ad = new AudioData({ format: "f32-planar", sampleRate: SR, numberOfFrames: n, numberOfChannels: CH, timestamp: Math.round(off / SR * 1e6), data });
+      enc.encode(ad); ad.close(); if (err) throw err;
+    }
+    await enc.flush(); muxer.finalize();
+    const blob = new Blob([muxer.target.buffer], { type: "audio/mp4" }), a = document.createElement("a");
+    a.className = "dl"; a.href = URL.createObjectURL(blob); a.download = "musica.m4a"; a.textContent = "Descargar musica.m4a (" + Math.round(blob.size / 1024) + " KB)"; $("#out").appendChild(a);
+    log("Listo.");
+  } catch (e) { log("ERROR: " + e.message); }
+};
+</script>
+</body>
+</html>

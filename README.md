@@ -7,6 +7,8 @@ Web estática (HTML, CSS y JavaScript, sin dependencias) publicada con GitHub Pa
 
 📣 **Kit de anuncios (diseños, textos, enlaces y segmentación):** https://durducco-source.github.io/aura-flowers-web/anuncios/ — archivos en `anuncios/`
 
+🧭 **Ideas, decisiones y herramientas para las próximas webs:** [GUIA-PROXIMAS-WEBS.md](GUIA-PROXIMAS-WEBS.md) · carpeta `herramientas/`
+
 ➡️ **Qué falta configurar (pagos, pedidos, píxeles, datos legales): [CONFIGURACION.md](CONFIGURACION.md)**
 
 ## Páginas

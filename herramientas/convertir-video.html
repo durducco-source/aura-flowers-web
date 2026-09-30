@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>Conversor de vídeo para web</title>
+<style>
+  body { font: 15px/1.6 system-ui, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 16px; color: #241d1a; background: #f8f4ed; }
+  h1 { font-weight: 400; } label { display: block; margin: 14px 0 6px; } a.dl { display: inline-block; margin: 8px 12px 0 0; }
+  button { padding: 12px 22px; background: #241d1a; color: #fff; border: 0; cursor: pointer; } pre { background: #fff; padding: 12px; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<h1>Conversor de vídeo para web</h1>
+<p>Convierte cualquier vídeo (también HEVC/H.265 de iPhone o CapCut) en MP4 H.264 sin audio, compatible con todos los navegadores, en dos tamaños: <b>1080p</b> para ordenador y <b>720p</b> para móvil, más una imagen de portada. Todo ocurre en tu navegador (Chrome o Edge): el vídeo no se sube a ningún sitio.</p>
+<label>Vídeo original <input type="file" id="f" accept="video/*"></label>
+<label>Fotogramas por segundo <input type="number" id="fps" value="30" min="15" max="60"></label>
+<button id="go">Convertir</button>
+<pre id="log"></pre>
+<div id="out"></div>
+<script type="module">
+import { Muxer, ArrayBufferTarget } from "https://cdn.jsdelivr.net/npm/mp4-muxer@5/+esm";
+const $ = (s) => document.querySelector(s), log = (m) => { $("#log").textContent += m + "\n"; };
+function dl(blob, name) { const a = document.createElement("a"); a.className = "dl"; a.href = URL.createObjectURL(blob); a.download = name; a.textContent = "Descargar " + name + " (" + Math.round(blob.size / 1024) + " KB)"; $("#out").appendChild(a); }
+$("#go").onclick = async () => {
+  const file = $("#f").files[0]; if (!file) return alert("Elige un vídeo");
+  $("#go").disabled = true; $("#log").textContent = ""; $("#out").innerHTML = "";
+  try {
+    const v = document.createElement("video"); v.muted = true; v.src = URL.createObjectURL(file);
+    await new Promise((r, j) => { v.onloadeddata = r; v.onerror = () => j(new Error("El navegador no puede leer este vídeo")); });
+    const FPS = +$("#fps").value || 30, n = Math.floor(v.duration * FPS), vertical = v.videoHeight >= v.videoWidth;
+    log("Original: " + v.videoWidth + "×" + v.videoHeight + ", " + v.duration.toFixed(1) + " s");
+    const size = (long) => { const r = v.videoWidth / v.videoHeight; let W = vertical ? Math.round(long * r) : long, H = vertical ? long : Math.round(long / r); return [W - W % 2, H - H % 2]; };
+    const outs = [
+      { name: "video-1080.mp4", dims: size(1920), codec: "avc1.640028", bitrate: 4_000_000 },
+      { name: "video-720.mp4", dims: size(1280), codec: "avc1.64001f", bitrate: 2_300_000 }
+    ];
+    for (const o of outs) {
+      [o.W, o.H] = o.dims; o.cv = new OffscreenCanvas(o.W, o.H); o.ctx = o.cv.getContext("2d");
+      const cfg = { codec: o.codec, width: o.W, height: o.H, bitrate: o.bitrate, framerate: FPS, avc: { format: "avc" } };
+      if (!(await VideoEncoder.isConfigSupported(cfg)).supported) throw new Error("Tu navegador no puede codificar " + o.name);
+      o.muxer = new Muxer({ target: new ArrayBufferTarget(), video: { codec: "avc", width: o.W, height: o.H, frameRate: FPS }, fastStart: "in-memory" });
+      o.enc = new VideoEncoder({ output: (c, m) => o.muxer.addVideoChunk(c, m), error: (e) => (o.err = e) });
+      o.enc.configure(cfg);
+    }
+    let poster;
+    for (let i = 0; i < n; i++) {
+      v.currentTime = Math.min(v.duration - 0.001, (i + 0.5) / FPS);
+      await new Promise((r) => (v.onseeked = r));
+      for (const o of outs) {
+        o.ctx.drawImage(v, 0, 0, o.W, o.H);
+        const vf = new VideoFrame(o.cv, { timestamp: Math.round(i * 1e6 / FPS), duration: Math.round(1e6 / FPS) });
+        o.enc.encode(vf, { keyFrame: i % (FPS * 2) === 0 }); vf.close();
+        while (o.enc.encodeQueueSize > 6) await new Promise((r) => setTimeout(r, 4));
+        if (o.err) throw o.err;
+      }
+      if (i === 4) poster = await outs[1].cv.convertToBlob({ type: "image/jpeg", quality: 0.84 });
+      if (i % 60 === 0) log("Fotograma " + i + " / " + n);
+    }
+    for (const o of outs) { await o.enc.flush(); o.muxer.finalize(); dl(new Blob([o.muxer.target.buffer], { type: "video/mp4" }), o.name); }
+    dl(poster, "video-portada.jpg");
+    log("Listo.");
+  } catch (e) { log("ERROR: " + e.message); }
+  $("#go").disabled = false;
+};
+</script>
+</body>
+</html>
