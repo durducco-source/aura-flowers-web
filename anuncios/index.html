@@ -46,6 +46,12 @@
   table.cal { width: 100%; border-collapse: collapse; font-size: 14px; }
   table.cal td, table.cal th { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
   table.cal th { font-weight: 400; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+  .reels-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 20px; }
+  .reel-card { border: 1px solid var(--line); background: #fff; padding: 12px; min-width: 0; }
+  .reel-card video { width: 100%; aspect-ratio: 9 / 16; display: block; background: var(--sand); }
+  .reel-card h4 { font: 400 20px/1.2 var(--serif); margin: 12px 0 8px; }
+  .reel-card .btn { margin-bottom: 10px; }
+  @media (max-width: 1000px) { .reels-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 640px) { .copyrow { grid-template-columns: 1fr; } .thumbs-row img { height: 150px; } }
 </style>
 </head>
@@ -61,7 +67,7 @@
   </div>
 
   <nav class="tabs" aria-label="Secciones"><div class="container">
-    <a class="filter" href="#antes">Antes de empezar</a><a class="filter" href="#disenos">Diseños</a><a class="filter" href="#meta">Instagram y Facebook</a><a class="filter" href="#tiktok">TikTok</a><a class="filter" href="#google">Google</a><a class="filter" href="#pinterest">Pinterest</a><a class="filter" href="#publico">Público</a><a class="filter" href="#calendario">Calendario</a>
+    <a class="filter" href="#antes">Antes de empezar</a><a class="filter" href="#reels">Reels</a><a class="filter" href="#disenos">Diseños</a><a class="filter" href="#meta">Instagram y Facebook</a><a class="filter" href="#tiktok">TikTok</a><a class="filter" href="#google">Google</a><a class="filter" href="#pinterest">Pinterest</a><a class="filter" href="#publico">Público</a><a class="filter" href="#calendario">Calendario</a>
   </div></nav>
 
   <div class="container">
@@ -76,6 +82,24 @@
         <li>Usa siempre los <b>enlaces de esta página</b>: llevan etiquetas UTM y cada pedido guarda de qué anuncio vino.</li>
         <li><b>No pongas precios</b> en los anuncios; la web tampoco los muestra. El importe se confirma al cliente tras el pedido.</li>
       </ol>
+    </section>
+
+    <section class="block" id="reels">
+      <h2>Anuncios para Reels</h2>
+      <p>Cuatro vídeos verticales (1080×1920, 9:16, MP4, ~13 s) hechos con tus fotos. Los textos quedan en la zona central para que no los tapen el nombre, la descripción ni el botón del anuncio en Reels. Sirven también para Stories, TikTok y YouTube Shorts.</p>
+      <div class="reels-grid" data-reels></div>
+
+      <h3>Cómo ponerlos en Reels (Instagram y Facebook)</h3>
+      <ol>
+        <li>Entra en <b>business.facebook.com/adsmanager</b> → <b>Crear</b> → objetivo <b>Ventas</b> (o <b>Tráfico</b> mientras el píxel no tenga datos).</li>
+        <li>En el conjunto de anuncios, elige el público (ver <a href="#publico">Público</a>) y en <b>Ubicaciones</b> marca <b>Ubicaciones manuales</b> → deja activadas <b>Instagram Reels</b>, <b>Facebook Reels</b>, <b>Instagram Stories</b> y <b>Facebook Stories</b>. (Si prefieres, deja «Advantage+»: Meta también los mostrará en Reels.)</li>
+        <li>En el anuncio: <b>Imagen o vídeo único</b> → sube el MP4 del reel. Identidad: tu página de Facebook y tu cuenta de Instagram <b>@aura_flowers21</b>.</li>
+        <li>Pega el <b>texto principal</b>, el <b>título</b> y la <b>URL del sitio web</b> que aparecen debajo de cada vídeo, y el <b>botón</b> («Comprar» o «Más información»).</li>
+        <li>En <b>Parámetros de URL</b> pega: <code>utm_source={{site_source_name}}&amp;utm_medium=paid_social&amp;utm_campaign={{campaign.name}}&amp;utm_content={{ad.name}}</code></li>
+        <li><b>Música:</b> en el editor del anuncio pulsa «Música» y elige una pista de la biblioteca de Meta (son libres de derechos para anuncios). No uses canciones comerciales por tu cuenta.</li>
+        <li>Revisa la vista previa de <b>Instagram Reels</b> y publica.</li>
+      </ol>
+      <div class="warn"><b>Opción rápida desde el móvil:</b> publica el vídeo como Reel normal en tu Instagram y después pulsa <b>Promocionar</b> debajo del Reel → destino «Tu sitio web» → pega la URL. También puedes promocionar tu reel del taller (instagram.com/p/DYVdzbTidy3). Consejo: alterna los 4 vídeos con el reel real del taller; lo auténtico suele funcionar mejor en Reels.</div>
     </section>
 
     <section class="block" id="disenos">
@@ -230,6 +254,24 @@
     div.appendChild(row("Enlace con seguimiento para otras redes o para la bio", link(c.dest, "instagram", "social", "aura_" + c.id, c.id)));
     box.appendChild(div);
   });
+  // Reels
+  var REELS = [
+    { id: "reel-orquidea", name: "Una orquídea real, para siempre", dest: "producto.html?id=colgante-orquidea-lila", text: "Una orquídea de verdad, preservada a mano pétalo a pétalo. 🌸 Cada pieza de Aura Flowers es única: cuando se vende, no vuelve a existir.", title: "Una orquídea real, para siempre" },
+    { id: "reel-regalo", name: "No regalas una flor. Regalas un recuerdo", dest: "producto.html?id=caja-regalo-flores", text: "¿Buscas un regalo que no se olvide? 🎁 Joyas hechas a mano con flores naturales, listas para regalar.", title: "El regalo que no se marchita" },
+    { id: "reel-a-medida", name: "Tu flor, para siempre (a medida)", dest: "#a-medida", text: "¿Tu ramo de novia, un aniversario, una flor que no quieres olvidar? 💍 La convertimos en una joya única. Cuéntanos su historia.", title: "Tu flor de boda, en una joya" },
+    { id: "reel-marca", name: "Flores naturales, joyas eternas", dest: "#coleccion", text: "Flores naturales, cuidadas una a una y convertidas en joyas eternas. ✨ Hechas a mano en Lloret de Mar.", title: "Joyas con flores naturales" }
+  ];
+  var rbox = document.querySelector("[data-reels]");
+  REELS.forEach(function (r) {
+    var d = document.createElement("div"); d.className = "reel-card";
+    d.innerHTML = '<video src="reels/' + r.id + '.mp4" poster="reels/' + r.id + '-portada.jpg" controls muted playsinline preload="none"></video>' +
+      "<h4>" + r.name + '</h4><a class="btn btn--line btn--sm btn--full" href="reels/' + r.id + '.mp4" download>Descargar vídeo MP4</a>';
+    d.appendChild(row("Texto principal", r.text));
+    d.appendChild(row("Título", r.title, 40));
+    d.appendChild(row("URL del sitio web", WEB + r.dest));
+    rbox.appendChild(d);
+  });
+
   document.querySelectorAll("[data-copy]").forEach(function (el) { el.appendChild(row("Copiar tal cual", el.getAttribute("data-copy"))); });
 
   // Meta
