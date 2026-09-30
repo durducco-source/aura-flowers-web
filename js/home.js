@@ -71,6 +71,31 @@
     upd();
   }
 
+  /* ---------- Reel destacado (se carga al pulsar) ---------- */
+  var reelUrl = A.get("redes.reelDestacado"), reel = $("[data-reel]");
+  if (reelUrl && reel) {
+    var link = $("[data-reel-link]"); if (link) link.href = reelUrl;
+    $("[data-reel-play]", reel).addEventListener("click", function () {
+      reel.innerHTML = '<div class="reel-loading">Cargando el reel…</div>' +
+        '<blockquote class="instagram-media" data-instgrm-permalink="' + A.esc(reelUrl) + '?utm_source=ig_embed" data-instgrm-version="14" style="display:none"><a href="' + A.esc(reelUrl) + '">Ver en Instagram</a></blockquote>';
+      var ready = function () {
+        var bq = $(".instagram-media", reel); bq.style.display = "";
+        window.instgrm.Embeds.process();
+        // Quita el aviso de carga cuando Instagram termina de dibujar el reel (máx. 12 s)
+        var t0 = Date.now(), poll = setInterval(function () {
+          var f = $("iframe", reel), l = $(".reel-loading", reel);
+          if ((f && f.getBoundingClientRect().height > 150) || Date.now() - t0 > 12000) { clearInterval(poll); if (l) l.remove(); }
+        }, 250);
+      };
+      if (window.instgrm) { ready(); return; }
+      var s = document.createElement("script");
+      s.async = true; s.src = "https://www.instagram.com/embed.js";
+      s.onload = ready;
+      s.onerror = function () { reel.innerHTML = '<a class="btn btn--line btn--full" href="' + A.esc(reelUrl) + '" target="_blank" rel="noopener">Ver el reel en Instagram</a>'; };
+      document.body.appendChild(s);
+    });
+  }
+
   /* ---------- Carrusel de Instagram ---------- */
   var insta = $("[data-insta]");
   if (insta) {

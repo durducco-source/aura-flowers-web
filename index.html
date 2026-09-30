@@ -319,6 +319,25 @@
       <p class="eyebrow eyebrow--center reveal">@<span data-cfg="redes.instagramUsuario">aura_flowers21</span></p>
       <h2 id="insta-title" class="h2" data-split>Un poco de <em>nuestro mundo.</em></h2>
     </div>
+
+    <!-- Reel destacado: se configura en js/config.js → redes.reelDestacado.
+         Se carga al pulsar (más rápido y sin cookies de Instagram hasta entonces). -->
+    <div class="container reel-wrap" data-need="redes.reelDestacado">
+      <div class="reel reveal" data-reel>
+        <button class="reel-poster" type="button" data-reel-play aria-label="Reproducir el reel de Aura Flowers">
+          <img src="assets/hero/jardin-sonrisa.jpg" alt="" width="900" height="1600" loading="lazy" decoding="async">
+          <span class="reel-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span>
+          <span class="reel-label">Ver el reel</span>
+        </button>
+      </div>
+      <div class="reel-text">
+        <p class="eyebrow reveal">En movimiento</p>
+        <h3 class="h2" data-split>Mira cómo <em>cobran vida.</em></h3>
+        <p class="lead reveal">Así nace una pieza de Aura Flowers: flores reales, luz natural y mucho mimo. Pulsa para ver el reel aquí mismo.</p>
+        <a class="link reveal" data-reel-link href="#" target="_blank" rel="noopener">Verlo en Instagram</a>
+      </div>
+    </div>
+
     <div class="insta-track fade" data-insta></div>
     <div class="insta-foot">
       <a class="btn" data-social="instagram" href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/></svg>Síguenos en Instagram</a>

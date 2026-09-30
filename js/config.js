@@ -29,6 +29,8 @@ window.AURA_CONFIG = {
   redes: {
     instagram: "https://www.instagram.com/aura_flowers21/",
     instagramUsuario: "aura_flowers21",
+    // Reel destacado en la sección de Instagram (enlace de la publicación). Vacío = no se muestra.
+    reelDestacado: "https://www.instagram.com/p/DYVdzbTidy3/",
     tiktok: "",      // p. ej. "https://www.tiktok.com/@tu_usuario"
     facebook: "",    // p. ej. "https://www.facebook.com/tu_pagina"
     pinterest: ""
