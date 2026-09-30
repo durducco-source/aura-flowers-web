@@ -271,12 +271,12 @@ em { font-style: italic; }
   font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink);
 }
 .badge--gold { background: var(--gold); color: #fff; }
-.state {
-  position: absolute; inset: 0; z-index: 2; display: grid; place-items: center;
-  background: rgba(248, 244, 237, .48); backdrop-filter: grayscale(.6); -webkit-backdrop-filter: grayscale(.6);
-}
-.state span { padding: 12px 22px; border: 1px solid var(--ink); background: var(--paper); font-size: 11px; letter-spacing: .34em; text-transform: uppercase; }
-.card.is-agotado .card-media img { filter: grayscale(.45) contrast(.95); }
+/* Pieza vendida: la foto se ve entera (portfolio) con una etiqueta discreta */
+.state { position: absolute; top: 14px; right: 14px; z-index: 2; pointer-events: none; }
+.state span { display: block; padding: 7px 12px; background: rgba(36, 29, 26, .78); color: #fffdf9; font-size: 10px; letter-spacing: .26em; text-transform: uppercase; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+.card-actions--one { grid-template-columns: 1fr; }
+.shop-note { max-width: 640px; margin: -18px 0 clamp(36px, 4vw, 56px); display: flex; gap: 18px 28px; align-items: center; flex-wrap: wrap; }
+.shop-note p { color: var(--ink-2); font-size: 15px; flex: 1 1 320px; }
 .quick {
   position: absolute; left: 14px; right: 14px; bottom: 14px; z-index: 3; display: flex;
   opacity: 0; transform: translateY(12px); transition: opacity .5s var(--ease), transform .5s var(--ease);

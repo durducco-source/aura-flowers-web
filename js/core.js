@@ -340,7 +340,7 @@
     } else if (s.estado === "proximamente") {
       actions = '<div class="card-actions"><button class="btn btn--sm" disabled>Próximamente</button><a class="btn btn--line btn--sm" data-wa data-wa-text="' + esc("¡Hola Aura Flowers! 🌸 Avisadme cuando esté disponible: " + p.nombre) + '" href="#">Avísame</a></div>';
     } else {
-      actions = '<div class="card-actions"><button class="btn btn--sm" disabled>Vendida</button><a class="btn btn--line btn--sm" data-wa data-wa-text="' + esc("¡Hola Aura Flowers! 🌸 Me encanta la pieza «" + p.nombre + "». ¿Podríais crear una similar?") + '" href="#">Pedir similar</a></div>';
+      actions = '<div class="card-actions card-actions--one"><a class="btn btn--line btn--sm" data-wa data-wa-text="' + esc("¡Hola Aura Flowers! 🌸 Me encanta la pieza «" + p.nombre + "». ¿Podríais crear una similar para mí?") + '" href="#">Encargar una similar</a></div>';
     }
     return '<article class="card reveal ' + (s.estado !== "disponible" ? "is-" + s.estado : "") + '" style="--d:' + ((i || 0) % 3) * .08 + 's" data-cat="' + esc(p.categoria) + '" data-estado="' + s.estado + '">' +
       '<a class="card-media" href="' + url + '" aria-label="' + esc(p.nombre) + '">' +

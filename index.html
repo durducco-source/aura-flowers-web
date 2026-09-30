@@ -91,7 +91,8 @@
     <div class="vhero-bg" aria-hidden="true"><video data-vbg muted loop playsinline preload="none" poster="assets/video/aura-hero-portada.jpg"></video></div>
     <div class="vhero-stage">
       <div class="vhero-frame" data-vframe>
-        <video data-vmain src="assets/video/aura-hero.mp4" poster="assets/video/aura-hero-portada.jpg" autoplay muted loop playsinline preload="auto" aria-label="Vídeo de Aura Flowers: piezas, taller y empaquetado"></video>
+        <video data-vmain data-src-sd="assets/video/aura-hero-720.mp4" data-src-hd="assets/video/aura-hero-1080.mp4" poster="assets/video/aura-hero-portada.jpg" autoplay muted loop playsinline preload="auto" aria-label="Vídeo de Aura Flowers: piezas, taller y empaquetado"></video>
+        <audio data-vaudio src="assets/video/aura-musica.m4a" loop preload="none"></audio>
         <span class="vhero-progress" aria-hidden="true"><span data-vprog></span></span>
       </div>
     </div>
@@ -166,6 +167,11 @@
           <h2 id="shop-title" class="h2" data-split>Piezas únicas, <em>como cada flor.</em></h2>
         </div>
         <div class="filters reveal" role="group" aria-label="Filtrar la colección" data-filters></div>
+      </div>
+      <!-- Aviso que aparece solo cuando no hay ninguna pieza disponible -->
+      <div class="shop-note reveal" data-shop-note hidden>
+        <p>Estas piezas ya tienen dueña: cada una es única y no se repite. Descubre el estilo de Aura Flowers y encarga la tuya, inspirada en la que más te guste.</p>
+        <a class="btn btn--sm" data-wa data-wa-text="¡Hola Aura Flowers! 🌸 He visto vuestras piezas y me gustaría encargar una para mí." href="#">Encargar mi pieza <i class="arr" aria-hidden="true"></i></a>
       </div>
       <div class="grid" data-grid></div>
       <noscript><p class="center">Activa JavaScript para ver la colección y comprar.</p></noscript>
@@ -326,7 +332,7 @@
         <a class="btn btn--gold reveal" data-wa="medida" href="#">Contar mi historia <i class="arr" aria-hidden="true"></i></a>
       </div>
       <div class="custom-media">
-        <div class="arch-sm reveal-img"><img src="assets/aura/orquidea-fucsia.jpg" alt="Orquídea fucsia envuelta para regalo" width="1100" height="1100" loading="lazy" decoding="async"></div>
+        <div class="arch-sm reveal-img"><img src="assets/aura/orquideas-mesa.jpg" alt="Orquídeas en flor de colores rosa, amarillo y blanco en sus macetas" width="1150" height="1200" loading="lazy" decoding="async"></div>
         <div class="mini reveal-img" style="--d:.3s" data-parallax="0.1"><img src="assets/productos/orquidea-salon.jpg" alt="Orquídea en flor junto a una ventana" width="1080" height="1918" loading="lazy" decoding="async"></div>
       </div>
     </div>

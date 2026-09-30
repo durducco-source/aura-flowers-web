@@ -37,22 +37,22 @@ const AJUSTES = {
 
 // Piezas iniciales para la hoja "Stock" (mismos "id" que js/productos.js)
 const PIEZAS_INICIALES = [
-  ["colgante-orquidea-fucsia", "Colgante Orquídea Fucsia", 1, "disponible"],
-  ["collar-orquidea-burdeos", "Collar Orquídea Burdeos", 1, "disponible"],
-  ["conjunto-orquidea-burdeos", "Conjunto Orquídea Burdeos", 1, "disponible"],
-  ["collar-rosa-eterna", "Collar Rosa Eterna", 1, "disponible"],
-  ["collar-narciso", "Collar Narciso", 1, "disponible"],
-  ["colgante-narciso-libelula", "Colgante Narciso y Libélula", 1, "disponible"],
-  ["colgante-buganvilla", "Colgante Buganvilla", 1, "disponible"],
-  ["pendientes-jardin-azul", "Pendientes Jardín Azul", 1, "disponible"],
-  ["anillo-cielo-azul", "Anillo Cielo Azul", 1, "disponible"],
-  ["anillos-perla-granate", "Anillos Pétalo", 1, "disponible"],
-  ["colgante-orquidea-lila", "Colgante Orquídea Lila", 1, "disponible"],
-  ["pendientes-margarita-lila", "Pendientes Margarita Lila", 1, "disponible"],
-  ["pendientes-margaritas", "Pendientes Margaritas", 1, "disponible"],
-  ["pendientes-jardin-rosa", "Pendientes Jardín Rosa", 1, "disponible"],
-  ["pendientes-gota-flor-blanca", "Pendientes Gota Flor Blanca", 1, "disponible"],
-  ["caja-regalo-flores", "Caja Regalo Flores", 1, "disponible"]
+  ["colgante-orquidea-fucsia", "Colgante Orquídea Fucsia", 0, "agotado"],
+  ["collar-orquidea-burdeos", "Collar Orquídea Burdeos", 0, "agotado"],
+  ["conjunto-orquidea-burdeos", "Conjunto Orquídea Burdeos", 0, "agotado"],
+  ["collar-rosa-eterna", "Collar Rosa Eterna", 0, "agotado"],
+  ["collar-narciso", "Collar Narciso", 0, "agotado"],
+  ["colgante-narciso-libelula", "Colgante Narciso y Libélula", 0, "agotado"],
+  ["colgante-buganvilla", "Colgante Buganvilla", 0, "agotado"],
+  ["pendientes-jardin-azul", "Pendientes Jardín Azul", 0, "agotado"],
+  ["anillo-cielo-azul", "Anillo Cielo Azul", 0, "agotado"],
+  ["anillos-perla-granate", "Anillos Pétalo", 0, "agotado"],
+  ["colgante-orquidea-lila", "Colgante Orquídea Lila", 0, "agotado"],
+  ["pendientes-margarita-lila", "Pendientes Margarita Lila", 0, "agotado"],
+  ["pendientes-margaritas", "Pendientes Margaritas", 0, "agotado"],
+  ["pendientes-jardin-rosa", "Pendientes Jardín Rosa", 0, "agotado"],
+  ["pendientes-gota-flor-blanca", "Pendientes Gota Flor Blanca", 0, "agotado"],
+  ["caja-regalo-flores", "Caja Regalo Flores", 0, "agotado"]
 ];
 
 const HOJA_PEDIDOS = "Pedidos";

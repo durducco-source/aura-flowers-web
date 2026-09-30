@@ -40,12 +40,13 @@ Web estática (HTML, CSS y JavaScript, sin dependencias) publicada con GitHub Pa
 - **Con Google Sheets conectado:** se marca sola como `agotado` al recibir el pedido. También puedes cambiar la columna *Estado* de la hoja **Stock**.
 - **Sin Google Sheets:** en `js/productos.js`, cambia `estado: "agotado"` (o `stock: 0`).
 
-La pieza sigue visible en la web con la etiqueta **AGOTADO**, sin botón de compra, como parte del archivo de Aura Flowers.
+La pieza sigue visible en la web con la etiqueta **VENDIDA** y el botón «Encargar una similar», como parte del portfolio de Aura Flowers. Para volver a ponerla a la venta: `estado: "disponible"` y `stock: 1`.
 
 ## Vídeo de portada
 
-- `assets/video/aura-hero.mp4` es lo primero que se ve al entrar. Se reproduce solo y en silencio (los navegadores no permiten sonido automático) con un botón «Activar sonido».
-- Para cambiarlo, sustituye ese archivo por otro MP4 vertical (H.264, idealmente menos de 8 MB) con el mismo nombre, y `aura-hero-portada.jpg` por un fotograma suyo.
+- `assets/video/aura-hero-1080.mp4` (ordenador) y `aura-hero-720.mp4` (móvil): lo primero que se ve al entrar. Se reproduce solo y en silencio (los navegadores no permiten sonido automático).
+- `assets/video/aura-musica.m4a`: música que suena al pulsar «Activar sonido». Pista «Chillout Lounge» de Good_B_Music (Pixabay, licencia de contenido de Pixabay: uso comercial gratuito, sin atribución obligatoria).
+- Para cambiar el vídeo, sustituye esos archivos por MP4 verticales H.264 con el mismo nombre, y `aura-hero-portada.jpg` por un fotograma suyo.
 
 ## Fotos
 
