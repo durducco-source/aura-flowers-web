@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="es" class="js intro-seen is-loaded">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kit de anuncios · Aura Flowers</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f8f4ed">
+<link rel="icon" type="image/png" href="../assets/brand/favicon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/aura.css">
+<style>
+  .kit { padding: 40px 0 120px; }
+  .kit-head { text-align: center; padding: 60px 0 40px; }
+  .kit-head img { width: 110px; margin: 0 auto 26px; }
+  .kit-head .lead { margin: 18px auto 0; }
+  .tabs { position: sticky; top: 0; z-index: 20; background: rgba(248,244,237,.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .tabs .container { display: flex; gap: 8px; overflow-x: auto; padding-top: 12px; padding-bottom: 12px; scrollbar-width: none; }
+  .tabs a { flex: none; display: inline-flex; align-items: center; }
+  .block { background: var(--paper); border: 1px solid var(--line); padding: clamp(20px, 3.4vw, 40px); margin-top: 28px; }
+  .block h2 { font-size: clamp(30px, 3.4vw, 44px); font-weight: 300; margin-bottom: 6px; }
+  .block h3 { font-size: 24px; margin: 30px 0 12px; }
+  .block > p, .block li { color: var(--ink-2); font-size: 15px; }
+  .block ol, .block ul.dots { padding-left: 20px; list-style: decimal; display: grid; gap: 8px; }
+  .block ul.dots { list-style: disc; }
+  .warn { background: #fbf1dc; border-left: 2px solid var(--gold); padding: 14px 18px; font-size: 14px; color: var(--ink-2); margin: 18px 0; }
+  .copyrow { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: start; padding: 12px 14px; border: 1px solid var(--line); background: #fff; margin-bottom: 8px; font-size: 14.5px; white-space: pre-line; }
+  .copyrow > div { min-width: 0; overflow-wrap: anywhere; }
+  .concept, .block { min-width: 0; overflow-wrap: anywhere; }
+  .copyrow small { display: block; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; white-space: normal; }
+  .copyrow .n { font-size: 11px; color: var(--muted); margin-left: 6px; letter-spacing: 0; text-transform: none; }
+  .copyrow .n.bad { color: var(--err); }
+  .copyrow button { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); padding: 7px 10px; }
+  .copyrow button:hover { background: var(--gold); color: #fff; }
+  .concepts { display: grid; gap: 24px; }
+  .concept { border: 1px solid var(--line); background: #fff; padding: 20px; }
+  .concept h3 { margin: 0 0 4px; }
+  .thumbs-row { display: flex; gap: 12px; overflow-x: auto; padding: 14px 0 6px; }
+  .thumbs-row a { flex: none; text-align: center; font-size: 11px; color: var(--muted); letter-spacing: .06em; }
+  .thumbs-row img { height: 190px; width: auto; border: 1px solid var(--line); margin-bottom: 6px; transition: transform .4s var(--ease); }
+  .thumbs-row a:hover img { transform: translateY(-3px); }
+  .kw { display: flex; flex-wrap: wrap; gap: 8px; }
+  .kw span { padding: 6px 12px; border: 1px solid var(--line-2); font-size: 13px; background: #fff; }
+  table.cal { width: 100%; border-collapse: collapse; font-size: 14px; }
+  table.cal td, table.cal th { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.cal th { font-weight: 400; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+  @media (max-width: 640px) { .copyrow { grid-template-columns: 1fr; } .thumbs-row img { height: 150px; } }
+</style>
+</head>
+<body>
+<main class="kit">
+  <div class="container">
+    <header class="kit-head">
+      <img src="../assets/brand/aura-logo-dorado.png" alt="Aura Flowers" width="700" height="838">
+      <p class="eyebrow eyebrow--center">Kit de campañas</p>
+      <h1 class="h2" style="margin-top:18px">Anuncios listos para <em>publicar.</em></h1>
+      <p class="lead">Diseños, textos, enlaces con seguimiento y segmentación para Instagram, Facebook, TikTok, Google y Pinterest. Todo apunta a la web: <a href="../" style="border-bottom:1px solid var(--gold)">durducco-source.github.io/aura-flowers-web</a></p>
+    </header>
+  </div>
+
+  <nav class="tabs" aria-label="Secciones"><div class="container">
+    <a class="filter" href="#antes">Antes de empezar</a><a class="filter" href="#disenos">Diseños</a><a class="filter" href="#meta">Instagram y Facebook</a><a class="filter" href="#tiktok">TikTok</a><a class="filter" href="#google">Google</a><a class="filter" href="#pinterest">Pinterest</a><a class="filter" href="#publico">Público</a><a class="filter" href="#calendario">Calendario</a>
+  </div></nav>
+
+  <div class="container">
+
+    <section class="block" id="antes">
+      <h2>Antes de empezar</h2>
+      <div class="warn">Los anuncios patrocinados se crean y se pagan desde tus propias cuentas publicitarias (Meta, TikTok, Google, Pinterest). Este kit te da todo el material listo, pero la publicación y el pago los haces tú.</div>
+      <ol>
+        <li><b>Crea el píxel de cada plataforma</b> y pega su ID en <code>js/config.js → seguimiento</code> (guía en CONFIGURACION.md). Sin píxel, las plataformas no pueden optimizar hacia pedidos ni hacer remarketing.</li>
+        <li><b>Completa los datos legales y de pago</b> en <code>js/config.js</code>: Meta y Google revisan que la web tenga aviso legal y condiciones.</li>
+        <li><b>Recomendado:</b> conecta Google Sheets para que los pedidos queden registrados y el stock se actualice solo mientras corren los anuncios.</li>
+        <li>Usa siempre los <b>enlaces de esta página</b>: llevan etiquetas UTM y cada pedido guarda de qué anuncio vino.</li>
+        <li><b>No pongas precios</b> en los anuncios; la web tampoco los muestra. El importe se confirma al cliente tras el pedido.</li>
+      </ol>
+    </section>
+
+    <section class="block" id="disenos">
+      <h2>Diseños</h2>
+      <p>5 conceptos × 5 formatos, hechos con tus fotos reales y tu logo. Pulsa una imagen para abrirla y guárdala (clic derecho → Guardar imagen).</p>
+      <div class="concepts" data-concepts></div>
+      <h3>Logotipos para las plataformas</h3>
+      <div class="thumbs-row">
+        <a href="logos/logo-cuadrado-1200.png" download><img src="logos/logo-cuadrado-1200.png" alt="Logo cuadrado">Logo cuadrado 1200</a>
+        <a href="logos/logo-horizontal-1200x300.png" download><img src="logos/logo-horizontal-1200x300.png" alt="Logo horizontal" style="height:60px;margin-top:65px">Logo horizontal 1200×300</a>
+        <a href="logos/foto-perfil-1080.png" download><img src="logos/foto-perfil-1080.png" alt="Foto de perfil">Foto de perfil</a>
+      </div>
+      <div class="warn"><b>Vídeo:</b> en Reels y TikTok funcionan mucho mejor los vídeos. Usa tu reel del taller (instagram.com/p/DYVdzbTidy3) como anuncio: en Instagram con «Promocionar» o en el Administrador de anuncios eligiendo «Usar publicación existente». Las imágenes 9:16 sirven como apoyo.</div>
+    </section>
+
+    <section class="block" id="meta">
+      <h2>Instagram y Facebook (Meta)</h2>
+      <p>Una sola campaña en <b>business.facebook.com/adsmanager</b> publica en Instagram y Facebook a la vez.</p>
+      <h3>Estructura</h3>
+      <ol>
+        <li><b>Campaña 1 · Ventas</b> (objetivo «Ventas», evento de conversión <i>Lead</i> o <i>PedidoRealizado</i> del píxel). Un conjunto de anuncios con el público «Amantes de las flores y la joyería» (ver <a href="#publico">Público</a>). Anuncios: <i>orquidea</i>, <i>fucsia</i>, <i>amanda</i> y el reel del taller.</li>
+        <li><b>Campaña 2 · Regalo</b> (objetivo «Ventas»), activa 3 semanas antes de cada fecha señalada (ver <a href="#calendario">Calendario</a>). Anuncio: <i>regalo</i>.</li>
+        <li><b>Campaña 3 · Novias</b> (objetivo «Clientes potenciales» o «Mensajes» a WhatsApp). Anuncio: <i>a-medida</i>.</li>
+        <li><b>Campaña 4 · Remarketing</b> (cuando el píxel tenga visitas): personas que vieron una pieza o añadieron al carrito en los últimos 30 días y no hicieron pedido.</li>
+      </ol>
+      <p style="margin-top:12px">Ubicaciones: Advantage+ (automáticas). Sube el <b>feed 4:5</b> y el <b>story 9:16</b> de cada concepto en el mismo anuncio para que Meta use cada uno donde toque.</p>
+      <h3>Parámetros de URL (campo «Parámetros de URL» del anuncio)</h3>
+      <div data-copy="utm_source={{site_source_name}}&utm_medium=paid_social&utm_campaign={{campaign.name}}&utm_content={{ad.name}}"></div>
+      <h3>Textos</h3>
+      <div data-meta></div>
+    </section>
+
+    <section class="block" id="tiktok">
+      <h2>TikTok</h2>
+      <p>En <b>ads.tiktok.com</b>. TikTok solo admite <b>vídeo</b> en su feed: usa el reel del taller u otros vídeos del proceso. Si no tienes vídeo, sube las imágenes <b>9:16</b> y usa la herramienta «Vídeo inteligente / Plantillas» de TikTok para convertirlas en un vídeo con música.</p>
+      <ol>
+        <li>Campaña con objetivo <b>Conversiones en la web</b> (evento <i>PlaceAnOrder</i> del píxel) o <b>Tráfico</b> mientras el píxel no tenga datos.</li>
+        <li>Si tienes cuenta de TikTok, usa <b>Spark Ads</b> para promocionar tus propios vídeos (conservan los me gusta y comentarios).</li>
+        <li>Primeros 3 segundos: la orquídea en la mano o bajo la lámpara UV. Añade subtítulos: muchas personas ven sin sonido.</li>
+      </ol>
+      <h3>Enlace de destino</h3>
+      <div data-link="tiktok"></div>
+      <h3>Textos (máx. 100 caracteres)</h3>
+      <div data-tiktok></div>
+    </section>
+
+    <section class="block" id="google">
+      <h2>Google Ads</h2>
+      <p>En <b>ads.google.com</b>. Dos campañas: <b>Búsqueda</b> (aparece cuando alguien busca joyas con flores) y <b>Performance Max</b> (YouTube, Gmail, Discover y Display con tus imágenes).</p>
+      <h3>Campaña de Búsqueda · anuncio adaptable</h3>
+      <p>Títulos (máx. 30 caracteres):</p>
+      <div data-g-titles></div>
+      <p>Descripciones (máx. 90 caracteres):</p>
+      <div data-g-desc></div>
+      <h3>Palabras clave (concordancia de frase)</h3>
+      <div class="kw" data-kw></div>
+      <h3>Palabras clave negativas</h3>
+      <div class="kw" data-neg></div>
+      <h3>URL final y sufijo</h3>
+      <div data-link="google"></div>
+      <div data-copy="utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}"></div>
+      <h3>Performance Max</h3>
+      <ul class="dots">
+        <li>Imágenes horizontales: todos los <i>horizontal-1200x628</i>. Cuadradas: todos los <i>cuadrado-1x1</i>. Verticales: todos los <i>feed-4x5</i>.</li>
+        <li>Logotipos: <i>logo-cuadrado-1200</i> y <i>logo-horizontal-1200x300</i>.</li>
+        <li>Vídeo: sube el reel del taller a YouTube (puede ser «oculto») y añádelo.</li>
+        <li>Usa los mismos títulos y descripciones de arriba. Nombre de la empresa: Aura Flowers.</li>
+      </ul>
+      <p style="margin-top:12px">Conversión: en Google Ads crea una conversión «Pedido» de tipo sitio web, copia su ID (AW-…) y su etiqueta en <code>js/config.js</code>.</p>
+    </section>
+
+    <section class="block" id="pinterest">
+      <h2>Pinterest</h2>
+      <p>En <b>ads.pinterest.com</b>. Ideal para novias, regalos e inspiración. Usa los diseños <i>pinterest-2x3</i> (1000×1500) como pines promocionados, con objetivo «Tráfico» o «Conversiones».</p>
+      <div data-link="pinterest"></div>
+      <div data-pinterest></div>
+    </section>
+
+    <section class="block" id="publico">
+      <h2>Público</h2>
+      <h3>Ubicación</h3>
+      <p>España. Prueba también un conjunto solo para Cataluña (Girona y Barcelona), donde la marca es local.</p>
+      <h3>Público principal · «Amantes de las flores y la joyería»</h3>
+      <p>Mujeres de 25 a 55 años. Intereses: joyería artesanal, bisutería hecha a mano, orquídeas, flores, jardinería, Etsy, moda sostenible, decoración floral, regalos.</p>
+      <h3>Público regalo</h3>
+      <p>Todas las personas de 25 a 60 años. Intereses: regalos, aniversarios, Día de la Madre, San Valentín, y personas con pareja o con un aniversario próximo.</p>
+      <h3>Público novias</h3>
+      <p>Mujeres de 24 a 40 años. Intereses: bodas, vestidos de novia, ramo de novia, organización de bodas; situación sentimental «comprometida».</p>
+      <h3>Remarketing (cuando el píxel esté activo)</h3>
+      <p>Visitantes de la web en los últimos 30 días, personas que añadieron al carrito y no hicieron pedido, y personas que interactuaron con tu Instagram en los últimos 90 días. A partir de ~100 pedidos, crea un público similar (lookalike) de compradores.</p>
+      <h3>Presupuesto de prueba (orientativo)</h3>
+      <p>Empieza con poco y mide: por ejemplo, 5–10 € al día por campaña durante 7 días, sin tocar nada los primeros 3 días. Después, deja activos los anuncios con más pedidos y apaga el resto. Ajusta la cifra a lo que quieras invertir.</p>
+    </section>
+
+    <section class="block" id="calendario">
+      <h2>Calendario de campañas</h2>
+      <table class="cal">
+        <thead><tr><th>Fecha</th><th>Campaña</th><th>Empezar</th></tr></thead>
+        <tbody>
+          <tr><td>14 de febrero · San Valentín</td><td>Regalo</td><td>3 semanas antes</td></tr>
+          <tr><td>23 de abril · Sant Jordi (Cataluña)</td><td>Regalo, solo Cataluña</td><td>3 semanas antes</td></tr>
+          <tr><td>Primer domingo de mayo · Día de la Madre</td><td>Regalo</td><td>4 semanas antes</td></tr>
+          <tr><td>Abril – septiembre · temporada de bodas</td><td>Novias / a medida</td><td>Continua</td></tr>
+          <tr><td>Black Friday y Navidad</td><td>Regalo + remarketing</td><td>Desde mediados de noviembre</td></tr>
+          <tr><td>Todo el año</td><td>Ventas (orquídeas) + remarketing</td><td>Siempre activa</td></tr>
+        </tbody>
+      </table>
+      <div class="warn">Como muchas piezas son únicas, revisa cada semana que la pieza anunciada siga disponible. Si se vende, cambia el enlace del anuncio a la colección o a otra pieza.</div>
+    </section>
+  </div>
+</main>
+
+<div class="toast" data-toast role="status"></div>
+<script>
+(function () {
+  var WEB = "https://durducco-source.github.io/aura-flowers-web/";
+  var FORMATS = [["feed-4x5", "Feed 4:5 · 1080×1350"], ["story-9x16", "Story / Reels 9:16"], ["cuadrado-1x1", "Cuadrado 1:1"], ["horizontal-1200x628", "Horizontal 1200×628"], ["pinterest-2x3", "Pinterest 2:3"]];
+  var CONCEPTS = [
+    { id: "orquidea", name: "Una orquídea real, para siempre", dest: "producto.html?id=colgante-orquidea-lila", use: "Ventas · público principal" },
+    { id: "fucsia", name: "El color de la buganvilla", dest: "producto.html?id=colgante-orquidea-fucsia", use: "Ventas · pieza nueva" },
+    { id: "amanda", name: "Flores naturales, convertidas en joyas eternas", dest: "#coleccion", use: "Marca · público frío" },
+    { id: "regalo", name: "No regalas una flor. Regalas un recuerdo", dest: "producto.html?id=caja-regalo-flores", use: "Regalo · fechas señaladas" },
+    { id: "a-medida", name: "¿Tu ramo de novia, convertido en joya?", dest: "#a-medida", use: "Novias · piezas a medida" }
+  ];
+  function link(dest, source, medium, campaign, content) {
+    var q = "utm_source=" + source + "&utm_medium=" + medium + "&utm_campaign=" + campaign + (content ? "&utm_content=" + content : "");
+    if (dest.charAt(0) === "#") return WEB + "?" + q + dest;
+    return WEB + dest + "&" + q;
+  }
+  function row(label, text, max) {
+    var n = max ? '<span class="n' + (text.length > max ? " bad" : "") + '">' + text.length + "/" + max + "</span>" : "";
+    var d = document.createElement("div"); d.className = "copyrow";
+    d.innerHTML = "<div><small>" + label + n + "</small><span></span></div><button type=\"button\">Copiar</button>";
+    d.querySelector("span").textContent = text;
+    d.querySelector("button").addEventListener("click", function () { copy(text); });
+    return d;
+  }
+  function fill(sel, items) { var el = document.querySelector(sel); items.forEach(function (it) { el.appendChild(row(it[0], it[1], it[2])); }); }
+  var toastT;
+  function copy(t) {
+    var done = function () { var el = document.querySelector("[data-toast]"); el.textContent = "Copiado"; el.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(function () { el.classList.remove("show"); }, 1600); };
+    if (navigator.clipboard) navigator.clipboard.writeText(t).then(done, done); else done();
+  }
+
+  // Diseños
+  var box = document.querySelector("[data-concepts]");
+  CONCEPTS.forEach(function (c) {
+    var div = document.createElement("div"); div.className = "concept";
+    div.innerHTML = '<p class="card-cat">' + c.use + "</p><h3>" + c.name + '</h3><div class="thumbs-row">' +
+      FORMATS.map(function (f) { var src = "creatividades/" + c.id + "-" + f[0] + ".jpg"; return '<a href="' + src + '" target="_blank" download><img src="' + src + '" alt="' + c.name + " · " + f[1] + '" loading="lazy">' + f[1] + "</a>"; }).join("") + "</div>";
+    div.appendChild(row("URL del sitio web para Meta (las UTM se añaden con «Parámetros de URL»)", WEB + c.dest));
+    div.appendChild(row("Enlace con seguimiento para otras redes o para la bio", link(c.dest, "instagram", "social", "aura_" + c.id, c.id)));
+    box.appendChild(div);
+  });
+  document.querySelectorAll("[data-copy]").forEach(function (el) { el.appendChild(row("Copiar tal cual", el.getAttribute("data-copy"))); });
+
+  // Meta
+  fill("[data-meta]", [
+    ["Texto principal · orquídea", "Una orquídea de verdad, preservada a mano para que no se marchite nunca. 🌸\nCada pieza de Aura Flowers es única: cuando se vende, no vuelve a existir.", 0],
+    ["Texto principal · fucsia", "Nueva pieza: un colgante con una orquídea natural del color de las buganvillas. Solo hay uno. 💗", 0],
+    ["Texto principal · marca", "Flores naturales convertidas en joyas eternas. Hechas a mano, una a una, en Lloret de Mar. ✨", 0],
+    ["Texto principal · regalo", "No regalas una flor. Regalas un recuerdo que no se marchita. 🎁\nPiezas únicas con flores naturales, listas para regalar.", 0],
+    ["Texto principal · a medida", "¿Tu ramo de novia o una flor que no quieres olvidar? La convertimos en una joya para siempre. 💍 Cuéntanos su historia.", 0],
+    ["Título", "Joyas con flores naturales", 40],
+    ["Título", "Una orquídea real, para siempre", 40],
+    ["Título", "Piezas únicas hechas a mano", 40],
+    ["Título", "El regalo que no se marchita", 40],
+    ["Título", "Tu flor de boda, en una joya", 40],
+    ["Descripción", "Aura Flowers · Lloret de Mar", 30],
+    ["Descripción", "Pago por Bizum o transferencia", 30],
+    ["Botón (llamada a la acción)", "Comprar / Ver más / Enviar mensaje (a medida)", 0]
+  ]);
+
+  // TikTok
+  fill("[data-tiktok]", [
+    ["Texto", "Una orquídea real convertida en joya. Solo existe una 🌸 #joyasconflores", 100],
+    ["Texto", "Así preservamos flores de verdad para que duren para siempre ✨", 100],
+    ["Texto", "El regalo que no se marchita: joyas hechas a mano con flores naturales 🎁", 100],
+    ["Texto", "¿Tu ramo de novia en una joya? Lo hacemos a mano 💍", 100],
+    ["Nombre visible", "Aura Flowers", 0]
+  ]);
+
+  // Google
+  fill("[data-g-titles]", ["Joyas con Flores Naturales", "Collar de Orquídea Natural", "Piezas Únicas Hechas a Mano", "Aura Flowers · Joyería", "Tu Flor de Boda en una Joya", "Regalo Original y Único", "Flores Reales en Resina", "Hecho a Mano en Lloret de Mar", "Orquídeas que No se Marchitan", "Pendientes de Flores Reales", "Pago por Bizum o Transferencia", "Envío Cuidado en Caja Regalo", "Descubre la Colección", "Joyería Botánica Artesanal", "Cada Pieza es Irrepetible"].map(function (t, i) { return ["Título " + (i + 1), t, 30]; }));
+  fill("[data-g-desc]", [
+    "Orquídeas y flores reales preservadas a mano en collares, pendientes y anillos únicos.",
+    "Cada pieza es única: cuando se vende, no se repite. Descubre las disponibles hoy.",
+    "¿Tu ramo de novia o una flor especial? La convertimos en una joya para siempre.",
+    "Hecho a mano en Lloret de Mar. Lista para regalar. Paga por Bizum o transferencia."
+  ].map(function (t, i) { return ["Descripción " + (i + 1), t, 90]; }));
+  var kw = ["joyas con flores naturales", "collar orquídea natural", "colgante flor natural", "colgante orquídea resina", "joyería con flores preservadas", "pendientes flores naturales", "joyas resina flores", "joyería botánica", "regalo original mujer hecho a mano", "joyas con flores del ramo de novia", "conservar ramo de novia en resina", "joyería artesanal Girona", "joyería artesanal Lloret de Mar"];
+  var neg = ["curso", "tutorial", "cómo hacer", "molde", "kit resina", "gratis", "barato", "segunda mano", "empleo", "diy"];
+  document.querySelector("[data-kw]").innerHTML = kw.map(function (k) { return "<span>\"" + k + "\"</span>"; }).join("");
+  document.querySelector("[data-neg]").innerHTML = neg.map(function (k) { return "<span>−" + k + "</span>"; }).join("");
+
+  // Enlaces por plataforma
+  document.querySelector('[data-link="tiktok"]').appendChild(row("URL de destino (reel / marca)", link("#coleccion", "tiktok", "paid_social", "aura_tiktok", "")));
+  document.querySelector('[data-link="google"]').appendChild(row("URL final", WEB));
+  document.querySelector('[data-link="pinterest"]').appendChild(row("URL de destino (orquídea)", link("producto.html?id=colgante-orquidea-lila", "pinterest", "paid_social", "aura_pinterest", "orquidea")));
+  fill("[data-pinterest]", [
+    ["Título del pin", "Joyas con orquídeas y flores naturales", 100],
+    ["Descripción", "Collares, pendientes y anillos hechos a mano con flores reales preservadas. Piezas únicas de Aura Flowers, Lloret de Mar. Ideas de regalo y joyas para novias.", 500]
+  ]);
+})();
+</script>
+</body>
+</html>
