@@ -3,332 +3,413 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Aura Flowers | Flores naturales convertidas en joyas y regalos · Desde 25 €</title>
-<meta name="description" content="Aura Flowers: flores naturales reales convertidas en joyas y regalos hechos a mano por Amanda en Lloret de Mar. Collares, pendientes, anillos y piezas a medida. Flores desde 25 €. Pide por WhatsApp o Instagram.">
-<meta name="robots" content="index,follow">
-<meta name="theme-color" content="#fdfaf5">
+<title>Aura Flowers · Joyería artesanal con flores naturales | Lloret de Mar</title>
+<meta name="description" content="Joyas únicas hechas a mano con orquídeas y flores naturales preservadas en resina. Collares, pendientes y anillos de Aura Flowers, creados por Amanda en Lloret de Mar. Piezas exclusivas y limitadas.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#f8f4ed">
 <link rel="canonical" href="https://durducco-source.github.io/aura-flowers-web/">
-<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" href="assets/brand/favicon-512.png">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+
+<!-- Open Graph / redes sociales -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="Aura Flowers">
-<meta property="og:title" content="Aura Flowers · Flores que guardan tus momentos más bonitos">
-<meta property="og:description" content="Flores naturales convertidas en joyas y regalos hechos a mano. Desde 25 €.">
+<meta property="og:title" content="Aura Flowers · Flores naturales convertidas en joyas únicas">
+<meta property="og:description" content="Orquídeas y flores reales preservadas a mano en piezas exclusivas. Hecho en Lloret de Mar.">
 <meta property="og:url" content="https://durducco-source.github.io/aura-flowers-web/">
-<meta property="og:image" content="https://durducco-source.github.io/aura-flowers-web/assets/img/og-image.jpg">
+<meta property="og:image" content="https://durducco-source.github.io/aura-flowers-web/assets/brand/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logotipo de Aura Flowers junto a un colgante con una orquídea natural">
 <meta name="twitter:card" content="summary_large_image">
+
+<!-- Los píxeles de Meta, TikTok, Google Analytics y Google Ads NO se pegan aquí:
+     se activan escribiendo su ID en js/config.js → seguimiento. -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
-<link rel="preload" as="image" href="assets/img/hero-orquideas.jpg" media="(min-width: 861px)">
-<link rel="preload" as="image" href="assets/img/hero-orquideas-movil.jpg" media="(max-width: 860px)">
-<script>(function(){var c='js';try{if(sessionStorage.getItem('aura_intro'))c+=' intro-seen';sessionStorage.setItem('aura_intro','1')}catch(e){}document.documentElement.className=c})();</script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/aura.css">
+<link rel="preload" as="image" href="assets/aura/collar-orquidea.jpg">
+<script>(function(){var c="js",r=document.documentElement;try{if(sessionStorage.getItem("aura_intro")||matchMedia("(prefers-reduced-motion: reduce)").matches)c+=" intro-seen";else c+=" intro-pending";sessionStorage.setItem("aura_intro","1")}catch(e){c+=" intro-seen"}r.className=c;setTimeout(function(){r.classList.remove("intro-pending")},2600)})();</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "JewelryStore",
+  "name": "Aura Flowers",
+  "description": "Joyería artesanal con flores naturales preservadas en resina, hecha a mano en Lloret de Mar.",
+  "url": "https://durducco-source.github.io/aura-flowers-web/",
+  "logo": "https://durducco-source.github.io/aura-flowers-web/assets/brand/aura-logo-original.jpg",
+  "image": "https://durducco-source.github.io/aura-flowers-web/assets/brand/og-image.jpg",
+  "telephone": "+34 633 84 70 52",
+  "founder": { "@type": "Person", "name": "Amanda" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Lloret de Mar", "addressRegion": "Girona", "addressCountry": "ES" },
+  "sameAs": ["https://www.instagram.com/aura_flowers21/"]
+}
+</script>
 </head>
 <body>
-<div class="intro" aria-hidden="true"><span class="intro-aura">Aura</span><span class="intro-line"></span><span class="intro-flowers">Flowers</span></div>
-<div class="progress" aria-hidden="true"><span data-progress></span></div>
+<div class="intro" aria-hidden="true"><img src="assets/brand/aura-logo-dorado.png" alt="" width="700" height="838"></div>
+<div class="progress" aria-hidden="true"><span></span></div>
 <a class="skip" href="#main">Saltar al contenido</a>
-
-<div class="announce" role="note">
-  <div class="announce-track">
-    <span>Flores desde <b data-precio-desde>25 €</b></span>
-    <span data-envio-gratis>Envío gratis en España desde <b data-envio-importe>70 €</b></span>
-    <span class="hide-sm">Piezas únicas hechas a mano</span>
-    <span class="hide-sm">Flores naturales reales</span>
-  </div>
-</div>
 
 <header class="header">
   <div class="container header-inner">
-    <a class="logo" href="#inicio" aria-label="Aura Flowers · Inicio">
-      <span class="logo-aura">Aura</span><span class="logo-flowers">Flowers</span>
-    </a>
-    <nav class="nav" id="menu" aria-label="Principal">
+    <nav class="nav" aria-label="Principal">
       <a href="#coleccion">Colección</a>
-      <a href="#la-marca">La marca</a>
       <a href="#historia">Historia</a>
-      <a href="#regalar">Regalar</a>
-      <a href="#galeria">Galería</a>
-      <a href="#pedidos">Cómo pedir</a>
-      <a class="btn btn--rose nav-cta" href="#" data-wa data-wa-msg="general">Pedir por WhatsApp</a>
+      <a href="#taller">El taller</a>
+      <a href="#a-medida">A medida</a>
     </nav>
+    <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span></button>
+    <a class="brand" href="#inicio" aria-label="Aura Flowers, inicio">
+      <img class="brand-orchid" src="assets/brand/aura-orquidea-dorado.png" alt="" width="300" height="280">
+      <img src="assets/brand/aura-texto-dorado.png" alt="Aura" width="600" height="164">
+    </a>
     <div class="header-actions">
-      <a class="btn btn--rose btn--sm header-cta" href="#" data-wa data-wa-msg="general">Pedir por WhatsApp</a>
-      <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+      <a class="icon-btn" data-social="instagram" href="#" aria-label="Instagram de Aura Flowers"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".5"/></svg></a>
+      <button class="icon-btn" data-cart-open aria-label="Abrir carrito"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12.2H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span class="cart-count" data-cart-count>0</span></button>
     </div>
   </div>
 </header>
 
+<div class="mobile-menu" aria-label="Menú">
+  <a class="mm-link" href="#coleccion">Colección</a>
+  <a class="mm-link" href="#historia">Nuestra historia</a>
+  <a class="mm-link" href="#taller">El taller</a>
+  <a class="mm-link" href="#a-medida">A medida</a>
+  <a class="mm-link" href="#contacto">Contacto</a>
+  <div class="mm-foot"><a class="btn btn--line btn--sm" data-social="instagram" href="#">Instagram</a><a class="btn btn--line btn--sm" data-wa="general" href="#">WhatsApp</a></div>
+</div>
+
 <main id="main">
 
-  <!-- ================================ HERO ================================ -->
+  <!-- ================================ PORTADA ================================ -->
   <section class="hero" id="inicio" aria-labelledby="hero-title">
+    <div class="petals" aria-hidden="true">
+      <span class="petal" style="left:8%;--d:19s;--delay:0s;--x:80px"><svg viewBox="0 0 14 20"><path d="M7 0C12 5 14 12 7 20 0 12 2 5 7 0z" fill="#e7c9d6"/></svg></span>
+      <span class="petal" style="left:28%;--d:23s;--delay:6s;--x:-60px"><svg viewBox="0 0 14 20"><path d="M7 0C12 5 14 12 7 20 0 12 2 5 7 0z" fill="#d9c3e4"/></svg></span>
+      <span class="petal" style="left:52%;--d:21s;--delay:3s;--x:70px"><svg viewBox="0 0 14 20"><path d="M7 0C12 5 14 12 7 20 0 12 2 5 7 0z" fill="#ecd9b4"/></svg></span>
+      <span class="petal" style="left:74%;--d:25s;--delay:10s;--x:-90px"><svg viewBox="0 0 14 20"><path d="M7 0C12 5 14 12 7 20 0 12 2 5 7 0z" fill="#e7c9d6"/></svg></span>
+      <span class="petal" style="left:90%;--d:20s;--delay:14s;--x:-40px"><svg viewBox="0 0 14 20"><path d="M7 0C12 5 14 12 7 20 0 12 2 5 7 0z" fill="#d9c3e4"/></svg></span>
+    </div>
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="kicker hero-in" style="--i:0">Flores naturales · Hechas a mano</p>
-        <h1 id="hero-title" class="hero-title">
-          <span class="hero-aura" data-letters>Aura</span>
-          <span class="hero-flowers hero-in" style="--i:2">Flowers</span>
-        </h1>
-        <p class="hero-claim hero-in" style="--i:3">Flores que guardan <em>tus momentos más bonitos.</em></p>
-        <p class="hero-text hero-in" style="--i:4">Flores naturales reales convertidas en joyas y regalos únicos, creados a mano con delicadeza para celebrar a quien más quieres.</p>
-        <div class="hero-cta hero-in" style="--i:5">
-          <a class="btn btn--ink" href="#coleccion">Descubrir la colección <i class="arr" aria-hidden="true"></i></a>
-          <a class="btn btn--line" href="#" data-wa data-wa-msg="general">Pedir por WhatsApp</a>
+        <img class="hero-logo h-in" style="--i:0" src="assets/brand/aura-logo-dorado.png" alt="Aura Flowers" width="700" height="838" fetchpriority="high">
+        <span class="hero-logo-sub h-in" style="--i:1">Flowers · Joyería botánica</span>
+        <h1 id="hero-title" class="h-in" style="--i:2">Flores naturales, convertidas en <em>joyas eternas.</em></h1>
+        <p class="lead h-in" style="--i:3">Orquídeas y flores reales preservadas a mano en piezas únicas. Creadas una a una en Lloret de Mar para guardar tus momentos más bonitos.</p>
+        <div class="hero-cta h-in" style="--i:4">
+          <a class="btn" href="#coleccion">Descubrir la colección <i class="arr" aria-hidden="true"></i></a>
+          <a class="link" href="#historia">Nuestra historia</a>
         </div>
-        <ul class="hero-trust hero-in" style="--i:6">
+        <ul class="hero-trust h-in" style="--i:5">
           <li>Flores 100 % naturales</li>
           <li>Piezas únicas</li>
-          <li>Listas para regalar</li>
+          <li>Hecho a mano</li>
         </ul>
       </div>
 
-      <div class="hero-visual hero-in" style="--i:2">
-        <picture class="hero-img">
-          <source media="(max-width: 860px)" srcset="assets/img/hero-orquideas-movil.jpg">
-          <img src="assets/img/hero-orquideas.jpg" alt="Orquídeas blancas bañadas por la luz natural" width="1400" height="1750" fetchpriority="high">
-        </picture>
-        <div class="price-seal">
-          <svg class="seal-ring" viewBox="0 0 200 200" aria-hidden="true">
-            <defs><path id="seal-path" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs>
-            <text><textPath href="#seal-path">AURA FLOWERS · HECHO A MANO · FLORES REALES ·</textPath></text>
-          </svg>
-          <span class="seal-core"><small>Flores desde</small><b data-precio-desde>25 €</b></span>
+      <div class="hero-visual">
+        <div class="arch">
+          <div class="slides" data-slides>
+            <div class="slide is-active"><img src="assets/aura/collar-orquidea.jpg" alt="Colgante con una orquídea lila natural preservada en resina" width="794" height="794" fetchpriority="high"></div>
+            <div class="slide"><img src="assets/hero/buganvilla.jpg" alt="Amanda, creadora de Aura Flowers, frente a una pared de buganvillas" width="900" height="1600" loading="lazy" decoding="async"></div>
+            <div class="slide"><img src="assets/hero/colgante-orquidea-fucsia.jpg" alt="Colgante de orquídea fucsia natural con doble cadena dorada" width="395" height="899" loading="lazy" decoding="async"></div>
+            <div class="slide"><img src="assets/hero/jardin-sonrisa.jpg" alt="Amanda sonríe entre flores amarillas en un jardín mediterráneo" width="900" height="1600" loading="lazy" decoding="async"></div>
+          </div>
+          <div class="slide-dots" data-dots></div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== SECUENCIA DE FLORES (al hacer scroll) =====================
-       Una ventana en forma de arco se abre a pantalla completa y pasan tres escenas.
-       Para cambiar una escena, sustituye su imagen y su frase. -->
-  <section class="show" aria-label="Flores reales convertidas en joyas" data-show>
-    <div class="show-stage" data-show-stage>
-      <span class="show-word show-word--l" aria-hidden="true">Flores</span>
-      <span class="show-word show-word--r" aria-hidden="true">reales</span>
-      <p class="show-kicker" aria-hidden="true">Hechas a mano en <span data-ciudad>Lloret de Mar</span></p>
-      <div class="show-frame" data-show-frame>
-        <div class="show-scene" data-show-scene><img src="assets/img/orquidea-rosa.jpg" alt="Orquídea rosa natural sobre fondo claro" width="1000" height="1250" decoding="async"></div>
-        <div class="show-scene" data-show-scene><img src="assets/img/orquidea-prensada.jpg" alt="Orquídea natural prensada sobre fondo blanco" width="1100" height="1100" loading="lazy" decoding="async"></div>
-        <div class="show-scene" data-show-scene><img src="assets/img/a-medida.jpg" alt="Ramillete de flores secas blancas" width="1600" height="1000" loading="lazy" decoding="async"></div>
-      </div>
-      <div class="show-caps" data-show-caps>
-        <p class="show-cap"><small>01</small>Una flor real, <em>para siempre.</em></p>
-        <p class="show-cap"><small>02</small>Se elige a mano y se seca <em>con paciencia.</em></p>
-        <p class="show-cap"><small>03</small>Un regalo que <em>no se marchita.</em></p>
-      </div>
-      <div class="show-index" aria-hidden="true"><span><b data-show-n>01</b> / 03</span><i><i data-show-bar></i></i></div>
-    </div>
-  </section>
-
-  <!-- ============================ LA MARCA ============================ -->
-  <section class="section brand" id="la-marca" aria-labelledby="brand-title">
-    <div class="container brand-grid">
-      <div class="brand-media reveal reveal--left">
-        <img class="brand-img brand-img--main" src="assets/img/orquidea-prensada.jpg" alt="Orquídea natural prensada sobre fondo blanco" width="1100" height="1100" loading="lazy" decoding="async">
-        <img class="brand-img brand-img--small" src="assets/aura/collar-orquidea.jpg" alt="Colgante con una orquídea natural encapsulada en resina" width="794" height="794" loading="lazy" decoding="async">
-      </div>
-      <div class="brand-text">
-        <p class="kicker reveal">La marca</p>
-        <h2 id="brand-title" class="title reveal">Una flor real, <em>para siempre.</em></h2>
-        <p class="lead reveal">En Aura Flowers cada pieza nace de una flor de verdad: se elige a mano, se seca con paciencia y se encapsula para que conserve su color y su forma. El resultado es un regalo que no se marchita.</p>
-        <ul class="pillars">
-          <li class="reveal" style="--d:.05s"><span class="pillar-ico" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 34V14M20 22c-6 0-10-4-10-10 6 0 10 4 10 10zm0-4c5 0 8-3 8-8-5 0-8 3-8 8z"/></svg></span><div><h3>Flores naturales</h3><p>Orquídeas, rosas y margaritas reales, nunca artificiales.</p></div></li>
-          <li class="reveal" style="--d:.12s"><span class="pillar-ico" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M9 31c5-2 9-7 11-13l4 4c-6 2-11 6-13 11zM24 22l6-6a2.8 2.8 0 0 0-4-4l-6 6"/></svg></span><div><h3>Hechas a mano</h3><p>Cada joya se diseña y se pule a mano, pieza a pieza.</p></div></li>
-          <li class="reveal" style="--d:.19s"><span class="pillar-ico" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 6l3.6 8.6L33 15.4l-7 6.2 2 9.2-8-4.8-8 4.8 2-9.2-7-6.2 9.4-.8z"/></svg></span><div><h3>Piezas únicas</h3><p>La naturaleza no se repite: tu joya tampoco.</p></div></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================== LA HISTORIA DE AMANDA ======================== -->
-  <section class="section story" id="historia" aria-labelledby="story-title">
-    <div class="container story-grid">
-      <div class="story-text">
-        <p class="kicker reveal">La historia de Amanda</p>
-        <h2 id="story-title" class="title reveal">Las orquídeas <em>del jardín de mi infancia.</em></h2>
-        <blockquote class="story-quote" data-words>
-          <p>“Las flores de mi vida son las orquídeas Cattleya lilas. Crecí viéndolas en el jardín de mi casa, en Cuba, y fueron las protagonistas del ramo de boda de mi mamá.”</p>
-          <p>“Por eso llamé a mi marca Aura Flowers: para mí, las flores capturan la energía de nuestros recuerdos más bonitos, y quiero inmortalizarla.”</p>
-        </blockquote>
-        <div class="story-sign reveal">
-          <img src="assets/aura/cattleya.jpg" alt="Orquídea Cattleya lila" width="420" height="420" loading="lazy" decoding="async">
-          <p><span class="story-name">Amanda</span><small>Creadora de Aura Flowers · <span data-ciudad>Lloret de Mar</span></small></p>
+        <div class="seal h-in" style="--i:6" aria-hidden="true">
+          <svg viewBox="0 0 200 200"><defs><path id="sealp" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><text><textPath href="#sealp">Piezas únicas · Flores naturales · Hecho a mano ·</textPath></text></svg>
+          <img src="assets/brand/aura-orquidea-dorado.png" alt="" width="300" height="280">
         </div>
+        <div class="hero-round h-in" style="--i:5"><img src="assets/hero/hibisco-margarita.jpg" alt="Collar con una margarita natural" width="904" height="1358" decoding="async"></div>
       </div>
-      <figure class="story-media reveal">
-        <div class="story-img"><img src="assets/aura/ella-espaldas.jpg" alt="Amanda de espaldas frente a una pared de buganvillas" width="420" height="420" loading="lazy" decoding="async"></div>
-        <figcaption>Las flores de mi vida son las orquídeas.</figcaption>
-      </figure>
     </div>
+    <a class="hero-scroll" href="#coleccion" aria-label="Bajar a la colección">Descubrir<i></i></a>
   </section>
 
-  <!-- ============================ COLECCIÓN ============================ -->
-  <section class="section shop" id="coleccion" aria-labelledby="shop-title">
-    <div class="container">
-      <div class="shop-head">
-        <div class="reveal">
-          <p class="kicker">La colección</p>
-          <h2 id="shop-title" class="title">Flores para llevar <em>contigo.</em></h2>
-        </div>
-        <p class="shop-price reveal"><span>Flores desde</span><b data-precio-desde>25 €</b></p>
-      </div>
-      <div class="chips reveal" role="group" aria-label="Filtrar la colección" data-chips></div>
-      <div class="products" data-products><!-- Se rellena desde js/data.js --></div>
-      <p class="shop-note reveal">Cada pieza es única y se hace a mano: los tonos de las flores pueden variar ligeramente respecto a las fotos.</p>
-    </div>
-  </section>
-
-  <!-- Banda de flores y piezas que se desliza al hacer scroll (decorativa) -->
-  <div class="band" aria-hidden="true">
-    <div class="band-track" data-band>
-      <span>Orquídeas</span><span><em>Collares</em></span><span>Rosas</span><span><em>Pendientes</em></span><span>Margaritas</span><span><em>Anillos</em></span><span>Hecho a mano</span><span><em>Piezas únicas</em></span>
+  <div class="ribbon" aria-hidden="true">
+    <div class="ribbon-track">
+      <span>Orquídeas reales</span><span>Piezas únicas y limitadas</span><span>Hecho a mano en Lloret de Mar</span><span>Listas para regalar</span><span>Flores que no se marchitan</span>
+      <span>Orquídeas reales</span><span>Piezas únicas y limitadas</span><span>Hecho a mano en Lloret de Mar</span><span>Listas para regalar</span><span>Flores que no se marchitan</span>
     </div>
   </div>
 
-  <!-- ============================ REGALAR ============================ -->
-  <section class="section gift" id="regalar" aria-labelledby="gift-title">
-    <div class="container gift-grid">
-      <div class="gift-media reveal reveal--left">
-        <img src="assets/ig/ig-07.jpg" alt="Una mano sostiene unos pendientes con flores lilas naturales en resina" width="360" height="640" loading="lazy" decoding="async">
-      </div>
-      <div class="gift-text">
-        <p class="kicker reveal">Más que flores</p>
-        <h2 id="gift-title" class="title reveal">No regalas una flor. <em>Regalas un recuerdo que no se marchita.</em></h2>
-        <p class="lead reveal">Una flor dice lo que a veces no sabemos decir. En Aura Flowers la convertimos en algo que se puede llevar puesto, guardar y volver a mirar años después.</p>
-        <ul class="moments">
-          <li class="reveal" style="--d:.04s"><span>01</span>Aniversarios y “te quiero”</li>
-          <li class="reveal" style="--d:.1s"><span>02</span>Cumpleaños y celebraciones</li>
-          <li class="reveal" style="--d:.16s"><span>03</span>Bodas, ramos y flores con historia</li>
-          <li class="reveal" style="--d:.22s"><span>04</span>Un detalle “porque sí”</li>
-        </ul>
-        <div class="gift-cta reveal">
-          <a class="btn btn--ink" href="#coleccion" data-filter-go="regalos">Ver ideas para regalar <i class="arr" aria-hidden="true"></i></a>
-          <a class="btn btn--line" href="#" data-wa data-wa-msg="regalo">Ayúdame a elegir</a>
+  <!-- ================================ COLECCIÓN ================================ -->
+  <section class="section shop" id="coleccion" aria-labelledby="shop-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow reveal">La colección</p>
+          <h2 id="shop-title" class="h2" data-split>Piezas únicas, <em>como cada flor.</em></h2>
         </div>
+        <div class="filters reveal" role="group" aria-label="Filtrar la colección" data-filters></div>
+      </div>
+      <div class="grid" data-grid></div>
+      <noscript><p class="center">Activa JavaScript para ver la colección y comprar.</p></noscript>
+      <div class="shop-foot reveal">
+        <p>Cada flor es distinta: los tonos pueden variar ligeramente respecto a las fotografías. Las piezas vendidas se quedan aquí, como archivo de todo lo que hemos creado.</p>
+        <a class="link" data-wa="regalo" href="#">¿Buscas un regalo? Te ayudamos a elegir</a>
       </div>
     </div>
   </section>
 
-  <!-- ============================ A MEDIDA ============================ -->
-  <section class="custom sec-in" aria-labelledby="custom-title">
-    <img class="custom-bg" src="assets/img/a-medida.jpg" alt="" width="1600" height="1000" loading="lazy" decoding="async">
+  <!-- ================================ MANIFIESTO ================================ -->
+  <section class="manifesto" aria-label="Manifiesto">
+    <div class="manifesto-bg" data-parallax="0.12"><img src="assets/hero/jardin-espaldas.jpg" alt="" width="900" height="1600" loading="lazy" decoding="async"></div>
+    <div class="manifesto-inner">
+      <p class="eyebrow eyebrow--center fade">Aura Flowers</p>
+      <blockquote data-split>No regalas una flor. <em>Regalas un recuerdo que no se marchita.</em></blockquote>
+    </div>
+  </section>
+
+  <!-- ================================ HISTORIA ================================ -->
+  <section class="section story" id="historia" aria-labelledby="story-title">
     <div class="container">
-      <div class="custom-inner reveal">
-        <p class="kicker">A medida</p>
-        <h2 id="custom-title" class="title">¿Tienes una flor <em>que no quieres olvidar?</em></h2>
-        <p>La de tu ramo de novia, la de un aniversario o la de alguien especial. Amanda la conserva y la convierte en una joya única, diseñada contigo.</p>
-        <p class="custom-price">Piezas a medida desde <b data-precio-medida>79 €</b></p>
-        <a class="btn btn--rose" href="#" data-wa data-wa-msg="medida">Contar mi historia <i class="arr" aria-hidden="true"></i></a>
+      <div class="story-intro">
+        <p class="eyebrow eyebrow--center reveal">Nuestra historia</p>
+        <h2 id="story-title" class="h2" data-split>Todo empezó en <em>un jardín.</em></h2>
+        <p class="lead reveal">Antes de ser una marca, Aura Flowers fue una niña rodeada de flores. Esta es la historia de cómo aquellas orquídeas acabaron convertidas en joyas.</p>
+      </div>
+
+      <div class="chapters" data-chapters>
+        <div class="story-line" aria-hidden="true"><span data-story-line></span></div>
+
+        <article class="chapter">
+          <div class="chapter-media">
+            <figure class="photo photo--print reveal" style="transform:rotate(-2deg)">
+              <div class="ph reveal-img"><img src="assets/historia/nina-cesta-flores.jpg" alt="Amanda de niña, vestida de blanco, abrazando una cesta llena de flores" width="900" height="1295" loading="lazy" decoding="async"></div>
+              <figcaption>Mi primera cesta de flores</figcaption>
+            </figure>
+          </div>
+          <div class="chapter-text">
+            <span class="chapter-num reveal" aria-hidden="true">I</span>
+            <span class="chapter-kicker reveal">Cómo comenzó</span>
+            <h3 class="reveal">Una niña <em>entre flores.</em></h3>
+            <p class="reveal">Amanda creció en Cuba, en una casa con jardín donde las flores formaban parte de cada día. Allí, entre hojas enormes y colores tropicales, aprendió a mirarlas despacio: a fijarse en su forma, en su color, en cómo cambian con la luz.</p>
+            <p class="reveal">Todavía no lo sabía, pero aquella niña con su cesta de flores ya estaba empezando a imaginar Aura Flowers.</p>
+          </div>
+        </article>
+
+        <article class="chapter chapter--rev">
+          <div class="chapter-media">
+            <div class="stack">
+              <figure class="photo photo--print photo--a reveal">
+                <div class="ph reveal-img"><img src="assets/historia/boda-mama.jpg" alt="Boda de la madre de Amanda; Amanda, de niña, posa junto a los novios" width="1000" height="1333" loading="lazy" decoding="async"></div>
+                <figcaption>La boda de mamá</figcaption>
+              </figure>
+              <figure class="photo photo--print photo--b reveal" style="--d:.25s" data-parallax="0.06">
+                <div class="ph reveal-img"><img src="assets/historia/ramo-boda.jpg" alt="Amanda de niña junto al ramo de novia de su madre" width="900" height="1063" loading="lazy" decoding="async"></div>
+                <figcaption>El ramo</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="chapter-text">
+            <span class="chapter-num reveal" aria-hidden="true">II</span>
+            <span class="chapter-kicker reveal">De dónde nació la idea</span>
+            <h3 class="reveal">El ramo <em>de mamá.</em></h3>
+            <p class="reveal">Las orquídeas Cattleya lilas del jardín de su casa fueron las protagonistas del ramo de novia de su madre. Amanda estaba allí, vestida de blanco, a su lado.</p>
+            <blockquote class="chapter-quote reveal">“Las flores de mi vida son las orquídeas Cattleya lilas. Crecí viéndolas en el jardín de mi casa, y fueron las protagonistas del ramo de boda de mi mamá.”</blockquote>
+          </div>
+        </article>
+
+        <article class="chapter">
+          <div class="chapter-media">
+            <div class="duo">
+              <div class="photo arch-sm reveal-img"><img src="assets/hero/cattleya.jpg" alt="Orquídeas Cattleya lilas en flor" width="392" height="899" loading="lazy" decoding="async"></div>
+              <div class="photo reveal-img" style="--d:.2s" data-parallax="0.08"><img src="assets/hero/hibisco-margarita.jpg" alt="Amanda con una flor de hibisco en el pelo y un collar de margarita" width="904" height="1358" loading="lazy" decoding="async"></div>
+            </div>
+          </div>
+          <div class="chapter-text">
+            <span class="chapter-num reveal" aria-hidden="true">III</span>
+            <span class="chapter-kicker reveal">Pasión por las flores</span>
+            <h3 class="reveal">La energía <em>de un recuerdo.</em></h3>
+            <p class="reveal">Con los años, las flores siguieron acompañándola. Y con ellas, una idea: que una flor no es solo una flor. Guarda un lugar, una persona, un momento.</p>
+            <blockquote class="chapter-quote reveal">“Por eso llamé a mi marca Aura Flowers: para mí, las flores capturan la energía de nuestros recuerdos más bonitos, y quiero inmortalizarla.”</blockquote>
+          </div>
+        </article>
+
+        <article class="chapter chapter--rev">
+          <div class="chapter-media">
+            <div class="duo">
+              <div class="photo reveal-img"><img src="assets/taller/taller-mesa.jpg" alt="Mesa de trabajo de Aura Flowers con flores secas, herramientas y orquídeas al fondo" width="530" height="899" loading="lazy" decoding="async"></div>
+              <div class="photo reveal-img" style="--d:.2s" data-parallax="0.08"><img src="assets/taller/lampara-uv.jpg" alt="Orquídeas en resina curándose bajo una lámpara ultravioleta" width="528" height="899" loading="lazy" decoding="async"></div>
+            </div>
+          </div>
+          <div class="chapter-text">
+            <span class="chapter-num reveal" aria-hidden="true">IV</span>
+            <span class="chapter-kicker reveal">Las primeras piezas</span>
+            <h3 class="reveal">Un taller <em>en casa.</em></h3>
+            <p class="reveal">Las primeras piezas nacieron en una mesa llena de pétalos, rodeada de orquídeas. Secar cada flor con paciencia, encapsularla sin que pierda su color, pulirla a mano: un proceso lento que no admite prisas.</p>
+            <p class="reveal">Pieza a pieza, aquellas pruebas se convirtieron en collares, pendientes y anillos que ya no se marchitan.</p>
+          </div>
+        </article>
+
+        <article class="chapter">
+          <div class="chapter-media">
+            <div class="stack">
+              <figure class="photo photo--a reveal-img" style="border-radius:999px 999px 0 0"><img src="assets/hero/buganvilla.jpg" alt="Amanda frente a una pared de buganvillas fucsias" width="900" height="1600" loading="lazy" decoding="async" style="aspect-ratio:3/4.2"></figure>
+              <figure class="photo photo--print photo--b reveal" style="--d:.25s" data-parallax="0.06">
+                <div class="ph reveal-img"><img src="assets/hero/colgante-orquidea-fucsia.jpg" alt="Colgante de orquídea fucsia de Aura Flowers" width="395" height="899" loading="lazy" decoding="async"></div>
+                <figcaption>Hoy</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="chapter-text">
+            <span class="chapter-num reveal" aria-hidden="true">V</span>
+            <span class="chapter-kicker reveal">Hoy</span>
+            <h3 class="reveal">Aura Flowers, <em>hoy.</em></h3>
+            <p class="reveal">Hoy Aura Flowers crea desde Lloret de Mar, a orillas del Mediterráneo. Cada joya sigue haciéndose a mano, una a una, con flores naturales. Por eso ninguna se repite: cuando una pieza se vende, se queda en nuestro archivo y nace otra distinta.</p>
+            <p class="reveal">La niña del jardín sigue ahí, en cada flor.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="story-sign reveal">
+        <img src="assets/brand/aura-orquidea-dorado.png" alt="" width="300" height="280" loading="lazy">
+        <p class="signature">Amanda</p>
+        <p class="small-caps">Fundadora de Aura Flowers</p>
       </div>
     </div>
   </section>
 
-  <!-- ============================ GALERÍA ============================ -->
-  <section class="section gallery" id="galeria" aria-labelledby="gallery-title">
+  <!-- ================================ EL TALLER ================================ -->
+  <section class="section process" id="taller" aria-labelledby="process-title">
     <div class="container">
-      <div class="section-head section-head--center reveal">
-        <p class="kicker">Galería</p>
-        <h2 id="gallery-title" class="title">El taller, <em>en imágenes.</em></h2>
-      </div>
-      <div class="gal-grid" data-gallery><!-- Se rellena desde js/data.js --></div>
-      <div class="center reveal">
-        <a class="btn btn--line" href="#" data-ig target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6"/></svg>Síguenos en Instagram</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================ CÓMO PEDIR ============================ -->
-  <section class="section order" id="pedidos" aria-labelledby="order-title">
-    <div class="container">
-      <div class="section-head section-head--center reveal">
-        <p class="kicker">Cómo pedir</p>
-        <h2 id="order-title" class="title">Tu pieza, en <em>cuatro pasos.</em></h2>
+      <div class="section-head section-head--center">
+        <p class="eyebrow eyebrow--center reveal">El taller</p>
+        <h2 id="process-title" class="h2" data-split>Del jardín <em>a tu piel.</em></h2>
       </div>
       <ol class="steps">
-        <li class="reveal" style="--d:0s"><span class="step-n">1</span><h3>Elige tu pieza</h3><p>Mira la colección y quédate con la que te enamore, o cuéntanos la idea que tienes.</p></li>
-        <li class="reveal" style="--d:.08s"><span class="step-n">2</span><h3>Escríbenos</h3><p>Por WhatsApp o Instagram. El botón “Pedir” de cada pieza ya escribe el mensaje por ti.</p></li>
-        <li class="reveal" style="--d:.16s"><span class="step-n">3</span><h3>Confirmamos</h3><p>Te decimos si está disponible, el plazo de preparación y el coste de envío.</p></li>
-        <li class="reveal" style="--d:.24s"><span class="step-n">4</span><h3>Pagas y la enviamos</h3><p>Pago por <span data-pagos>Bizum, PayPal o transferencia</span>. Sale envuelta y lista para regalar.</p></li>
+        <li class="step reveal"><div class="photo reveal-img"><img src="assets/hero/phalaenopsis-cesta.jpg" alt="Flores de orquídea Phalaenopsis sobre una cesta de mimbre" width="392" height="899" loading="lazy" decoding="async"></div><div><span class="step-n">01</span><h3>Elegir la flor</h3><p>Orquídeas, rosas y margaritas reales, escogidas una a una.</p></div></li>
+        <li class="step reveal" style="--d:.1s"><div class="photo reveal-img"><img src="assets/taller/orquideas-estante.jpg" alt="Orquídeas en maceta en el estudio de Aura Flowers" width="529" height="899" loading="lazy" decoding="async"></div><div><span class="step-n">02</span><h3>Preservar</h3><p>Se secan con paciencia para conservar su forma y su color.</p></div></li>
+        <li class="step reveal" style="--d:.2s"><div class="photo reveal-img"><img src="assets/ig/ig-06.jpg" alt="Orquídea natural encapsulada en resina, sostenida en la mano" width="360" height="640" loading="lazy" decoding="async"></div><div><span class="step-n">03</span><h3>Encapsular</h3><p>Resina con protección UV, pulida y montada a mano.</p></div></li>
+        <li class="step reveal" style="--d:.3s"><div class="photo reveal-img"><img src="assets/ig/ig-10.jpg" alt="Caja de regalo de Aura Flowers con cordel y gipsófila" width="360" height="640" loading="lazy" decoding="async"></div><div><span class="step-n">04</span><h3>Para ti</h3><p>Sale envuelta con mimo, lista para regalar o regalarte.</p></div></li>
       </ol>
+    </div>
+  </section>
 
-      <div class="order-grid">
-        <ul class="order-info reveal">
-          <li><b>Hecho y enviado desde</b><span data-ciudad>Lloret de Mar</span></li>
-          <li data-envio-gratis><b>Envío gratis</b><span>En España desde <span data-envio-importe>70 €</span></span></li>
-          <li><b>Presentación</b><span>En caja, lista para regalar</span></li>
-          <li><b>Formas de pago</b><span data-pagos>Bizum, PayPal o transferencia</span></li>
+  <!-- ================================ A MEDIDA ================================ -->
+  <section class="section custom" id="a-medida" aria-labelledby="custom-title">
+    <div class="container custom-grid">
+      <div>
+        <p class="eyebrow reveal">Piezas a medida</p>
+        <h2 id="custom-title" class="h2" data-split>¿Tienes una flor <em>que no quieres olvidar?</em></h2>
+        <p class="lead reveal">La de tu ramo de novia, la de un aniversario o la de alguien especial. Amanda la conserva y la transforma en una joya única, diseñada contigo.</p>
+        <ul class="custom-list">
+          <li class="reveal"><b>1</b>Nos cuentas la historia de tus flores.</li>
+          <li class="reveal" style="--d:.08s"><b>2</b>Te explicamos cómo conservarlas y diseñamos juntas la pieza.</li>
+          <li class="reveal" style="--d:.16s"><b>3</b>La creamos a mano y te la enviamos.</li>
         </ul>
-        <div class="faq reveal" data-faq><!-- Se rellena desde js/data.js --></div>
+        <a class="btn btn--gold reveal" data-wa="medida" href="#">Contar mi historia <i class="arr" aria-hidden="true"></i></a>
+      </div>
+      <div class="custom-media">
+        <div class="arch-sm reveal-img"><img src="assets/aura/orquidea-fucsia.jpg" alt="Orquídea fucsia envuelta para regalo" width="1100" height="1100" loading="lazy" decoding="async"></div>
+        <div class="mini reveal-img" style="--d:.3s" data-parallax="0.1"><img src="assets/aura/phalaenopsis.jpg" alt="Flores de orquídea Phalaenopsis lila" width="420" height="420" loading="lazy" decoding="async"></div>
       </div>
     </div>
   </section>
 
-  <!-- ============================ CONTACTO ============================ -->
+  <!-- ================================ INSTAGRAM ================================ -->
+  <section class="section insta" id="instagram" aria-labelledby="insta-title">
+    <div class="container section-head section-head--center">
+      <p class="eyebrow eyebrow--center reveal">@<span data-cfg="redes.instagramUsuario">aura_flowers21</span></p>
+      <h2 id="insta-title" class="h2" data-split>Un poco de <em>nuestro mundo.</em></h2>
+    </div>
+    <div class="insta-track fade" data-insta></div>
+    <div class="insta-foot">
+      <a class="btn" data-social="instagram" href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/></svg>Síguenos en Instagram</a>
+      <a class="btn btn--line" data-social="tiktok" href="#">TikTok</a>
+      <a class="btn btn--line" data-social="facebook" href="#">Facebook</a>
+    </div>
+  </section>
+
+  <!-- ================================ PREGUNTAS ================================ -->
+  <section class="section" id="preguntas" aria-labelledby="faq-title" style="background:var(--paper)">
+    <div class="container faq-grid">
+      <div>
+        <p class="eyebrow reveal">Compra con tranquilidad</p>
+        <h2 id="faq-title" class="h2" data-split>Preguntas <em>frecuentes.</em></h2>
+        <ul class="info-list reveal">
+          <li><b>Hecho en</b><span data-cfg="marca.ciudad">Lloret de Mar</span></li>
+          <li><b>Formas de pago</b><span>Bizum · Transferencia bancaria</span></li>
+          <li><b>Presentación</b><span>En caja, lista para regalar</span></li>
+          <li><b>Atención</b><span>Personal, por WhatsApp o email</span></li>
+        </ul>
+      </div>
+      <div class="acc reveal">
+        <details><summary>¿Cómo funciona la compra?<i></i></summary><div class="acc-body">Añades tus piezas al carrito, rellenas tus datos y la dirección de envío y eliges Bizum o transferencia. Al recibir tu pedido te confirmamos la disponibilidad, el importe total y el envío, y te indicamos cómo pagar. En cuanto recibimos el pago, preparamos tu pieza.</div></details>
+        <details><summary>¿Las flores son reales?<i></i></summary><div class="acc-body">Sí, al 100 %. Cada pieza contiene flores naturales que se recogen, se secan y se encapsulan a mano. Por eso ninguna joya es igual a otra y los tonos pueden variar ligeramente respecto a las fotos.</div></details>
+        <details><summary>¿Qué significa «pieza única»?<i></i></summary><div class="acc-body">Que solo existe una. Cuando alguien la compra, se marca como agotada y deja de estar disponible, aunque la seguimos mostrando en la colección como parte de nuestro archivo. Si te enamora una pieza agotada, podemos crear una similar para ti.</div></details>
+        <details><summary>¿Cuánto tarda en llegar mi pedido?<i></i></summary><div class="acc-body">Cada pieza se prepara a mano y sale desde Lloret de Mar. Al confirmar tu pedido te indicamos el plazo estimado y, cuando se envíe, el número de seguimiento.</div></details>
+        <details><summary>¿Cómo cuido mi joya?<i></i></summary><div class="acc-body">Evita el contacto prolongado con agua, perfumes y cremas, y no la dejes al sol directo durante horas. Guárdala en su caja y límpiala con un paño suave.</div></details>
+        <details><summary>¿Puedo devolver mi pedido?<i></i></summary><div class="acc-body">Tienes 14 días desde la entrega para desistir de la compra de piezas del catálogo. Las piezas personalizadas o hechas con tus flores no admiten devolución salvo defecto. Consulta todos los detalles en las <a href="legal.html#condiciones" style="border-bottom:1px solid var(--gold)">condiciones de venta</a>.</div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================ CONTACTO ================================ -->
   <section class="contact" id="contacto" aria-labelledby="contact-title">
-    <div class="container contact-inner reveal">
-      <p class="kicker">Pedidos y contacto</p>
-      <h2 id="contact-title" class="title">¿Cuál será <em>tu flor?</em></h2>
-      <p class="lead">Escríbenos y te ayudamos a elegir la pieza perfecta. Respondemos personalmente cada mensaje.</p>
-      <div class="contact-cta">
-        <a class="btn btn--rose btn--lg" href="#" data-wa data-wa-msg="general"><svg class="ico ico--fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.5 0 .2 5.3.2 11.9c0 2.1.6 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.7 1.5c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.5-8.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.7-.2-.4A9.9 9.9 0 1 1 12 21.8zm5.4-7.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.2l-.9 1.2c-.2.2-.4.2-.6.1a8 8 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 1.9.8 2.6.9 3.6.7.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>Pedir por WhatsApp</a>
-        <a class="btn btn--line btn--lg" href="#" data-ig-dm target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6"/></svg>Escribir por Instagram</a>
+    <img class="orchid-bg" src="assets/brand/aura-orquidea-dorado.png" alt="" width="300" height="280" loading="lazy" data-parallax="0.08">
+    <div class="container">
+      <p class="eyebrow eyebrow--center reveal">Hablemos</p>
+      <h2 id="contact-title" class="h2" data-split>¿Cuál será <em>tu flor?</em></h2>
+      <p class="lead reveal">Te ayudamos a elegir la pieza perfecta o a crear la tuya. Respondemos personalmente cada mensaje.</p>
+      <div class="contact-cta reveal">
+        <a class="btn" data-wa="general" href="#">Escribir por WhatsApp <i class="arr" aria-hidden="true"></i></a>
+        <a class="btn btn--line" data-social="instagram" href="#">Escribir por Instagram</a>
       </div>
-      <ul class="contact-data">
-        <li data-show-if="contacto.telefono"><small>Teléfono y WhatsApp</small><a href="#" data-tel></a></li>
-        <li data-show-if="contacto.instagram"><small>Instagram</small><a href="#" data-ig target="_blank" rel="noopener" data-ig-user></a></li>
-        <li data-show-if="contacto.email" hidden><small>Email</small><a href="#" data-mail></a></li>
-      </ul>
     </div>
   </section>
-
 </main>
 
 <footer class="footer">
-  <div class="container footer-inner">
-    <a class="logo logo--footer" href="#inicio"><span class="logo-aura">Aura</span><span class="logo-flowers">Flowers</span></a>
-    <p class="footer-claim">Flores naturales convertidas en joyas y regalos, hechas a mano en <span data-ciudad>Lloret de Mar</span>.</p>
-    <ul class="footer-social">
-      <li data-show-if="contacto.instagram"><a href="#" data-ig target="_blank" rel="noopener" aria-label="Instagram de Aura Flowers"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6"/></svg></a></li>
-      <li data-show-if="contacto.whatsapp"><a href="#" data-wa data-wa-msg="general" aria-label="WhatsApp de Aura Flowers"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8.5 8.5 0 1 1 8.4 19z"/></svg></a></li>
-      <li data-show-if="contacto.email" hidden><a href="#" data-mail-plain aria-label="Email de Aura Flowers"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a></li>
-    </ul>
-    <div class="footer-bottom">
-      <span>© <span data-year>2026</span> Aura Flowers</span>
-      <a href="legal.html">Aviso legal y privacidad</a>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img class="footer-logo" src="assets/brand/aura-logo-marfil.png" alt="Aura Flowers" width="700" height="838" loading="lazy">
+        <p>Flores naturales convertidas en joyas únicas, hechas a mano en <span data-cfg="marca.ciudad">Lloret de Mar</span>.</p>
+        <div class="social">
+          <a data-social="instagram" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".5"/></svg></a>
+          <a data-social="tiktok" href="#" aria-label="TikTok"><svg class="fill" viewBox="0 0 24 24"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.2-1.6z"/></svg></a>
+          <a data-social="facebook" href="#" aria-label="Facebook"><svg class="fill" viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.9c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.4 0-4.1 1.5-4.1 4.2v2.2H7.5V13h2.7v8z"/></svg></a>
+          <a data-social="pinterest" href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M10.5 20.5l2-8.2m-1 1.7c.5 1 1.3 1.5 2.3 1.5 2 0 3.2-1.8 3.2-4.1 0-2.3-1.9-4-4.4-4-2.8 0-4.6 2-4.6 4.2 0 1 .4 1.9 1.1 2.3"/></svg></a>
+          <a data-wa="general" href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8.5 8.5 0 1 1 8.4 19z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Tienda</h4>
+        <ul><li><a href="#coleccion">Colección</a></li><li><a href="#a-medida">Piezas a medida</a></li><li><a href="checkout.html">Mi carrito</a></li></ul>
+      </div>
+      <div>
+        <h4>Aura Flowers</h4>
+        <ul><li><a href="#historia">Nuestra historia</a></li><li><a href="#taller">El taller</a></li><li><a href="#preguntas">Preguntas frecuentes</a></li></ul>
+      </div>
+      <div>
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a data-tel href="#"></a></li>
+          <li data-need="contacto.email"><a data-mail href="#"></a></li>
+          <li><a href="legal.html#condiciones">Envíos y devoluciones</a></li>
+          <li><a href="legal.html">Aviso legal y privacidad</a></li>
+        </ul>
+      </div>
     </div>
+    <div class="footer-bottom"><span>© <span data-year>2026</span> Aura Flowers · Hecho a mano con flores naturales</span><span>Pago por Bizum o transferencia bancaria</span></div>
   </div>
 </footer>
 
-<!-- Ficha de producto -->
-<dialog class="modal" id="product-modal" aria-labelledby="pm-name">
-  <div class="modal-card">
-    <button class="modal-close" type="button" data-close aria-label="Cerrar"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 1l14 14M15 1L1 15"/></svg></button>
-    <div class="modal-img"><img id="pm-img" src="" alt=""></div>
-    <div class="modal-body">
-      <p class="kicker" id="pm-cat"></p>
-      <h3 id="pm-name"></h3>
-      <p class="pm-price" id="pm-price"></p>
-      <p class="pm-desc" id="pm-desc"></p>
-      <dl class="pm-details" id="pm-details"></dl>
-      <div class="modal-cta">
-        <a class="btn btn--rose btn--full" id="pm-wa" href="#" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-        <a class="btn btn--line btn--full" id="pm-ig" href="#" target="_blank" rel="noopener">Consultar por Instagram</a>
-      </div>
-      <p class="pm-note">Pieza hecha a mano con flores naturales: cada una es única.</p>
-    </div>
-  </div>
-</dialog>
-
-<!-- Barra fija en móvil -->
 <div class="mbar" data-mbar>
-  <span class="mbar-price">Flores desde <b data-precio-desde>25 €</b></span>
-  <a class="btn btn--rose btn--sm" href="#" data-wa data-wa-msg="general">Pedir por WhatsApp</a>
+  <a class="btn btn--sm" href="#coleccion">Ver colección</a>
+  <button class="btn btn--line btn--sm" data-cart-open>Carrito (<span data-cart-count>0</span>)</button>
 </div>
 
 <script src="js/config.js"></script>
-<script src="js/data.js"></script>
-<script src="js/main.js" defer></script>
+<script src="js/productos.js"></script>
+<script src="js/core.js"></script>
+<script src="js/home.js" defer></script>
 </body>
 </html>

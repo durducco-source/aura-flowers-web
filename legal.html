@@ -1,50 +1,93 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" class="js intro-seen">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Aviso legal y privacidad | Aura Flowers</title>
+<title>Aviso legal, privacidad y condiciones · Aura Flowers</title>
+<meta name="description" content="Aviso legal, política de privacidad, condiciones de venta, envíos, devoluciones y cookies de Aura Flowers.">
 <meta name="robots" content="noindex,follow">
-<meta name="theme-color" content="#fdfaf5">
-<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#fffdf9">
+<link rel="icon" type="image/png" href="assets/brand/favicon-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/aura.css">
 </head>
 <body>
-<header class="header is-scrolled"><div class="container header-inner"><a class="logo" href="index.html"><span class="logo-aura">Aura</span><span class="logo-flowers">Flowers</span></a><a class="btn btn--line btn--sm" href="index.html">Volver a la web</a></div></header>
+<header class="header" data-solid>
+  <div class="container header-inner">
+    <nav class="nav" aria-label="Principal"><a href="index.html#coleccion">Colección</a><a href="index.html#historia">Historia</a></nav>
+    <span class="burger" aria-hidden="true" style="visibility:hidden"></span>
+    <a class="brand" href="index.html" aria-label="Aura Flowers, inicio">
+      <img class="brand-orchid" src="assets/brand/aura-orquidea-dorado.png" alt="" width="300" height="280">
+      <img src="assets/brand/aura-texto-dorado.png" alt="Aura" width="600" height="164">
+    </a>
+    <div class="header-actions"><a class="link" href="index.html">Volver</a></div>
+  </div>
+</header>
 
-<main class="legal"><div class="container">
-  <p class="kicker">Legal</p>
-  <h1>Aviso legal y privacidad</h1>
+<main class="legal" id="main"><div class="container">
+  <p class="eyebrow">Información legal</p>
+  <h1>Aviso legal y condiciones</h1>
+  <nav class="legal-toc" aria-label="Secciones">
+    <a class="filter" href="#aviso">Aviso legal</a><a class="filter" href="#condiciones">Condiciones de venta</a><a class="filter" href="#privacidad">Privacidad</a><a class="filter" href="#cookies">Cookies</a>
+  </nav>
 
-  <h2>Titular</h2>
-  <p>Aura Flowers es una marca de <span class="pending" data-legal="nombreCompleto">[nombre completo pendiente]</span>, con NIF <span class="pending" data-legal="nif">[pendiente]</span>, con taller en <span data-ciudad>Lloret de Mar</span>. Contacto: WhatsApp <span data-tel>+34 633 84 70 52</span> e Instagram <span data-ig-user>@aura_flowers21</span>.</p>
+  <h2 id="aviso">Aviso legal</h2>
+  <p>En cumplimiento de la Ley 34/2002 de Servicios de la Sociedad de la Información (LSSI-CE), se informa de que esta web pertenece a:</p>
+  <ul>
+    <li>Titular: <span data-legal="titular"></span></li>
+    <li>NIF: <span data-legal="nif"></span></li>
+    <li>Domicilio: <span data-legal="domicilio"></span></li>
+    <li>Email: <span data-legal="email"></span></li>
+    <li>Teléfono y WhatsApp: <a data-tel href="#"></a></li>
+  </ul>
+  <p>Aura Flowers es una marca de joyería artesanal con flores naturales, con taller en <span data-cfg="marca.ciudad">Lloret de Mar</span>. Las fotografías de las piezas, los textos, el logotipo y la marca pertenecen a su titular y no pueden reproducirse sin autorización.</p>
 
-  <h2>Pedidos</h2>
-  <p>Esta web muestra el catálogo de Aura Flowers. Los pedidos se confirman de forma personal por WhatsApp o Instagram, donde se acuerdan la disponibilidad, el plazo, el coste de envío y la forma de pago antes de realizar cualquier cobro.</p>
+  <h2 id="condiciones">Condiciones de venta</h2>
+  <h3>Cómo se realiza un pedido</h3>
+  <p>El cliente selecciona las piezas, indica sus datos y su dirección de envío y elige el método de pago (Bizum o transferencia bancaria). Al enviar el pedido no se realiza ningún cobro. Aura Flowers confirma al cliente, por email o WhatsApp, la disponibilidad de las piezas, el importe total (incluidos los gastos de envío) y los datos para el pago. La compra se completa cuando el cliente, conociendo el importe total, realiza el pago.</p>
+  <h3>Piezas únicas y disponibilidad</h3>
+  <p>Muchas piezas son únicas y están hechas a mano con flores naturales, por lo que pueden presentar ligeras variaciones de tono y forma respecto a las fotografías. Si una pieza se vende mientras otro cliente está haciendo su pedido, se le informará y no se le cobrará por ella.</p>
+  <h3>Pago</h3>
+  <p>Se aceptan Bizum y transferencia bancaria. El cliente debe indicar su número de pedido como concepto. Si el pago no se recibe en el plazo indicado en la confirmación, el pedido podrá cancelarse y la pieza volverá a estar disponible.</p>
+  <h3>Envío</h3>
+  <p>Los pedidos se preparan a mano y se envían desde <span data-cfg="marca.ciudad">Lloret de Mar</span> tras recibir el pago. El plazo estimado y el coste de envío se indican en la confirmación del pedido, y se facilita el número de seguimiento cuando el paquete sale.</p>
+  <h3>Derecho de desistimiento y devoluciones</h3>
+  <p>El cliente dispone de 14 días naturales desde la entrega para desistir de la compra de piezas del catálogo, sin necesidad de justificación, comunicándolo por email o WhatsApp. La pieza debe devolverse en perfecto estado. Aura Flowers reembolsará el importe pagado, incluidos los gastos de envío iniciales estándar, en un máximo de 14 días desde que se comunique el desistimiento, pudiendo esperar a recibir la pieza. Los gastos de devolución corren a cargo del cliente.</p>
+  <p>No se admite el desistimiento en piezas personalizadas o hechas con flores aportadas por el cliente (art. 103 del Real Decreto Legislativo 1/2007), salvo defecto.</p>
+  <h3>Garantía</h3>
+  <p>Las piezas cuentan con la garantía legal de conformidad. Si una pieza llega dañada o con algún defecto, escríbenos en cuanto la recibas y lo solucionaremos.</p>
 
-  <h2>Datos personales</h2>
-  <p>La web no tiene formularios ni guarda datos. Los datos que compartas al escribir por WhatsApp o Instagram se usan solo para atender tu consulta o tu pedido, y no se ceden a terceros salvo obligación legal. Puedes pedir en cualquier momento su acceso, rectificación o supresión escribiendo por esos mismos canales, y reclamar ante la Agencia Española de Protección de Datos (aepd.es).</p>
+  <h2 id="privacidad">Política de privacidad</h2>
+  <p><strong>Responsable:</strong> el titular indicado en el aviso legal.</p>
+  <p><strong>Datos que tratamos:</strong> nombre, apellidos, email, teléfono, dirección de envío, piezas pedidas, método de pago elegido y, en su caso, el origen de la visita (por ejemplo, un anuncio).</p>
+  <p><strong>Finalidad y base legal:</strong> gestionar tu pedido, contactar contigo sobre él, enviarlo y cumplir las obligaciones fiscales (ejecución de un contrato y obligación legal). No enviamos comunicaciones comerciales sin tu consentimiento.</p>
+  <p><strong>Destinatarios:</strong> según cómo se envíe el pedido, se registra en herramientas de Google (Google Sheets y Gmail) o se recibe por WhatsApp (Meta); la empresa de transporte recibe los datos necesarios para la entrega. Estos proveedores pueden tratar datos fuera del Espacio Económico Europeo con las garantías adecuadas.</p>
+  <p><strong>Conservación:</strong> durante el tiempo necesario para gestionar el pedido y durante los plazos legales aplicables.</p>
+  <p><strong>Derechos:</strong> puedes solicitar el acceso, rectificación, supresión, oposición, limitación y portabilidad de tus datos escribiendo al email o WhatsApp de contacto, y reclamar ante la Agencia Española de Protección de Datos (aepd.es).</p>
 
-  <h2>Cookies</h2>
-  <p>Esta web no utiliza cookies publicitarias ni de seguimiento. Solo carga tipografías de Google Fonts.</p>
-
-  <h2>Propiedad intelectual</h2>
-  <p>Las fotografías de las piezas, los textos y la marca Aura Flowers pertenecen a su titular. Algunas fotografías de ambiente proceden de bancos de imágenes con licencia libre.</p>
+  <h2 id="cookies">Cookies</h2>
+  <p>Esta web guarda en tu navegador el contenido de tu carrito y los datos del formulario mientras compras (almacenamiento técnico necesario, que no requiere consentimiento).</p>
+  <p>Si se activan herramientas de medición y publicidad (Google Analytics, Google Ads, Meta Pixel o TikTok Pixel), solo se cargan si las aceptas en el aviso de cookies. Puedes cambiar tu decisión en cualquier momento: <button class="link" type="button" data-reset-consent>restablecer mis preferencias de cookies</button>.</p>
+  <p style="margin-top:50px;font-size:13px;color:var(--muted)">Última actualización: <span data-year></span>.</p>
 </div></main>
 
-<footer class="footer"><div class="container footer-inner"><div class="footer-bottom"><span>© <span data-year>2026</span> Aura Flowers</span><a href="index.html">Inicio</a></div></div></footer>
+<footer class="footer"><div class="container"><div class="footer-bottom" style="margin-top:0;border-top:0;padding-top:0"><span>© <span data-year>2026</span> Aura Flowers</span><a href="index.html">Volver a la tienda</a></div></div></footer>
 <script src="js/config.js"></script>
+<script src="js/productos.js"></script>
+<script src="js/core.js"></script>
 <script>
 (function () {
-  var C = window.AURA_CONFIG || {}, L = C.legal || {}, K = C.contacto || {};
-  document.querySelectorAll("[data-legal]").forEach(function (el) { var v = L[el.getAttribute("data-legal")]; if (v) { el.textContent = v; el.classList.remove("pending"); } });
-  document.querySelectorAll("[data-tel]").forEach(function (el) { if (K.telefono) el.textContent = K.telefono; });
-  document.querySelectorAll("[data-ig-user]").forEach(function (el) { if (K.instagram) el.textContent = "@" + K.instagram; });
-  document.querySelectorAll("[data-ciudad]").forEach(function (el) { if (C.marca && C.marca.ciudad) el.textContent = C.marca.ciudad; });
-  document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
+  var L = (window.AURA_CONFIG || {}).legal || {};
+  document.querySelectorAll("[data-legal]").forEach(function (el) {
+    var v = L[el.getAttribute("data-legal")];
+    if (v) el.textContent = v; else { el.textContent = "pendiente de completar"; el.className = "pending"; }
+  });
+  document.querySelector("[data-reset-consent]").addEventListener("click", function () {
+    try { localStorage.removeItem("aura_consent"); } catch (e) {}
+    location.reload();
+  });
 })();
 </script>
 </body>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Finalizar pedido · Aura Flowers</title>
+<meta name="description" content="Finaliza tu pedido de Aura Flowers.">
+<meta name="robots" content="noindex,follow">
+<meta name="theme-color" content="#fffdf9">
+<link rel="icon" type="image/png" href="assets/brand/favicon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/aura.css">
+<script>document.documentElement.className="js intro-seen"</script>
+</head>
+<body class="co-body">
+<header class="co-header">
+  <div class="container">
+    <a class="co-back" href="index.html#coleccion">← Seguir comprando</a>
+    <a class="brand" href="index.html" aria-label="Aura Flowers, inicio">
+      <img class="brand-orchid" src="assets/brand/aura-orquidea-dorado.png" alt="" width="300" height="280">
+      <img src="assets/brand/aura-texto-dorado.png" alt="Aura" width="600" height="164">
+    </a>
+    <span class="co-help">¿Dudas? <a data-wa="general" href="#" style="border-bottom:1px solid var(--gold)">Escríbenos</a></span>
+  </div>
+</header>
+
+<main class="co-main" id="main">
+  <div class="container">
+    <ol class="co-steps" data-steps aria-label="Pasos del pedido">
+      <li>Carrito</li><li>Tus datos</li><li>Envío</li><li>Pago</li><li>Confirmación</li>
+    </ol>
+
+    <div class="co-grid">
+      <form class="panel" data-form novalidate autocomplete="on">
+        <!-- Campo trampa anti-spam: no lo rellenes -->
+        <label class="hp" aria-hidden="true">Empresa <input type="text" name="empresa" tabindex="-1" autocomplete="off"></label>
+
+        <!-- PASO 1 · CARRITO -->
+        <section class="co-step" data-step="1" aria-labelledby="s1">
+          <h1 id="s1">Tu selección</h1>
+          <p class="sub">Revisa tus piezas antes de continuar.</p>
+          <div data-lines></div>
+          <div class="co-nav"><a class="link" href="index.html#coleccion">Añadir más piezas</a><button class="btn" type="button" data-next>Continuar <i class="arr"></i></button></div>
+        </section>
+
+        <!-- PASO 2 · DATOS -->
+        <section class="co-step" data-step="2" aria-labelledby="s2">
+          <h2 id="s2">Tus datos</h2>
+          <p class="sub">Para enviarte la confirmación y resolver cualquier duda sobre tu pedido.</p>
+          <div class="fields">
+            <div class="field"><label for="f-nombre">Nombre <i>*</i></label><input id="f-nombre" name="nombre" autocomplete="given-name" required maxlength="60"><span class="err">Escribe tu nombre.</span></div>
+            <div class="field"><label for="f-apellidos">Apellidos <i>*</i></label><input id="f-apellidos" name="apellidos" autocomplete="family-name" required maxlength="80"><span class="err">Escribe tus apellidos.</span></div>
+            <div class="field"><label for="f-email">Email <i>*</i></label><input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120"><span class="err">Escribe un email válido.</span></div>
+            <div class="field"><label for="f-telefono">Teléfono <i>*</i></label><input id="f-telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required pattern="[+0-9 ()\-]{9,20}" maxlength="20"><span class="err">Escribe un teléfono válido (mínimo 9 cifras).</span></div>
+          </div>
+          <div class="co-nav"><button class="link" type="button" data-prev>Volver</button><button class="btn" type="button" data-next>Continuar al envío <i class="arr"></i></button></div>
+        </section>
+
+        <!-- PASO 3 · ENVÍO -->
+        <section class="co-step" data-step="3" aria-labelledby="s3">
+          <h2 id="s3">Dirección de envío</h2>
+          <p class="sub">¿Dónde enviamos tu pieza?</p>
+          <div class="fields">
+            <div class="field field--full"><label for="f-direccion">Dirección <i>*</i></label><input id="f-direccion" name="direccion" autocomplete="street-address" required maxlength="160" placeholder="Calle, número, piso, puerta"><span class="err">Escribe la dirección de envío.</span></div>
+            <div class="field"><label for="f-cp">Código postal <i>*</i></label><input id="f-cp" name="cp" autocomplete="postal-code" inputmode="numeric" required maxlength="10"><span class="err">Escribe un código postal válido.</span></div>
+            <div class="field"><label for="f-ciudad">Ciudad <i>*</i></label><input id="f-ciudad" name="ciudad" autocomplete="address-level2" required maxlength="80"><span class="err">Escribe la ciudad.</span></div>
+            <div class="field"><label for="f-pais">País <i>*</i></label>
+              <select id="f-pais" name="pais" autocomplete="country-name" required>
+                <option>España</option><option>Andorra</option><option>Portugal</option><option>Francia</option><option>Italia</option><option>Alemania</option><option>Bélgica</option><option>Países Bajos</option><option>Irlanda</option><option>Austria</option><option>Suiza</option><option>Reino Unido</option><option value="Otro">Otro país</option>
+              </select><span class="err">Elige un país.</span></div>
+            <div class="field" data-prov-wrap><label for="f-provincia">Provincia <i>*</i></label>
+              <select id="f-provincia" name="provincia" autocomplete="address-level1" required></select><span class="err">Elige la provincia.</span></div>
+            <div class="field field--full" data-otro-pais hidden><label for="f-pais-otro">Indica el país <i>*</i></label><input id="f-pais-otro" name="paisOtro" maxlength="60"><span class="err">Indica el país.</span></div>
+            <div class="field field--full"><label for="f-notas">Notas para el pedido</label><textarea id="f-notas" name="notas" maxlength="600" placeholder="Indicaciones de entrega, si es un regalo, un mensaje para la tarjeta…"></textarea></div>
+          </div>
+          <div class="co-nav"><button class="link" type="button" data-prev>Volver</button><button class="btn" type="button" data-next>Continuar al pago <i class="arr"></i></button></div>
+        </section>
+
+        <!-- PASO 4 · PAGO -->
+        <section class="co-step" data-step="4" aria-labelledby="s4">
+          <h2 id="s4">Método de pago</h2>
+          <p class="sub">Elige cómo prefieres pagar. No se cobra nada ahora.</p>
+          <div class="pay-opts" role="radiogroup" aria-label="Método de pago" data-pay-opts></div>
+          <div class="notice"><span>✦</span><p><b>Cómo funciona:</b> al enviar tu pedido, Aura Flowers revisa que tus piezas estén disponibles y te confirma el <b>importe total con el envío</b> <span data-horas></span>. Después realizas el pago con el método elegido y, al recibirlo, preparamos y enviamos tu pieza.</p></div>
+          <div class="review" data-review></div>
+          <label class="check"><input type="checkbox" name="acepto" required> <span>He leído y acepto las <a href="legal.html#condiciones" target="_blank">condiciones de venta</a> y la <a href="legal.html#privacidad" target="_blank">política de privacidad</a>. <i style="color:var(--gold);font-style:normal">*</i></span></label>
+          <p class="stock-msg" data-accept-err hidden>Debes aceptar las condiciones para continuar.</p>
+          <div data-submit-err></div>
+          <div class="co-nav"><button class="link" type="button" data-prev>Volver</button><button class="btn" type="submit" data-submit>Enviar pedido <i class="arr"></i></button></div>
+        </section>
+
+        <!-- PASO 5 · CONFIRMACIÓN -->
+        <section class="co-step" data-step="5" aria-live="polite" data-done></section>
+      </form>
+
+      <aside class="summary" data-summary aria-label="Resumen del pedido">
+        <div class="summary-head"><h2>Resumen</h2><button class="summary-toggle" type="button" data-summary-toggle>Ver detalle</button></div>
+        <div class="summary-items" data-summary-items></div>
+        <div class="summary-foot">
+          <p>El importe total y el envío se confirman personalmente tras recibir tu pedido.</p>
+          <ul><li>Flores naturales, hechas a mano</li><li>Pago por Bizum o transferencia</li><li>Envío cuidado, en caja de regalo</li></ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<script src="js/config.js"></script>
+<script src="js/productos.js"></script>
+<script src="js/core.js"></script>
+<script src="js/checkout.js" defer></script>
+</body>
+</html>
